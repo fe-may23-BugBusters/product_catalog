@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import PhonesPage from './PhonePage';
+import PhonesPage from './PhonesPage';
 
 function App() {
   return (
