@@ -20,7 +20,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --fix",
+    "format": "prettier --write . --ignore-path .gitignore",
+    "format-lint": "npm run format && npm run lint",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +43,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@mate-academy/eslint-config-react-typescript": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.52.0",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "3.0.3"
+  },
+  "lint-staged": {
+    "*.tsx": "npm run format-lint"
   }
 }
