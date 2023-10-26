@@ -55,6 +55,6 @@
     "prettier": "3.0.3"
   },
   "lint-staged": {
-    "./src": "npm run format-lint"
+    "./src": "npm run lint"
   }
 }
