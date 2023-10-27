@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Footer from './components/footer';
 import logo from './logo.svg';
 import './App.css';
 
@@ -22,6 +22,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Footer />
     </div>
   );
 }
