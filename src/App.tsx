@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import logo from './logo.svg';
+import './App.css';
+import PhonesPage from './PhonesPage';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 
 function App() {
@@ -21,36 +27,37 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="header">
-          {(windowWidth < 640) ? (
-            <BurgerMenu />
-          ) : (
-            <div className="desktop-header">
-              <p>Szeroki ekran</p>
-              {/* Tutaj dodaj elementy twojego nagłówka na szerokich ekranach */}
-            </div>
-          )}
-        </div>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Editttttttt
-          <code>src/App.tsx</code>
-          and save to reload.
-          <p>Some paragraph</p>
-          <p>Some paragraph</p>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <div className="header">
+            {(windowWidth < 640) ? (
+              <BurgerMenu />
+            ) : (
+              <div className="desktop-header">
+                <p>Szeroki ekran</p>
+                {/* Tutaj dodaj elementy twojego nagłówka na szerokich ekranach */}
+              </div>
+            )}
+          </div>
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Strona główna</Link>
+              </li>
+              <li>
+                <Link to="/phones">Strona z telefonami</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <Route path="/phones" Component={PhonesPage} />
+      </div>
+    </Router>
   );
 }
 
