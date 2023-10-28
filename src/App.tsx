@@ -1,17 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import logo from './logo.svg';
-import './App.css';
+import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 
 function App() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // Dodaj obsługę zdarzenia zmiany rozmiaru okna
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    // Oczyść nasłuchiwanie zdarzenia po odmontowaniu komponentu.
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
+        <div className="header">
+          {(windowWidth < 640) ? (
+            <BurgerMenu />
+          ) : (
+            <div className="desktop-header">
+              <p>Szeroki ekran</p>
+              {/* Tutaj dodaj elementy twojego nagłówka na szerokich ekranach */}
+            </div>
+          )}
+        </div>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit
+          Editttttttt
           <code>src/App.tsx</code>
           and save to reload.
+          <p>Some paragraph</p>
+          <p>Some paragraph</p>
         </p>
         <a
           className="App-link"
