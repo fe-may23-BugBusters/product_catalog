@@ -9,4 +9,3 @@
 - [ ] Wykonane
 
 ## Zrzuty ekranu (opcjonalnie)
-
