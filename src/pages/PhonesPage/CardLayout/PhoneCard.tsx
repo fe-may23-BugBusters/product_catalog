@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Apple11ProMax
-  from '../../../01.jpg';
+import Apple11ProMax from '../../../01.jpg';
 import './styles/PhoneCard.scss';
 
 export const PhoneCard = () => {
@@ -44,8 +43,22 @@ export const PhoneCard = () => {
       </div>
 
       <div className="phoneCard__buttons">
-        <button type="button" onClick={handleAdd} className={`phoneCard__add ${isAdded ? 'phoneCard__add--added' : ''}`}>{isAdded ? 'Added to cart' : 'Add to cart'}</button>
-        <button type="button" onClick={handleLike} className={`phoneCard__heart ${isLiked ? 'phoneCard__heart--liked' : ''}`}> </button>
+        <button
+          type="button"
+          onClick={handleAdd}
+          className={`phoneCard__add ${isAdded ? 'phoneCard__add--added' : ''}`}
+        >
+          {isAdded ? 'Added to cart' : 'Add to cart'}
+        </button>
+        <button
+          type="button"
+          onClick={handleLike}
+          className={`phoneCard__heart ${
+            isLiked ? 'phoneCard__heart--liked' : ''
+          }`}
+        >
+          {' '}
+        </button>
       </div>
     </div>
   );

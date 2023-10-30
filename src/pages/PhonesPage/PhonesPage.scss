@@ -12,6 +12,7 @@
   padding-left: 152px;
   padding-right: 152px;
   background-color: #fafbfc;
+  min-width: fit-content;
 
   @include for-tablet() {
     display: grid;
@@ -169,25 +170,25 @@
 }
 
 .product-card {
-    grid-column: span 6;
+  grid-column: span 6;
+
+  @include for-tablet() {
+    grid-column: span 4;
+  }
+
+  @include for-phone() {
+    grid-column: 1/ span 4;
+  }
+
+  &--1 {
+    grid-column: 1/7;
 
     @include for-tablet() {
-      grid-column: span 4;
-    }
-
-    @include for-phone() {
       grid-column: 1/5;
     }
 
-    &--1 {
-      grid-column: 1/7;
-
-      @include for-tablet() {
-        grid-column: 1/5;
-      }
-
-      @include for-phone() {
-        grid-column: 1/5;
-      }
+    @include for-phone() {
+      grid-column: 1/ span 4;
     }
+  }
 }
