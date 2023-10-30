@@ -2,8 +2,9 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
 } from 'react-router-dom';
+import Footer from './components/footer';
 import logo from './logo.svg';
 import './App.css';
 import PhonesPage from './PhonesPage';
@@ -15,7 +16,9 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.tsx</code> and save to reload.
+            Edit
+            <code>src/App.tsx</code>
+            and save to reload.
           </p>
           <nav>
             <ul>
@@ -27,6 +30,7 @@ function App() {
               </li>
             </ul>
           </nav>
+          <Footer />
         </header>
         <Route path="/phones" Component={PhonesPage} />
       </div>
