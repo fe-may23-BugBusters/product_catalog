@@ -2,14 +2,16 @@ import React from 'react';
 import './PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
-// import { PhoneCard } from './components/PhoneCard';
+
+import { PhoneCard } from './CardLayout/PhoneCard';
 
 function PhonesPage() {
   return (
     <>
       <main className="phonePage">
         <div className="phonePage__current">
-          { /* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <img
               src={Home}
@@ -59,8 +61,39 @@ function PhonesPage() {
           </select>
         </div>
 
+
+        <div className="product-card product-card--1">
+          <PhoneCard />
+        </div>
         <div className="product-card">
-          {/* <PhoneCard /> */}
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
+        </div>
+        <div className="product-card">
+          <PhoneCard />
         </div>
       </main>
     </>
