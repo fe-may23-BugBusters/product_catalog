@@ -1,12 +1,9 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import PhonesPage from './PhonesPage';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -28,7 +25,14 @@ function App() {
             </ul>
           </nav>
         </header>
-        <Route path="/phones" Component={PhonesPage} />
+        <Route
+          path="/phones"
+          element={<PhonesPage />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
       </div>
     </Router>
   );
