@@ -8,6 +8,7 @@ import logo from './logo.svg';
 import './App.css';
 import PhonesPage from './PhonesPage';
 import NotFound from './components/NotFound';
+import Footer from './components/footer';
 
 function App() {
   return (
