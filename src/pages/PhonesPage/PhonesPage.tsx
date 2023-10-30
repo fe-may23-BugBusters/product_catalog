@@ -2,6 +2,7 @@ import React from 'react';
 import './PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
+
 import { PhoneCard } from './CardLayout/PhoneCard';
 
 function PhonesPage() {
@@ -9,6 +10,7 @@ function PhonesPage() {
     <>
       <main className="phonePage">
         <div className="phonePage__current">
+
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <img
@@ -58,6 +60,7 @@ function PhonesPage() {
             <option className="phonePage__select__option">16</option>
           </select>
         </div>
+
 
         <div className="product-card product-card--1">
           <PhoneCard />
