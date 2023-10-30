@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import logo from './logo.svg';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
+import { PhonesPage } from './components/PhonesPage/PhonesPage';
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -24,7 +25,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="header">
-          {(windowWidth < 640) ? (
+          {windowWidth < 640 ? (
             <BurgerMenu />
           ) : (
             <div className="desktop-header">
@@ -33,6 +34,7 @@ function App() {
             </div>
           )}
         </div>
+        <PhonesPage />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Editttttttt

@@ -35,17 +35,24 @@ export const BurgerMenu = () => {
               </button>
               <div className="header_burger" />
             </a>
-
           </div>
         </div>
       </header>
 
       <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
         <div className="links menu_links">
-          <a href="http#" className="menu_link">home</a>
-          <a href="http#" className="menu_link">PHONES</a>
-          <a href="http#" className="menu_link">TABLETS</a>
-          <a href="http#" className="menu_link">ACCESSORIES</a>
+          <a href="http#" className="menu_link">
+            home
+          </a>
+          <a href="http#" className="menu_link">
+            PHONES
+          </a>
+          <a href="http#" className="menu_link">
+            TABLETS
+          </a>
+          <a href="http#" className="menu_link">
+            ACCESSORIES
+          </a>
         </div>
         <div className="menu_footer">
           <a href="http#" className="menu_heart">
