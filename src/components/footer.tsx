@@ -3,9 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   // Przykładowa funkcja
-  const handleClick = (buttonName: string) => {
-
-  };
+  const handleClick = (buttonName: string) => {};
 
   return (
     <footer>
@@ -14,13 +12,19 @@ const Footer = () => {
           <img src="../img/FooterLogo.jpg" alt="Logo" />
         </div>
         <div className="footer-buttons">
-          <button type="button" onClick={() => handleClick('GITHUB')}>GITHUB</button>
+          <button type="button" onClick={() => handleClick('GITHUB')}>
+            GITHUB
+          </button>
         </div>
         <div className="footer-buttons">
-          <button type="button" onClick={() => handleClick('CONTACTS')}>CONTACTS</button>
+          <button type="button" onClick={() => handleClick('CONTACTS')}>
+            CONTACTS
+          </button>
         </div>
         <div className="footer-buttons">
-          <button type="button" onClick={() => handleClick('RIGHTS')}>RIGHTS</button>
+          <button type="button" onClick={() => handleClick('RIGHTS')}>
+            RIGHTS
+          </button>
         </div>
         <div className="footer-back-to-top">
           <button type="button" onClick={() => handleClick('BackToTop')}>
