@@ -61,7 +61,6 @@ function PhonesPage() {
           </select>
         </div>
 
-
         <div className="product-card product-card--1">
           <PhoneCard />
         </div>
