@@ -1,12 +1,12 @@
+
+import React from 'react';
 import React, { useEffect, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import PhonesPage from './PhonesPage';
+import NotFound from './components/NotFound';
+import Footer from './components/footer';
+import PhonesPage from './pages/PhonesPage/PhonesPage';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 
 function App() {
@@ -42,7 +42,9 @@ function App() {
           </div>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.tsx</code> and save to reload.
+            Edit
+            <code>src/App.tsx</code>
+            and save to reload.
           </p>
           <nav>
             <ul>
@@ -54,8 +56,16 @@ function App() {
               </li>
             </ul>
           </nav>
+          <Footer />
         </header>
-        <Route path="/phones" Component={PhonesPage} />
+        <Route
+          path="/phones"
+          element={<PhonesPage />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
       </div>
     </Router>
   );
