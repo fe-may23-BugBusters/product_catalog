@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Footer from './components/footer';
 import logo from './logo.svg';
 import './App.css';
-import PhonesPage from './PhonesPage';
+import PhonesPage from './pages/PhonesPage/PhonesPage';
 
 function App() {
   return (
@@ -26,9 +27,9 @@ function App() {
               </li>
             </ul>
           </nav>
-          <Footer />
         </header>
         <Route path="/phones" Component={PhonesPage} />
+        <Footer />
       </div>
     </Router>
   );
