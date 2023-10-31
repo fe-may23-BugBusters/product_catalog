@@ -91,9 +91,9 @@
 }
 
 .burger-menu-container {
-    display: none;
+  display: none;
 
-    @include for-phone() {
-        display: block;
-    }
+  @include for-phone() {
+    display: block;
+  }
 }
