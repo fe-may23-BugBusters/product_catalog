@@ -8,6 +8,7 @@ import NotFound from './components/NotFound';
 import Footer from './components/footer';
 import PhonesPage from './pages/PhonesPage/PhonesPage';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
+import { PhonesPage } from './components/PhonesPage/PhonesPage';
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
