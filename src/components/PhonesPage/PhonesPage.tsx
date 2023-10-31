@@ -9,7 +9,6 @@ import { Header } from '../Header/Header';
 export const PhonesPage = () => {
   return (
     <>
-      <Header />
       <main className="phonePage">
         <div className="phonePage__current">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

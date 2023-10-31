@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { Header } from '../Header/Header';
 
 export const Nav = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -22,13 +23,13 @@ export const Nav = () => {
 
   return (
     <>
-      <div className="header">
+      <div className="headerNav">
         {windowWidth < 640 ? (
           <BurgerMenu />
         ) : (
           <div className="desktop-header">
             <p>Szeroki ekran</p>
-            {/* Tutaj dodaj elementy twojego nagłówka na szerokich ekranach */}
+            <Header />
           </div>
         )}
       </div>
