@@ -1,0 +1,99 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+.header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+
+  @include for-phone() {
+    display: none;
+  }
+
+  @include for-tablet() {
+    height: 48px;
+  }
+
+  &__logo {
+    margin: 0 24px;
+    flex: 1;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__nav {
+    display: flex;
+
+    &__list {
+      display: flex;
+      gap: 20px;
+      list-style-type: none;
+
+      &__item {
+        &__link {
+          color: #89939a;
+          text-decoration: none;
+          font-family: Mont;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 11px;
+          letter-spacing: 0.48px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    &__like {
+      background-image: url('../../../icons/Favourites\ \(Heart\ Like\).svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 64px;
+      height: 64px;
+      background-color: white;
+      box-shadow: -1px 0px 0px 0px #e2e6e9;
+      border: none;
+
+      @include for-phone() {
+        display: none;
+      }
+
+      @include for-tablet() {
+        height: 48px;
+        width: 48px;
+      }
+    }
+
+    &__cart {
+      background-image: url('../../../images/bag.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 64px;
+      height: 64px;
+      background-color: white;
+      box-shadow: -1px 0px 0px 0px #e2e6e9;
+      border: none;
+
+      @include for-tablet() {
+        height: 48px;
+        width: 48px;
+      }
+    }
+  }
+}
+
+.burger-menu-container {
+    display: none;
+
+    @include for-phone() {
+        display: block;
+    }
+}

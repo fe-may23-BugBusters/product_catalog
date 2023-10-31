@@ -4,10 +4,12 @@ import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
 import { PhoneCard } from '../PhoneCard/PhoneCard';
 import { Pagination } from '../Pagination/Pagination';
+import { Header } from '../Header/Header';
 
 export const PhonesPage = () => {
   return (
     <>
+      <Header />
       <main className="phonePage">
         <div className="phonePage__current">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
