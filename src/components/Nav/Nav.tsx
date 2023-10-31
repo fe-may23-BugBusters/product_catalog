@@ -2,9 +2,16 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { Header } from '../Header/Header';
 
 export const Nav = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  let condition = false;
+
+  if (windowWidth > 640) {
+    condition = true;
+  }
 
   useEffect(() => {
     // Dodaj obsługę zdarzenia zmiany rozmiaru okna
@@ -22,14 +29,15 @@ export const Nav = () => {
 
   return (
     <>
-      <div className="header">
-        {windowWidth < 640 ? (
-          <BurgerMenu />
+      <div className="headerNav">
+        {condition ? (
+
+          <Header />
+
         ) : (
-          <div className="desktop-header">
-            <p>Szeroki ekran</p>
-            {/* Tutaj dodaj elementy twojego nagłówka na szerokich ekranach */}
-          </div>
+
+          <BurgerMenu />
+
         )}
       </div>
       <nav>
