@@ -23,7 +23,7 @@ export const Nav = () => {
   return (
     <>
       <div className="header">
-        {(windowWidth < 640) ? (
+        {windowWidth < 640 ? (
           <BurgerMenu />
         ) : (
           <div className="desktop-header">
@@ -42,7 +42,6 @@ export const Nav = () => {
           </li>
         </ul>
       </nav>
-
     </>
   );
 };

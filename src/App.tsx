@@ -1,7 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {
-  Routes, Route, Navigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import { PhonesPage } from './components/PhonesPage/PhonesPage';
 import { HomePage } from './components/HomePage/HomePage';
@@ -26,7 +24,6 @@ function App() {
       </Routes>
       <Footer />
     </div>
-
   );
 }
 

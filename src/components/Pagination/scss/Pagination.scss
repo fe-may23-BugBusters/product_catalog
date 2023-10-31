@@ -1,56 +1,56 @@
 .pagination {
-    display: flex;
-    align-self : flex-end;
-    justify-content: center;
-    margin-top: 40px;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  margin-top: 40px;
 
-    &_arrow {
-      border-radius: 48px;
-      border: 1px solid var(--gray-elements, #E2E6E9);
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-      background-size: 16px 16px;
-      background: url(../../../images/arrow_active.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    
-    &_arrow:hover {
-        border: 1px solid  #0F0F11;
-    }
-
-    &_arrow--transform {
-        border-radius: 48px;
-        border: 1px solid  #E2E6E9;
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        background-size: 16px 16px;
-        background: url(../../../images/arrow_active.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        transform: rotate(180deg);
-      }
-    &_arrow--transform:hover {
-        border: 1px solid  #0F0F11;
-    }
-
-    &_button {
-      background: #fafbfc;
-      border-radius: 48px;
-      border: 1px solid  #E2E6E9;
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-    }
-    &_button:hover {
-      background: #fafbfc;
-      border: 1px solid  #0F0F11;
-    }
-    &_button:active {
-        background: #0F0F11;
-        border: 1px solid  #0F0F11;
-        color: white;
-      }
+  &_arrow {
+    border-radius: 48px;
+    border: 1px solid var(--gray-elements, #e2e6e9);
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-size: 16px 16px;
+    background: url(../../../images/arrow_active.svg);
+    background-position: center;
+    background-repeat: no-repeat;
   }
+
+  &_arrow:hover {
+    border: 1px solid #0f0f11;
+  }
+
+  &_arrow--transform {
+    border-radius: 48px;
+    border: 1px solid #e2e6e9;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-size: 16px 16px;
+    background: url(../../../images/arrow_active.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+  }
+  &_arrow--transform:hover {
+    border: 1px solid #0f0f11;
+  }
+
+  &_button {
+    background: #fafbfc;
+    border-radius: 48px;
+    border: 1px solid #e2e6e9;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  &_button:hover {
+    background: #fafbfc;
+    border: 1px solid #0f0f11;
+  }
+  &_button:active {
+    background: #0f0f11;
+    border: 1px solid #0f0f11;
+    color: white;
+  }
+}

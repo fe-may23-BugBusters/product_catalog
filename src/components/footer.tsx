@@ -3,6 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   // Przykładowa funkcja
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleClick = (buttonName: string) => {};
 
   return (
