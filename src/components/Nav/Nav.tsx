@@ -21,18 +21,15 @@ export const Nav = () => {
     };
   }, []);
 
+  let condition = false;
+
+  if (windowWidth > 640) {
+    condition = true;
+  }
+
   return (
     <>
-      <div className="headerNav">
-        {windowWidth < 640 ? (
-          <BurgerMenu />
-        ) : (
-          <div className="desktop-header">
-            <p>Szeroki ekran</p>
-            <Header />
-          </div>
-        )}
-      </div>
+      <div className="headerNav">{condition ? <Header /> : <BurgerMenu />}</div>
       <nav>
         <ul>
           <li>
