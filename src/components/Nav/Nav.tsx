@@ -40,6 +40,9 @@ export const Nav = () => {
           <li>
             <Link to="/phones">Strona z telefonami</Link>
           </li>
+          <li>
+            <Link to="/cart">Koszyk</Link>
+          </li>
         </ul>
       </nav>
     </>

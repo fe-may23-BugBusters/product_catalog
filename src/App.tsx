@@ -5,6 +5,7 @@ import { PhonesPage } from './components/PhonesPage/PhonesPage';
 import { HomePage } from './components/HomePage/HomePage';
 import { Nav } from './components/Nav/Nav';
 import Footer from './components/footer';
+import { Cart } from './components/Cart/Cart';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
           {/* <Route path="/nav" element={<Navigate to="/" />} /> */}
+          <Route path="/cart">
+            <Route index element={<Cart />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
