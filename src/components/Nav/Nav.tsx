@@ -29,17 +29,7 @@ export const Nav = () => {
 
   return (
     <>
-      <div className="headerNav">
-        {condition ? (
-
-          <Header />
-
-        ) : (
-
-          <BurgerMenu />
-
-        )}
-      </div>
+      <div className="headerNav">{condition ? <Header /> : <BurgerMenu />}</div>
       <nav>
         <ul>
           <li>
