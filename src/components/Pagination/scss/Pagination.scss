@@ -1,8 +1,9 @@
 .pagination {
+  background-color: #fafbfc;
   display: flex;
   align-self: flex-end;
   justify-content: center;
-  margin-top: 40px;
+  padding-top: 40px;
 
   &_arrow {
     border-radius: 48px;
