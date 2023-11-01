@@ -74,9 +74,10 @@
     height: 32px;
     flex-shrink: 0;
   }
-  &_button:not(:nth-child(2)) {
+  &_button:not(:nth-child(2)),
+  &_button--selected:not(:nth-child(2)) {
     margin-left: 8px;
-}
+  }
   &_button:hover {
     background: #fafbfc;
     border: 1px solid #0f0f11;
