@@ -4,12 +4,16 @@ import React, { SetStateAction, useState } from 'react';
 import './scss/Pagination.scss';
 
 type PaginationProps = {
-  numberOfPages: number,
-  currentPage: number,
-  setCurrentPage: React.Dispatch<SetStateAction<number>>,
+  numberOfPages: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<SetStateAction<number>>;
 };
 
-export const Pagination: React.FC<PaginationProps> = ({ numberOfPages, currentPage, setCurrentPage }) => {
+export const Pagination: React.FC<PaginationProps> = ({
+  numberOfPages,
+  currentPage,
+  setCurrentPage,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
   const [selectedPage, setSelectedPage] = useState(1);
   const [start, setStart] = useState(1);

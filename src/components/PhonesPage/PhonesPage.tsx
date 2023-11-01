@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
+import cn from 'classnames';
 import './sass/PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
@@ -30,7 +30,10 @@ export const PhonesPage = () => {
 
   const indexOfLastProduct = currentPage * postPerPage;
   const indexOfFirstProduct = indexOfLastProduct - postPerPage;
-  const currentPageProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentPageProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
   // const numberOfPages = totalPosts / postPerPage;
   const numberOfPages = 8;
 
@@ -90,7 +93,9 @@ export const PhonesPage = () => {
               setPostPerPage(value);
             }}
           >
-            <option value="16" className="phonePage__select__option">16</option>
+            <option value="16" className="phonePage__select__option">
+              16
+            </option>
           </select>
         </div>
         {!loading
