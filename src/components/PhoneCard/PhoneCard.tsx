@@ -50,9 +50,7 @@ export const PhoneCard: React.FC<Props> = ({
         alt={`We are trying to get a pic of: ${name}...`}
         className="phoneCard__image"
       />
-      <h2 className="phoneCard__title">
-        {name}
-      </h2>
+      <h2 className="phoneCard__title">{name}</h2>
       <div className="phoneCard__price">
         <p className="phoneCard__price__current">
           {price}
