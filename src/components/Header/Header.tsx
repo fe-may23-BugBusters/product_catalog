@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import './sass/Header.scss';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { TypeContext, useTContext } from '../../context/Context';
 
 export const Header = () => {
+  const { cart } = useTContext() as TypeContext;
+
   return (
     <>
       <header className="header">
@@ -46,7 +49,11 @@ export const Header = () => {
 
         <div className="header__buttons">
           <button type="button" className="header__buttons__like" />
-          <button type="button" className="header__buttons__cart" />
+          <button type="button" className="header__buttons__cart">
+            <span className="header__buttons__cart--elipse">
+              <p>{cart.length}</p>
+            </span>
+          </button>
         </div>
       </header>
       <div className="burger-menu-container">

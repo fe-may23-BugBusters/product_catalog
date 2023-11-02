@@ -73,6 +73,7 @@
     }
 
     &__cart {
+      position: relative;
       background-image: url('../../../images/bag.svg');
       background-repeat: no-repeat;
       background-position: center;
@@ -85,6 +86,30 @@
       @include for-tablet() {
         height: 48px;
         width: 48px;
+      }
+
+      &--elipse {
+        position: absolute;
+        background-size: 14px 14px;
+        background: url(../../../images/elipse.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        color: var(--gray-white, #fff);
+        text-align: center;
+        font-family: Mont;
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        top: 5;
+        right: 10;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        fill: var(--Secondary-Accent, #476df4);
+        stroke-width: 1px;
+        stroke: var(--gray-white, #fff);
       }
     }
   }
