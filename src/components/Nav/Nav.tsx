@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { Header } from '../Header/Header';
 
 export const Nav = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -20,18 +21,15 @@ export const Nav = () => {
     };
   }, []);
 
+  let condition = false;
+
+  if (windowWidth > 640) {
+    condition = true;
+  }
+
   return (
     <>
-      <div className="header">
-        {windowWidth < 640 ? (
-          <BurgerMenu />
-        ) : (
-          <div className="desktop-header">
-            <p>Szeroki ekran</p>
-            {/* Tutaj dodaj elementy twojego nagłówka na szerokich ekranach */}
-          </div>
-        )}
-      </div>
+      <div className="headerNav">{condition ? <Header /> : <BurgerMenu />}</div>
       <nav>
         <ul>
           <li>

@@ -4,6 +4,7 @@ import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
 import { PhoneCard } from '../PhoneCard/PhoneCard';
 import { Pagination } from '../Pagination/Pagination';
+import { Header } from '../Header/Header';
 
 export const PhonesPage = () => {
   return (
