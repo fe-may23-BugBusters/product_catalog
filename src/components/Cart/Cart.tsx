@@ -18,6 +18,8 @@ export const Cart: React.FC<CartItem> = ({ quantity }) => {
   };
 
   /* quantity teoretycznie do pobrania z pojedynczej kartki, jest tam zmieniane przyciskami + -*/
+=======
+import { CartItem } from '../CartItem/CartItem';
 
   return (
     <>
@@ -34,7 +36,11 @@ export const Cart: React.FC<CartItem> = ({ quantity }) => {
           <h1 className="cart__title__word">Cart</h1>
         </section>
         <div className="cart__main">
-          <section className="cart__cartItems">{/* place for cards */}</section>
+          <section className="cart__cartItems">
+            <CartItem />
+            <CartItem />
+            <CartItem />
+          </section>
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">
               <p className="cart__calculator__price">
