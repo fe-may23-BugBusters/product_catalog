@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Phone Catalog - Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+The "Phone Catalog - Front-End" project is the client-side part of an application created using React, TypeScript, and SCSS to browse and search a catalog of phones for sale. It is a crucial component for users looking for new smartphones.
 
-In the project directory, you can run:
+## Requirements
 
-### `npm start`
+To run this Front-End project on your local environment, you need to have the following software installed:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Node.js](https://nodejs.org/) - LTS version or newer
+- [npm](https://www.npmjs.com/) - Typically installed with Node.js
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the Front-End repository on your local computer:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the Front-End project directory:
+    `cd phone_catalog`
+3. Install the project's dependencies:
+    `npm install`
+4. Configure the .env file with the necessary environment variables, such as database connection data and other settings.
+5. Start the project:
+    `npm start`
 
-### `npm run build`
+The Front-End server will run on the appropriate port, e.g., http://localhost:3001/.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+After launching the Front-End project, you can browse the available phones in the catalog. You can also search, filter, and sort products.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Author
 
-### `npm run eject`
+The Front-End project was created by Hubert Wiktor, Piotr Krasucki, Sviatoslav Vasyletskyi, Artur Wiśniewski, and Palina Apanovich.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Status
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This Front-End project is completed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

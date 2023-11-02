@@ -1,0 +1,171 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+.cart {
+  padding: 40px 152px 80px 152px;
+  background-color: #fafbfc;
+  font-family: Mont;
+  @include for-tablet {
+    padding: 40px 24px 64px 24px;
+  }
+
+  @include for-phone {
+    padding: 40px 16px 56px 16px;
+  }
+
+  &__title {
+    width: 100%;
+
+    &__link {
+      display: flex;
+      padding-bottom: 16px;
+
+      &__back {
+        color: #89939a;
+
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      &__arrow {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &__word {
+      color: #0f0f11;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 56px;
+      letter-spacing: -0.48px;
+    }
+  }
+
+  &__main {
+    display: flex;
+
+    @include for-tablet {
+      display: block;
+    }
+
+    @include for-phone {
+      display: block;
+    }
+  }
+
+  &__cartItems {
+    width: 752px;
+    height: 500px;
+
+    @include for-phone {
+      width: 100%;
+    }
+
+    @include for-tablet {
+      width: 100%;
+    }
+  }
+
+  &__calculator {
+    border-radius: 16px;
+    border: 1px solid var(--gray-elements, #e2e6e9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 368px;
+    height: 206px;
+
+    @include for-phone {
+      width: 100%;
+    }
+
+    @include for-tablet {
+      width: 100%;
+    }
+
+    &__button-container {
+      height: 96px;
+
+      @include for-phone {
+        width: 80%;
+      }
+
+      @include for-tablet {
+        width: 80%;
+      }
+    }
+    &__price {
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 41px;
+      letter-spacing: -0.32px;
+
+      &-container {
+        height: 117px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 368px;
+
+        @include for-phone {
+          width: 100%;
+        }
+
+        @include for-tablet {
+          width: 100%;
+        }
+      }
+    }
+
+    &__total {
+      color: var(--gray-secondary, #89939a);
+      text-align: center;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 21px;
+    }
+
+    &__line {
+      border-top: 1px solid #e2e6e9;
+      width: 80%;
+    }
+
+    &__checkout {
+      border-radius: 8px;
+      background: #f86800;
+      border: none;
+      height: 40px;
+      width: 160px;
+
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 21px;
+      margin: 24px;
+
+      &:hover {
+        box-shadow: 0px 3px 13px 0px rgba(23, 32, 49, 0.4);
+      }
+
+      @include for-phone {
+        width: 100%;
+        margin: 24px auto;
+      }
+
+      @include for-tablet {
+        width: 100%;
+        margin: 24px auto;
+      }
+    }
+  }
+}
