@@ -64,9 +64,12 @@ export const BurgerMenu = () => {
           </a>
           <a href="http#" className="menu_bag" aria-label="Wykonaj akcję">
             <div className="menu_bag--container">
-              <span className="menu_bag--elipse">
-                <p className="menu_bag--paragraph">{cart.length}</p>
-              </span>
+              {/* eslint-disable */}
+              {cart.length > 0 && (
+                <span className="menu_bag--elipse">
+                  <p className="menu_bag--paragraph">{cart.length}</p>
+                </span>
+              )}
             </div>
           </a>
         </div>
