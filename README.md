@@ -16,12 +16,12 @@ To run this Front-End project on your local environment, you need to have the fo
 1. Clone the Front-End repository on your local computer:
 
 2. Navigate to the Front-End project directory:
-   # `cd phone_catalog`
+    `cd phone_catalog`
 3. Install the project's dependencies:
-   # `npm install`
+    `npm install`
 4. Configure the .env file with the necessary environment variables, such as database connection data and other settings.
 5. Start the project:
-   # `npm start`
+    `npm start`
 
 The Front-End server will run on the appropriate port, e.g., http://localhost:3001/.
 
