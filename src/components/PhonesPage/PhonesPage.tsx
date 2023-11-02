@@ -1,16 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import cn from 'classnames';
+// import cn from 'classnames';
 import './sass/PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
 import { PhoneCard } from '../PhoneCard/PhoneCard';
 import { Pagination } from '../Pagination/Pagination';
-import { Header } from '../Header/Header';
+import { Product } from '../../types/product';
 
 export const PhonesPage = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(16);
@@ -19,24 +21,19 @@ export const PhonesPage = () => {
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
-      const response = await axios.get('https://');
+      const response = await axios
+        .get(`https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage - 1}`);
 
-      setProducts(response.data);
-      setTotalPosts(response.data.length);
+      setProducts(response.data.rows);
+      console.log(response.data.count, response.data.rows);
+      setTotalPosts(response.data.count);
       setLoading(false);
     };
 
     loadProducts();
-  });
+  }, [currentPage]);
 
-  const indexOfLastProduct = currentPage * postPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - postPerPage;
-  const currentPageProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct,
-  );
-  // const numberOfPages = totalPosts / postPerPage;
-  const numberOfPages = 8;
+  const numberOfPages = Math.ceil(totalPosts / postPerPage);
 
   return (
     <>
@@ -100,44 +97,26 @@ export const PhonesPage = () => {
           </select>
         </div>
         {!loading
-          ? currentPageProducts.map((product) => (
-            // <PhoneCard key={product.id} />
-            <p key="1" />
+          ? products.map((product) => (
+            <div className="product-card" key={product.id}>
+              <PhoneCard
+                name={product.name}
+                category={product.category}
+                phoneid={product.phoneid}
+                itemid={product.itemid}
+                fullprice={product.fullprice}
+                price={product.price}
+                screen={product.screen}
+                capacity={product.capacity}
+                color={product.color}
+                ram={product.ram}
+                year={product.year}
+                image={product.image}
+              />
+            </div>
+
           ))
           : 'Loading...'}
-        <div className="product-card product-card--1">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
-        <div className="product-card">
-          <PhoneCard />
-        </div>
       </main>
       <Pagination
         currentPage={currentPage}
