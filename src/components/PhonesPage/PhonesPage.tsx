@@ -122,7 +122,6 @@ export const PhonesPage = () => {
             ))
             : 'Loading...'}
         </div>
-
       </main>
       <Pagination
         currentPage={currentPage}
