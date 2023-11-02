@@ -38,9 +38,11 @@ export const PhoneCard: React.FC<Props> = ({
   };
 
   const handleAdd = () => {
-    setIsAdded(!isAdded);
-    // cart.push(product);
-    setCart([...cart, product]);
+    if (!isAdded) {
+      setCart([...cart, product]);
+      setIsAdded(!isAdded);
+    }
+
     // eslint-disable-next-line no-console
     console.log('we added product to cart', cart, cart.length);
   };

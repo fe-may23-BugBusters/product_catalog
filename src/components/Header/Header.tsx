@@ -51,7 +51,7 @@ export const Header = () => {
           <button type="button" className="header__buttons__like" />
           <button type="button" className="header__buttons__cart">
             <span className="header__buttons__cart--elipse">
-              <p>{cart.length}</p>
+              <p className="header__buttons__cart--paragraph">{cart.length}</p>
             </span>
           </button>
         </div>
