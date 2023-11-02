@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Chevron from '../../icons/chevron-left.svg';
 import './sass/Cart.scss';
+import { Product } from '../../types/product';
 
-export const Cart = () => {
+type CartItem = {
+  quantity: number;
+};
+
+export const Cart: React.FC<CartItem> = ({ quantity }) => {
+  const [cart, setCart] = useState<Product[]>([]);
+
+  const calculatePrice = () => {
+    return cart.reduce((acc, curr) => {
+      return acc + curr.price * quantity;
+    }, 0);
+  };
+
+  /* quantity teoretycznie do pobrania z pojedynczej kartki, jest tam zmieniane przyciskami + -*/
+
   return (
     <>
       <div className="cart">
@@ -22,7 +37,11 @@ export const Cart = () => {
           <section className="cart__cartItems">{/* place for cards */}</section>
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">
-              <p className="cart__calculator__price">$2137</p>
+              <p className="cart__calculator__price">
+                {`$
+                ${calculatePrice()}
+                `}
+              </p>
               <p className="cart__calculator__total">Total for 3 products</p>
             </div>
 

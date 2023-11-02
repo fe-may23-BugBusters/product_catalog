@@ -60,6 +60,7 @@ export const PhonesPage = () => {
         <h1 className="phonePage__title">Mobile Phones</h1>
         <p className="phonePage__text phonePage__text--models">95 models</p>
 
+        {/* <div className="phonePage__select__container"> */}
         <div className="phonePage__select phonePage__select--1">
           <label
             htmlFor="sort-by"
@@ -99,26 +100,29 @@ export const PhonesPage = () => {
             </option>
           </select>
         </div>
-        {!loading
-          ? products.map((product) => (
-            <div className="product-card" key={product.id}>
-              <PhoneCard
-                name={product.name}
-                category={product.category}
-                phoneid={product.phoneid}
-                itemid={product.itemid}
-                fullprice={product.fullprice}
-                price={product.price}
-                screen={product.screen}
-                capacity={product.capacity}
-                color={product.color}
-                ram={product.ram}
-                year={product.year}
-                image={product.image}
-              />
-            </div>
-          ))
-          : 'Loading...'}
+        <div className="product-card__container">
+          {!loading
+            ? products.map((product) => (
+              <div className="product-card" key={product.id}>
+                <PhoneCard
+                  name={product.name}
+                  category={product.category}
+                  phoneid={product.phoneid}
+                  itemid={product.itemid}
+                  fullprice={product.fullprice}
+                  price={product.price}
+                  screen={product.screen}
+                  capacity={product.capacity}
+                  color={product.color}
+                  ram={product.ram}
+                  year={product.year}
+                  image={product.image}
+                />
+              </div>
+            ))
+            : 'Loading...'}
+        </div>
+
       </main>
       <Pagination
         currentPage={currentPage}

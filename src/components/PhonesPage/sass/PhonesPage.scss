@@ -109,6 +109,11 @@
 
   &__select {
     height: 59px;
+    margin-bottom: 16px;
+
+    &__container {
+      display: flex;
+    }
     &__text {
       font-size: 12px;
       font-style: normal;
@@ -171,6 +176,8 @@
 
 .product-card {
   grid-column: span 6;
+  grid-row: auto;
+  height: 506px;
 
   @include for-tablet() {
     grid-column: span 4;
@@ -178,17 +185,23 @@
 
   @include for-phone() {
     grid-column: 1 / span 4;
+    height: 440px;
   }
 
-  &--1 {
-    grid-column: 1/7;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(24, 32px);
+    gap: 0 16px;
+    grid-column-start: 1;
 
     @include for-tablet() {
-      grid-column: 1/5;
+      grid-template-columns: repeat(12, 1fr);
+      grid-column: 1/13;
     }
-
+  
     @include for-phone() {
-      grid-column: 1 / span 4;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: 1/5;
     }
   }
 }
