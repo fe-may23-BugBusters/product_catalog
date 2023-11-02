@@ -21,8 +21,11 @@ export const PhonesPage = () => {
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
-      const response = await axios
-        .get(`https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage - 1}`);
+      const response = await axios.get(
+        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${
+          currentPage - 1
+        }`,
+      );
 
       setProducts(response.data.rows);
       console.log(response.data.count, response.data.rows);
@@ -114,7 +117,6 @@ export const PhonesPage = () => {
                 image={product.image}
               />
             </div>
-
           ))
           : 'Loading...'}
       </main>

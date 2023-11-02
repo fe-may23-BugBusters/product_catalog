@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/react-in-jsx-scope */
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,10 +8,10 @@ import { Header } from '../Header/Header';
 export const Nav = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  let condition = false;
+  let mobileSize = false;
 
   if (windowWidth > 640) {
-    condition = true;
+    mobileSize = true;
   }
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const Nav = () => {
 
   return (
     <>
-      <div className="headerNav">{condition ? <Header /> : <BurgerMenu />}</div>
+      <div className="headerNav">{mobileSize ? <Header /> : <BurgerMenu />}</div>
       <nav>
         <ul>
           <li>
