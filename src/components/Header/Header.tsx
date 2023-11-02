@@ -54,11 +54,12 @@ export const Header = () => {
               <p className="header__buttons__cart--paragraph">{cart.length}</p>
             </span>
           </button>
+          <Link
+            to="/cart"
+            className="header__buttons__cart"
+          />
         </div>
       </header>
-      <div className="burger-menu-container">
-        <BurgerMenu />
-      </div>
     </>
   );
 };

@@ -28,6 +28,12 @@ export const Nav = () => {
     };
   }, []);
 
+  let condition = false;
+
+  if (windowWidth > 640) {
+    condition = true;
+  }
+
   return (
     <>
       <div className="headerNav">
@@ -40,6 +46,9 @@ export const Nav = () => {
           </li>
           <li>
             <Link to="/phones">Strona z telefonami</Link>
+          </li>
+          <li>
+            <Link to="/cart">Koszyk</Link>
           </li>
         </ul>
       </nav>
