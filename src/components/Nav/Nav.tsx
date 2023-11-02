@@ -30,7 +30,9 @@ export const Nav = () => {
 
   return (
     <>
-      <div className="headerNav">{mobileSize ? <Header /> : <BurgerMenu />}</div>
+      <div className="headerNav">
+        {mobileSize ? <Header /> : <BurgerMenu />}
+      </div>
       <nav>
         <ul>
           <li>
