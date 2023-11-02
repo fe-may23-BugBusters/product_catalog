@@ -7,6 +7,12 @@ import { Header } from '../Header/Header';
 export const Nav = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  let condition = false;
+
+  if (windowWidth > 640) {
+    condition = true;
+  }
+
   useEffect(() => {
     // Dodaj obsługę zdarzenia zmiany rozmiaru okna
     function handleResize() {

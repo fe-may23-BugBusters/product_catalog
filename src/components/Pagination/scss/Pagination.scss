@@ -1,10 +1,12 @@
 .pagination {
+  background-color: #fafbfc;
   display: flex;
   align-self: flex-end;
   justify-content: center;
-  margin-top: 40px;
+  padding-top: 40px;
 
   &_arrow {
+    margin-left: 16px;
     border-radius: 48px;
     border: 1px solid var(--gray-elements, #e2e6e9);
     width: 32px;
@@ -14,6 +16,19 @@
     background: url(../../../images/arrow_active.svg);
     background-position: center;
     background-repeat: no-repeat;
+
+    &--dis {
+      margin-left: 16px;
+      border-radius: 48px;
+      border: 1px solid #e2e6e9;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      background-size: 16px 16px;
+      background: url(../../../images/arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 
   &_arrow:hover {
@@ -21,6 +36,7 @@
   }
 
   &_arrow--transform {
+    margin-right: 16px;
     border-radius: 48px;
     border: 1px solid #e2e6e9;
     width: 32px;
@@ -31,6 +47,20 @@
     background-position: center;
     background-repeat: no-repeat;
     transform: rotate(180deg);
+
+    &--dis {
+      margin-right: 16px;
+      border-radius: 48px;
+      border: 1px solid #e2e6e9;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      background-size: 16px 16px;
+      background: url(../../../images/arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+    }
   }
   &_arrow--transform:hover {
     border: 1px solid #0f0f11;
@@ -44,11 +74,18 @@
     height: 32px;
     flex-shrink: 0;
   }
+  &_button:not(:nth-child(2)),
+  &_button--selected:not(:nth-child(2)) {
+    margin-left: 8px;
+  }
   &_button:hover {
     background: #fafbfc;
     border: 1px solid #0f0f11;
   }
-  &_button:active {
+  &_button--selected {
+    border-radius: 48px;
+    width: 32px;
+    height: 32px;
     background: #0f0f11;
     border: 1px solid #0f0f11;
     color: white;

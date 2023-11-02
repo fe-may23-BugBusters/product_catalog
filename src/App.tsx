@@ -23,7 +23,6 @@ function App() {
           <Route path="/cart">
             <Route index element={<Cart />} />
           </Route>
-
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

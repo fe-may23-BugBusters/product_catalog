@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable max-len */
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import cn from 'classnames';
 import './sass/PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
@@ -7,6 +10,34 @@ import { Pagination } from '../Pagination/Pagination';
 import { Header } from '../Header/Header';
 
 export const PhonesPage = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(16);
+  const [totalPosts, setTotalPosts] = useState(0);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      setLoading(true);
+      const response = await axios.get('https://');
+
+      setProducts(response.data);
+      setTotalPosts(response.data.length);
+      setLoading(false);
+    };
+
+    loadProducts();
+  });
+
+  const indexOfLastProduct = currentPage * postPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - postPerPage;
+  const currentPageProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
+  // const numberOfPages = totalPosts / postPerPage;
+  const numberOfPages = 8;
+
   return (
     <>
       <main className="phonePage">
@@ -56,11 +87,24 @@ export const PhonesPage = () => {
             name="items-on-page"
             id="items-on-page"
             className="phonePage__select__field"
+            onClick={(e) => {
+              const target = e.target as HTMLSelectElement;
+              const value = parseInt(target.value, 10);
+
+              setPostPerPage(value);
+            }}
           >
-            <option className="phonePage__select__option">16</option>
+            <option value="16" className="phonePage__select__option">
+              16
+            </option>
           </select>
         </div>
-
+        {!loading
+          ? currentPageProducts.map((product) => (
+            // <PhoneCard key={product.id} />
+            <p key="1" />
+          ))
+          : 'Loading...'}
         <div className="product-card product-card--1">
           <PhoneCard />
         </div>
@@ -95,7 +139,11 @@ export const PhonesPage = () => {
           <PhoneCard />
         </div>
       </main>
-      <Pagination />
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        numberOfPages={numberOfPages}
+      />
     </>
   );
 };
