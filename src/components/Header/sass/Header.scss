@@ -102,6 +102,10 @@
       fill: #476df4;
       stroke-width: 1px;
       stroke:  #fff;
+      @include for-desktop() {
+        top: 17px;
+        right: 17px;
+      }
     }
     &__cart--paragraph {
       padding-top: 1px;
