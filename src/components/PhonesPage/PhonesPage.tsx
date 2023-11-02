@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 // import cn from 'classnames';
 import './sass/PhonesPage.scss';
