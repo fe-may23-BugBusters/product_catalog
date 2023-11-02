@@ -1,8 +1,37 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 // import Apple11ProMax from '../../../01.jpg';
 import './sass/PhoneCard.scss';
 
-export const PhoneCard = () => {
+type Props = {
+  category: string;
+  phoneid: string;
+  itemid: string;
+  name: string;
+  fullprice: number;
+  price: number;
+  screen: string;
+  capacity: string;
+  color: string;
+  ram: string;
+  year: string;
+  image: string;
+};
+
+export const PhoneCard: React.FC<Props> = ({
+  category,
+  phoneid,
+  itemid,
+  name,
+  fullprice,
+  price,
+  screen,
+  capacity,
+  color,
+  ram,
+  year,
+  image,
+}) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
 
@@ -16,17 +45,23 @@ export const PhoneCard = () => {
 
   return (
     <div className="phoneCard">
-      {/* <img
-        src={Apple11ProMax}
-        alt="apple 11 pro max"
+      <img
+        src={image}
+        alt={`We are trying to get a pic of: ${name}...`}
         className="phoneCard__image"
-      /> */}
+      />
       <h2 className="phoneCard__title">
-        Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+        {name}
       </h2>
       <div className="phoneCard__price">
-        <p className="phoneCard__price__current">$799</p>
-        <p className="phoneCard__price__old">$1199</p>
+        <p className="phoneCard__price__current">
+          {price}
+          $
+        </p>
+        <p className="phoneCard__price__old">
+          {fullprice}
+          $
+        </p>
       </div>
 
       <div className="phoneCard__description">
@@ -36,9 +71,9 @@ export const PhoneCard = () => {
           <p className="phoneCard__description--left">RAM</p>
         </div>
         <div>
-          <p className="phoneCard__description--right">6.5” OLED</p>
-          <p className="phoneCard__description--right">64 GB</p>
-          <p className="phoneCard__description--right">4 GB</p>
+          <p className="phoneCard__description--right">{screen}</p>
+          <p className="phoneCard__description--right">{capacity}</p>
+          <p className="phoneCard__description--right">{ram}</p>
         </div>
       </div>
 

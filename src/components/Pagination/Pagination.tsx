@@ -11,6 +11,7 @@ type PaginationProps = {
 
 export const Pagination: React.FC<PaginationProps> = ({
   numberOfPages,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   currentPage,
   setCurrentPage,
 }) => {
