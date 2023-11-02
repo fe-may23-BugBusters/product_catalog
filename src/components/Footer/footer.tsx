@@ -1,5 +1,7 @@
-import './footer.css';
+import './footer.scss';
 import React from 'react';
+import Logo from '../../images/Logo.svg';
+import Vector from '../../images/Vector.jpg';
 
 const Footer = () => {
   // Przykładowa funkcja
@@ -10,7 +12,7 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="../img/FooterLogo.jpg" alt="Logo" />
+          <img src={Logo} alt="Logo" />
         </div>
         <div className="footer-buttons">
           <button type="button" onClick={() => handleClick('GITHUB')}>
@@ -30,7 +32,7 @@ const Footer = () => {
         <div className="footer-back-to-top">
           <button type="button" onClick={() => handleClick('BackToTop')}>
             back to top
-            <img src="../img/Vector.jpg" alt="Vector" />
+            <img src={Vector} alt="Vector" />
           </button>
         </div>
       </div>

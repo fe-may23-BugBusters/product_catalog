@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './sass/BurgerMenu.scss';
+import { Link } from 'react-router-dom';
 
 export const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -58,9 +59,7 @@ export const BurgerMenu = () => {
           <a href="http#" className="menu_heart">
             <p />
           </a>
-          <a href="http#" className="menu_bag">
-            <p />
-          </a>
+          <Link to="/cart" className="menu_bag" />
         </div>
       </div>
     </div>
