@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import Chevron from '../../icons/chevron-left.svg';
 import './sass/Cart.scss';
 import { CartItem } from '../CartItem/CartItem';
+import { useTContext, TypeContext } from '../../context/Context';
 
 export const Cart = () => {
+  const { cart } = useTContext() as TypeContext;
+
   return (
     <>
       <div className="cart">
@@ -21,9 +24,16 @@ export const Cart = () => {
         </section>
         <div className="cart__main">
           <section className="cart__cartItems">
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {cart.map((product) => (
+              <CartItem
+                key={product.name}
+                name={product.name}
+                // fullprice={product.fullprice}
+                price={product.price}
+                image={product.image}
+                product={product}
+              />
+            ))}
           </section>
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">

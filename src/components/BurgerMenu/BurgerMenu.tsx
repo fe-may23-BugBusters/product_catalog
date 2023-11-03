@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './sass/BurgerMenu.scss';
+import { Link } from 'react-router-dom';
 import { useTContext, TypeContext } from '../../context/Context';
 
 export const BurgerMenu = () => {
@@ -22,7 +23,10 @@ export const BurgerMenu = () => {
             <p />
           </a>
           <div className="headerMobile_buttons">
-            <a href="#nav" className="header_link" aria-label="Wykonaj akcję">
+            <p
+              className="header_link"
+              aria-label="Wykonaj akcję"
+            >
               <button
                 aria-label="Wykonaj akcję"
                 className={`burger-icon ${isMenuOpen ? 'open' : ''}`}
@@ -38,7 +42,7 @@ export const BurgerMenu = () => {
                 <p />
               </button>
               <div className="header_burger" />
-            </a>
+            </p>
           </div>
         </div>
       </header>
@@ -62,7 +66,12 @@ export const BurgerMenu = () => {
           <a href="http#" className="menu_heart" aria-label="Wykonaj akcję">
             <p />
           </a>
-          <a href="http#" className="menu_bag" aria-label="Wykonaj akcję">
+          <Link
+            to="/cart"
+            className="menu_bag"
+            aria-label="Wykonaj akcję"
+            onClick={toggleMenu}
+          >
             <div className="menu_bag--container">
               {/* eslint-disable */}
               {cart.length > 0 && (
@@ -71,7 +80,7 @@ export const BurgerMenu = () => {
                 </span>
               )}
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

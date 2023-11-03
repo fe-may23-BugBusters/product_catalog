@@ -1,13 +1,36 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
-import photo from '../../01.jpg';
 import './sass/CartItem.scss';
+import { useTContext, TypeContext } from '../../context/Context';
+import { Product } from '../../types/product';
 
-export const CartItem = () => {
+type Props = {
+  name: string;
+  // fullprice: number;
+  price: number;
+  image: string;
+  product: Product;
+};
+
+export const CartItem: React.FC<Props> = ({
+  name,
+  // fullprice,
+  price,
+  image,
+  product,
+}) => {
   const [quantity, setQuantity] = useState<number>(1);
+  const { cart, setCart } = useTContext() as TypeContext;
+
+  const handleIncrease = () => {
+    setCart([...cart, product]);
+  };
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
+    handleIncrease();
   };
 
   const removeItemFromCart = () => {
@@ -29,10 +52,9 @@ export const CartItem = () => {
             className="cartItem__info__close"
             onClick={removeItemFromCart}
           />
-          {/* sample photo */}
-          <img src={photo} alt="iphone" className="cartItem__info__img" />
+          <img src={require(`../../${image}`)} alt="iphone" className="cartItem__info__img" />
           <h2 className="cartItem__info__name">
-            Apple iPhone 14 Pro 128GB Silver (MQ023)
+            {name}
           </h2>
         </div>
 
@@ -54,7 +76,10 @@ export const CartItem = () => {
           >
             +
           </button>
-          <p className="cartItem__calc__price">$2137</p>
+          <p className="cartItem__calc__price">
+            {price}
+            $
+          </p>
         </div>
       </div>
     </>
