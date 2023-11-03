@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchData } from '../../services/dataService';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from 'axios';
 import { Product } from '../../types/product';
 
 const PhoneDetailsPage = () => {
@@ -11,10 +12,10 @@ const PhoneDetailsPage = () => {
   useEffect(() => {
     const fetchPhoneDetails = async () => {
       try {
-        const response = await fetchData({ phoneId });
+        const response = await axios.get(`https://product-catalog-be-6qo2.onrender.com/products/${phoneId}`);
 
-        if (response.length > 0) {
-          setPhoneDetails(response[0]);
+        if (response.data) {
+          setPhoneDetails(response.data);
         } else {
           setPhoneDetails(null);
         }
