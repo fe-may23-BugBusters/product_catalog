@@ -23,10 +23,7 @@ export const BurgerMenu = () => {
             <p />
           </a>
           <div className="headerMobile_buttons">
-            <p
-              className="header_link"
-              aria-label="Wykonaj akcję"
-            >
+            <p className="header_link" aria-label="Wykonaj akcję">
               <button
                 aria-label="Wykonaj akcję"
                 className={`burger-icon ${isMenuOpen ? 'open' : ''}`}

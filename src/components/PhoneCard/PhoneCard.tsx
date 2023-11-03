@@ -40,8 +40,13 @@ export const PhoneCard: React.FC<Props> = ({
   const conditionToAdd = !cart.some((item) => item.id === product.id);
 
   const handleAdd = () => {
+    const productWithQuantity = {
+      ...product,
+      quantity: 1,
+    };
+
     if (!isAdded && conditionToAdd) {
-      setCart([...cart, product]);
+      setCart([...cart, productWithQuantity]);
       setIsAdded(!isAdded);
     }
   };

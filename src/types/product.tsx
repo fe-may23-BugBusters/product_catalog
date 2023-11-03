@@ -12,4 +12,5 @@ export interface Product {
   ram: string;
   year: string;
   image: string;
+  quantity?: number;
 }
