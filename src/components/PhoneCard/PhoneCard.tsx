@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
 import './sass/PhoneCard.scss';
+import { Product } from '../../types/product';
+import { useTContext, TypeContext } from '../../context/Context';
 
 type Props = {
-  category: string;
-  phoneid: string;
-  itemid: string;
   name: string;
   fullprice: number;
   price: number;
@@ -15,12 +14,10 @@ type Props = {
   ram: string;
   year: string;
   image: string;
+  product: Product;
 };
 
 export const PhoneCard: React.FC<Props> = ({
-  category,
-  phoneid,
-  itemid,
   name,
   fullprice,
   price,
@@ -30,22 +27,31 @@ export const PhoneCard: React.FC<Props> = ({
   ram,
   year,
   image,
+  product,
 }) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
+  const { cart, setCart } = useTContext() as TypeContext;
 
   const handleLike = () => {
     setIsLiked(!isLiked);
   };
 
   const handleAdd = () => {
-    setIsAdded(!isAdded);
+    if (!isAdded) {
+      setCart([...cart, product]);
+      setIsAdded(!isAdded);
+    }
+
+    // eslint-disable-next-line no-console
+    console.log('we added product to cart', cart, cart.length);
   };
 
   return (
     <div className="phoneCard">
       <img
-        src={image}
+        // eslint-disable-next-line import/no-dynamic-require, global-require
+        src={require(`../../${image}`)}
         alt={`We are trying to get a pic of: ${name}...`}
         className="phoneCard__image"
       />

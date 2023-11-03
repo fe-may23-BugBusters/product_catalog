@@ -18,6 +18,7 @@ export const PhonesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(16);
   const [totalPosts, setTotalPosts] = useState(0);
+  // const [cart] = useState<Product[]>([]);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -105,9 +106,6 @@ export const PhonesPage = () => {
             <div className="product-card" key={product.id}>
               <PhoneCard
                 name={product.name}
-                category={product.category}
-                phoneid={product.phoneid}
-                itemid={product.itemid}
                 fullprice={product.fullprice}
                 price={product.price}
                 screen={product.screen}
@@ -116,6 +114,7 @@ export const PhonesPage = () => {
                 ram={product.ram}
                 year={product.year}
                 image={product.image}
+                product={product}
               />
             </div>
           ))
