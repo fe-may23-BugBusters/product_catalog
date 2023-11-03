@@ -3,9 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import './sass/Header.scss';
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { TypeContext, useTContext } from '../../context/Context';
 
 export const Header = () => {
+  const { cart } = useTContext() as TypeContext;
+
   return (
     <>
       <header className="header">
@@ -46,15 +48,22 @@ export const Header = () => {
 
         <div className="header__buttons">
           <button type="button" className="header__buttons__like" />
+          <button type="button" className="header__buttons__cart">
+            {/* eslint-disable */}
+            {cart.length > 0 && (
+              <span className="header__buttons__cart--elipse">
+                <p className="header__buttons__cart--paragraph">
+                  {cart.length}
+                </p>
+              </span>
+            )}
+          </button>
           <Link
             to="/cart"
             className="header__buttons__cart"
           />
         </div>
       </header>
-      <div className="burger-menu-container">
-        <BurgerMenu />
-      </div>
     </>
   );
 };
