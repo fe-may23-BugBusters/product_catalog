@@ -1,0 +1,43 @@
+@import '../../../utils/fonts.scss';
+
+.about{
+    background-color: #FAFBFC;
+    width: 559px;
+    color: #0F0F11;
+    font-family: Mont;
+    margin-left: 33px;
+
+    &_h2 {
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 140%;
+        margin-bottom: 16px;
+    }
+    &_h3 {
+        color: #0F0F11;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 16px;
+    }
+    &_p {
+        color: #89939A;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 21px;
+        margin-bottom: 32px;
+    }
+}
+
+.line-separator::before {
+    
+    content: '';
+    display: block;
+    border-top: 1px solid #E2E6E9;
+    width: 560px;
+    height: 1px;
+    margin-bottom: 32px;
+}

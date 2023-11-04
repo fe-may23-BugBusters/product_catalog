@@ -6,6 +6,7 @@ import { HomePage } from './components/HomePage/HomePage';
 import { Nav } from './components/Nav/Nav';
 import Footer from './components/footer';
 import { Cart } from './components/Cart/Cart';
+import { About } from './components/About/About';
 
 function App() {
   return (
@@ -23,6 +24,12 @@ function App() {
           <Route path="/cart">
             <Route index element={<Cart />} />
           </Route>
+          {/* docelowo element about bedzie czescia ProductCarda
+          teraz tylko dodaje podglad komponentu */}
+          <Route path="/about">
+            <Route index element={<About />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
