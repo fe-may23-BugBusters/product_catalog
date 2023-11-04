@@ -23,7 +23,21 @@ export function Provider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<Product[]>([]);
 
   useEffect(() => {
-    setCart(cart);
+    const savedCartJSON = localStorage.getItem('cart');
+
+    if (savedCartJSON) {
+      const savedCart = JSON.parse(savedCartJSON);
+
+      setCart([...savedCart]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      const cartJSON = JSON.stringify(cart);
+
+      localStorage.setItem('cart', cartJSON);
+    }
   }, [cart]);
 
   const contextValues: TypeContext = {

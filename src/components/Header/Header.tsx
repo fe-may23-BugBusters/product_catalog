@@ -48,7 +48,7 @@ export const Header = () => {
 
         <div className="header__buttons">
           <button type="button" className="header__buttons__like" />
-          <button type="button" className="header__buttons__cart">
+          <Link to="/cart" type="button" className="header__buttons__cart">
             {/* eslint-disable */}
             {cart.length > 0 && (
               <span className="header__buttons__cart--elipse">
@@ -57,11 +57,11 @@ export const Header = () => {
                 </p>
               </span>
             )}
-          </button>
-          <Link
+          </Link>
+          {/* <Link
             to="/cart"
             className="header__buttons__cart"
-          />
+          /> */}
         </div>
       </header>
     </>

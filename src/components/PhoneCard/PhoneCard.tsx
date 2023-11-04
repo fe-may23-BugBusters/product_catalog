@@ -37,14 +37,18 @@ export const PhoneCard: React.FC<Props> = ({
     setIsLiked(!isLiked);
   };
 
+  const conditionToAdd = !cart.some((item) => item.id === product.id);
+
   const handleAdd = () => {
-    if (!isAdded) {
-      setCart([...cart, product]);
+    const productWithQuantity = {
+      ...product,
+      quantity: 1,
+    };
+
+    if (!isAdded && conditionToAdd) {
+      setCart([...cart, productWithQuantity]);
       setIsAdded(!isAdded);
     }
-
-    // eslint-disable-next-line no-console
-    console.log('we added product to cart', cart, cart.length);
   };
 
   return (

@@ -28,12 +28,6 @@ export const Nav = () => {
     };
   }, []);
 
-  let condition = false;
-
-  if (windowWidth > 640) {
-    condition = true;
-  }
-
   return (
     <>
       <div className="headerNav">

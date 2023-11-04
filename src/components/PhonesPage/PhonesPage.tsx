@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-console */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
-// import cn from 'classnames';
 import './sass/PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
@@ -18,7 +16,6 @@ export const PhonesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(16);
   const [totalPosts, setTotalPosts] = useState(0);
-  // const [cart] = useState<Product[]>([]);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -30,7 +27,6 @@ export const PhonesPage = () => {
       );
 
       setProducts(response.data.rows);
-      console.log(response.data.count, response.data.rows);
       setTotalPosts(response.data.count);
       setLoading(false);
     };
@@ -103,7 +99,7 @@ export const PhonesPage = () => {
         </div>
         {!loading
           ? products.map((product) => (
-            <div className="product-card" key={product.id}>
+            <div className="product-card" key={product.name}>
               <PhoneCard
                 name={product.name}
                 fullprice={product.fullprice}
