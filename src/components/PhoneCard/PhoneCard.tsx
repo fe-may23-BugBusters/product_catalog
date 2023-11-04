@@ -56,7 +56,7 @@ export const PhoneCard: React.FC<Props> = ({
     <div className="phoneCard">
       <Link to="/about">
         <img
-        // eslint-disable-next-line import/no-dynamic-require, global-require
+          // eslint-disable-next-line import/no-dynamic-require, global-require
           src={require(`../../${image}`)}
           alt={`We are trying to get a pic of: ${name}...`}
           className="phoneCard__image"
