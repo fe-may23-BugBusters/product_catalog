@@ -56,9 +56,7 @@ export const Cart = () => {
                 ${calculateTotalPrice(cart)}
                 `}
               </p>
-              <p
-                className="cart__calculator__total"
-              >
+              <p className="cart__calculator__total">
                 Total for
                 {' '}
                 {cart.length}
