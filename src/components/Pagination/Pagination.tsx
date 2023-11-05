@@ -52,6 +52,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     <div className="pagination">
       <button
         // eslint-disable-next-line max-len
+        aria-label="Wykonaj akcję"
         className={
           !arrowLeftDis
             ? 'pagination_arrow--transform'
@@ -75,6 +76,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       {buttons}
       <button
         // eslint-disable-next-line max-len
+        aria-label="Wykonaj akcję"
         className={
           !arrowRightDis ? 'pagination_arrow' : 'pagination_arrow--dis'
         }

@@ -20,6 +20,13 @@ export const Cart: React.FC<CartItem> = ({ quantity }) => {
   /* quantity teoretycznie do pobrania z pojedynczej kartki, jest tam zmieniane przyciskami + -*/
 =======
 import { CartItem } from '../CartItem/CartItem';
+import { useTContext, TypeContext } from '../../context/Context';
+
+
+=======
+export const Cart = () => {
+  const { cart } = useTContext() as TypeContext;
+
 
   return (
     <>
@@ -37,9 +44,19 @@ import { CartItem } from '../CartItem/CartItem';
         </section>
         <div className="cart__main">
           <section className="cart__cartItems">
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {cart.map((product) => (
+              (product.quantity) && (
+                <CartItem
+                  key={product.name}
+                  name={product.name}
+                  // fullprice={product.fullprice}
+                  price={product.price}
+                  image={product.image}
+                  product={product}
+                  quantity={product.quantity}
+                />
+              )
+            ))}
           </section>
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">

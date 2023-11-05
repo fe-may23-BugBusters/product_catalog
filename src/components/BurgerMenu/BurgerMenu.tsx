@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './sass/BurgerMenu.scss';
+import { Link } from 'react-router-dom';
+import { useTContext, TypeContext } from '../../context/Context';
 
 export const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const { cart } = useTContext() as TypeContext;
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -13,14 +16,16 @@ export const BurgerMenu = () => {
       <header className="headerMobile" id="headerMobile">
         <div className="headerMobile_nav">
           <a
+            aria-label="Wykonaj akcję"
             href="index.html"
             className="headerMobile_link headerMobile_link--logo"
           >
             <p />
           </a>
           <div className="headerMobile_buttons">
-            <a href="#nav" className="header_link">
+            <p className="header_link" aria-label="Wykonaj akcję">
               <button
+                aria-label="Wykonaj akcję"
                 className={`burger-icon ${isMenuOpen ? 'open' : ''}`}
                 onClick={toggleMenu}
                 onKeyDown={(e) => {
@@ -34,7 +39,7 @@ export const BurgerMenu = () => {
                 <p />
               </button>
               <div className="header_burger" />
-            </a>
+            </p>
           </div>
         </div>
       </header>
@@ -55,12 +60,24 @@ export const BurgerMenu = () => {
           </a>
         </div>
         <div className="menu_footer">
-          <a href="http#" className="menu_heart">
+          <a href="http#" className="menu_heart" aria-label="Wykonaj akcję">
             <p />
           </a>
-          <a href="http#" className="menu_bag">
-            <p />
-          </a>
+          <Link
+            to="/cart"
+            className="menu_bag"
+            aria-label="Wykonaj akcję"
+            onClick={toggleMenu}
+          >
+            <div className="menu_bag--container">
+              {/* eslint-disable */}
+              {cart.length > 0 && (
+                <span className="menu_bag--elipse">
+                  <p className="menu_bag--paragraph">{cart.length}</p>
+                </span>
+              )}
+            </div>
+          </Link>
         </div>
       </div>
     </div>

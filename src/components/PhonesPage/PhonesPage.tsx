@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-console */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
-// import cn from 'classnames';
 import './sass/PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
@@ -28,7 +27,6 @@ export const PhonesPage = () => {
       );
 
       setProducts(response.data.rows);
-      console.log(response.data.count, response.data.rows);
       setTotalPosts(response.data.count);
       setLoading(false);
     };
@@ -100,6 +98,7 @@ export const PhonesPage = () => {
             </option>
           </select>
         </div>
+
         <div className="product-card__container">
           {!loading
             ? products.map((product) => (

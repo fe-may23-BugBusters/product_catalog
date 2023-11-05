@@ -73,6 +73,7 @@
     }
 
     &__cart {
+      position: relative;
       background-image: url('../../../images/bag.svg');
       background-repeat: no-repeat;
       background-position: center;
@@ -86,6 +87,36 @@
         height: 48px;
         width: 48px;
       }
+    }
+    &__cart--elipse {
+      position: absolute;
+      background-size: 14px 14px;
+      background: url(../../../images/elipse.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      top: 10px;
+      right: 10px;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      fill: #476df4;
+      stroke-width: 1px;
+      stroke: #fff;
+      @include for-desktop() {
+        top: 17px;
+        right: 17px;
+      }
+    }
+    &__cart--paragraph {
+      padding-top: 1px;
+      color: #fff;
+      text-align: center;
+      vertical-align: middle;
+      font-family: Mont;
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
     }
   }
 }
