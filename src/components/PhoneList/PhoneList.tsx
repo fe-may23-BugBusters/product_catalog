@@ -9,10 +9,22 @@ interface Props {
 
 export const PhonesList: React.FC<Props> = ({ phones }) => (
   <div className="phones">
-    {/* {phones.map((phone) => {
+    {phones.map((phone) => {
       return (
-        <PhoneCard key={phone.id} phoneid={phone.id} />
+        <PhoneCard
+          key={phone.id}
+          name={phone.name}
+          fullprice={phone.fullprice}
+          price={phone.price}
+          screen={phone.screen}
+          capacity={phone.capacity}
+          color={phone.color}
+          ram={phone.ram}
+          year={phone.year}
+          image={phone.image}
+          product={phone}
+        />
       );
-    })} */}
+    })}
   </div>
 );
