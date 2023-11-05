@@ -12,7 +12,7 @@ type Props = {
   price: number;
   image: string;
   product: Product;
-  quantity:number;
+  quantity: number;
 };
 
 export const CartItem: React.FC<Props> = ({
@@ -26,7 +26,7 @@ export const CartItem: React.FC<Props> = ({
   const { cart, setCart } = useTContext() as TypeContext;
 
   const handleIncrease = () => {
-    const updatedCart = cart.map(p => {
+    const updatedCart = cart.map((p) => {
       // dla zadanego id dodajemy quantity + 1
       if (p.id === product.id) {
         return {
@@ -44,7 +44,7 @@ export const CartItem: React.FC<Props> = ({
   };
 
   const handleDecrease = () => {
-    const updatedCart = cart.map(p => {
+    const updatedCart = cart.map((p) => {
       // dla zadanego id q-1
       if (p.id === product.id) {
         return {
@@ -72,7 +72,7 @@ export const CartItem: React.FC<Props> = ({
 
       localStorage.setItem('cart', cartJSON);
     } else {
-      const updatedCart = cart.filter(p => {
+      const updatedCart = cart.filter((p) => {
         return p.id !== product.id;
       });
 

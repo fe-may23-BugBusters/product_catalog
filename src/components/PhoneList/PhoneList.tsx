@@ -1,5 +1,5 @@
 import React from 'react';
-import './PhonesList.scss';
+// import './PhonesList.scss';
 import { Product } from '../../types/product';
 import { PhoneCard } from '../PhoneCard/PhoneCard';
 

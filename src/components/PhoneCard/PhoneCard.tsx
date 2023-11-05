@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { SetStateAction, useState } from 'react';
 import './sass/PhoneCard.scss';
+import { Link } from 'react-router-dom';
 import { Product } from '../../types/product';
 import { useTContext, TypeContext } from '../../context/Context';
 
@@ -53,12 +54,15 @@ export const PhoneCard: React.FC<Props> = ({
 
   return (
     <div className="phoneCard">
-      <img
-        // eslint-disable-next-line import/no-dynamic-require, global-require
-        src={require(`../../${image}`)}
-        alt={`We are trying to get a pic of: ${name}...`}
-        className="phoneCard__image"
-      />
+      <Link to="/about">
+        <img
+          // eslint-disable-next-line import/no-dynamic-require, global-require
+          src={require(`../../${image}`)}
+          alt={`We are trying to get a pic of: ${name}...`}
+          className="phoneCard__image"
+        />
+      </Link>
+
       <h2 className="phoneCard__title">{name}</h2>
       <div className="phoneCard__price">
         <p className="phoneCard__price__current">
