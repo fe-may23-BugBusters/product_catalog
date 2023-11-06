@@ -1,0 +1,58 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+.recommended {
+  &__title {
+    color: var(--gray-primary, #0f0f11);
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 41px;
+  }
+
+  &__container {
+    display: flex;
+    letter-spacing: -0.32px;
+    margin-top: 80px;
+    justify-content: space-between;
+  }
+
+  &__cards {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__buttons {
+    display: none;
+
+    @include for-tablet() {
+      display: inline-flex;
+      gap: 16px;
+    }
+
+    &__left {
+      background-image: url('../../../icons/chevron-left.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
+
+      border: 1px solid #e2e6e9;
+      border-radius: 50%;
+      background-color: inherit;
+    }
+
+    &__right {
+      background-image: url('../../../icons/Chevron\ \(Arrow\ Right\).svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
+
+      border: 1px solid #e2e6e9;
+      border-radius: 50%;
+      background-color: inherit;
+    }
+  }
+}

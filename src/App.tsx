@@ -7,6 +7,8 @@ import { Nav } from './components/Nav/Nav';
 import Footer from './components/footer';
 import { Cart } from './components/Cart/Cart';
 import { About } from './components/About/About';
+import { TechSpecs } from './components/TechSpecs/TechSpecs';
+import { Recommended } from './components/Recommended/Recommended';
 import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
 
 function App() {
@@ -28,6 +30,12 @@ function App() {
           <Route path="/phoneinfo">
             <Route index element={<PhoneDetailsPage />} />
             <Route path="/phoneinfo/:phoneId" element={<PhoneDetailsPage />} />
+          </Route>
+
+          {/* docelowo element tech-specs bedzie czescia strony telefonu
+          teraz tylko dodaje podglad komponentu */}
+          <Route path="/recommended">
+            <Route index element={<Recommended />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />
