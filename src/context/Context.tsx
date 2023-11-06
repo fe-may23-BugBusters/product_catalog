@@ -1,4 +1,5 @@
 import React, {
+  Dispatch,
   ReactNode,
   SetStateAction,
   createContext,
@@ -7,14 +8,12 @@ import React, {
   useState,
 } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { Product } from '../types/product';
 
 export interface TypeContext {
   cart: Product[];
   setCart: React.Dispatch<SetStateAction<Product[]>>;
-  recommended: Product[];
-  setRecommended: React.Dispatch<SetStateAction<Product[]>>;
-  loadRecommended: () => Product[];
 }
 
 const TContext = createContext<TypeContext | null>(null);
@@ -25,15 +24,6 @@ export function useTContext() {
 
 export function Provider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<Product[]>([]);
-  const [recommended, setRecommended] = useState<Product[]>([]);
-
-  const loadRecommended = async (phoneId: string) => {
-    const response = await axios.get(
-      `https://product-catalog-be-6qo2.onrender.com/products/${phoneId}/recommended/`,
-    );
-
-    setRecommended(response.data);
-  };
 
   useEffect(() => {
     const savedCartJSON = localStorage.getItem('cart');
@@ -56,9 +46,6 @@ export function Provider({ children }: { children: ReactNode }) {
   const contextValues: TypeContext = {
     cart,
     setCart,
-    recommended,
-    setRecommended,
-    loadRecommended,
   };
 
   return (
