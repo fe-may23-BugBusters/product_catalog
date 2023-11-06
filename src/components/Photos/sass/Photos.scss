@@ -4,6 +4,12 @@
   // width: 600px;
   height: 600px;
   background-color: #fafbfc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include for-phone {
+    margin-left: 16px;
+  }
 
   &_gallery {
     display: flex;
@@ -13,30 +19,30 @@
     display: grid;
     grid-template-columns: 80px 442px;
     @include for-tablet {
-        grid-template-columns: 35px 287px;
+      grid-template-columns: 35px 287px;
     }
     @include for-phone {
-        grid-template-columns: 1fr; 
-        grid-template-rows: 288px 50px;
-        row-gap: 16px;
-        align-items: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: 288px 50px;
+      row-gap: 16px;
+      align-items: center;
     }
   }
 
   &_thumbnails {
     width: 80px;
     @include for-tablet {
-        width: 35px;
+      width: 35px;
     }
     @include for-phone {
-        width: 280px;
-        height: 50px;
-        grid-row: 2;
-        display: flex;
-        margin-left: 16px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      width: 280px;
+      height: 50px;
+      grid-row: 2;
+      display: flex;
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
   &_frame {
@@ -50,16 +56,16 @@
     justify-content: center;
     align-items: center;
     @include for-tablet {
-        width: 35px;
-        height: 35px;
-        margin-bottom: 8px;
+      width: 35px;
+      height: 35px;
+      margin-bottom: 8px;
     }
     @include for-phone {
-        border-radius: 4px;
-        width: 50px;
-        height: 50px; 
-        margin-bottom: 0;
-        margin-right: 8px;
+      border-radius: 4px;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 0;
+      margin-right: 8px;
     }
   }
 
@@ -75,16 +81,16 @@
     cursor: pointer;
     padding: 7px;
     @include for-tablet {
-        height: 28px;
-        padding: 0;
-        margin: 0;
+      height: 28px;
+      padding: 0;
+      margin: 0;
     }
     @include for-phone {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        margin: 0; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
     }
   }
   &_main-image {
@@ -99,18 +105,18 @@
     padding: 11px;
     margin-left: 27px;
     @include for-tablet {
-        height: 287px;
-        width: 287px;
-        padding: 6.8px;
-        margin-left: 16.4px;
+      height: 287px;
+      width: 287px;
+      padding: 6.8px;
+      margin-left: 16.4px;
     }
     @include for-phone {
-        width: 288px;
-        height: 288px;
-        padding: 6.8px;
-        grid-row: 1; 
-        margin-bottom: 0;
-        margin-left: 0;
+      width: 288px;
+      height: 288px;
+      padding: 6.8px;
+      grid-row: 1;
+      margin-bottom: 0;
+      margin-left: 0;
     }
   }
 }
