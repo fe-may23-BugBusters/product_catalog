@@ -1,32 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Chevron from '../../icons/chevron-left.svg';
+import { useTContext, TypeContext } from '../../context/Context';
 import './sass/Cart.scss';
 import { Product } from '../../types/product';
-
-type CartItem = {
-  quantity: number;
-};
-
-export const Cart: React.FC<CartItem> = ({ quantity }) => {
-  const [cart, setCart] = useState<Product[]>([]);
-
-  const calculatePrice = () => {
-    return cart.reduce((acc, curr) => {
-      return acc + curr.price * quantity;
-    }, 0);
-  };
-
-  /* quantity teoretycznie do pobrania z pojedynczej kartki, jest tam zmieniane przyciskami + -*/
-=======
 import { CartItem } from '../CartItem/CartItem';
-import { useTContext, TypeContext } from '../../context/Context';
 
-
-=======
 export const Cart = () => {
   const { cart } = useTContext() as TypeContext;
 
+  const calculateTotalPrice = (itemsInCart: Product[]) => {
+    return itemsInCart.reduce((total, cartItem) => {
+      if (cartItem.quantity !== undefined) {
+        return total + cartItem.price * cartItem.quantity;
+      }
+
+      return total;
+    }, 0);
+  };
 
   return (
     <>
@@ -61,9 +52,9 @@ export const Cart = () => {
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">
               <p className="cart__calculator__price">
-                {`$
-                ${calculatePrice()}
-                `}
+
+                {`$${calculateTotalPrice(cart)}`}
+
               </p>
               <p className="cart__calculator__total">Total for 3 products</p>
             </div>
