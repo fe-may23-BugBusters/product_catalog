@@ -17,6 +17,7 @@ type Props = {
   year: string;
   image: string;
   product: Product;
+  is_discounted: boolean;
 };
 
 export const PhoneCard: React.FC<Props> = ({
@@ -31,6 +32,7 @@ export const PhoneCard: React.FC<Props> = ({
   year,
   image,
   product,
+  is_discounted,
 }) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
@@ -67,14 +69,26 @@ export const PhoneCard: React.FC<Props> = ({
 
       <h2 className="phoneCard__title">{name}</h2>
       <div className="phoneCard__price">
-        <p className="phoneCard__price__current">
-          {price}
-          $
-        </p>
-        <p className="phoneCard__price__old">
-          {fullprice}
-          $
-        </p>
+        {is_discounted && (
+          <>
+            <p className="phoneCard__price__current">
+              {price}
+              $
+            </p>
+            <p className="phoneCard__price__old">
+              {fullprice}
+              $
+            </p>
+          </>
+        )}
+        {!is_discounted && (
+          <>
+            <p className="phoneCard__price__current">
+              {fullprice}
+              $
+            </p>
+          </>
+        )}
       </div>
 
       <div className="phoneCard__description">

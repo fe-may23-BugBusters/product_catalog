@@ -115,6 +115,7 @@ export const PhonesPage = () => {
                   year={product.year}
                   image={product.image}
                   product={product}
+                  is_discounted={product.is_discounted}
                 />
               </div>
             ))

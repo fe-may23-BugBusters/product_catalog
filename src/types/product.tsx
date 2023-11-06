@@ -12,6 +12,7 @@ export interface Product {
   ram: string;
   year: string;
   image: string;
+  is_discounted: boolean;
   quantity?: number;
 }
 
