@@ -30,7 +30,9 @@ export const TechSpecs: React.FC = () => {
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1 camera">Camera</td>
-            <td className="tech_table--column2">12 Mp + 12 Mp + 12 Mp (Triple)</td>
+            <td className="tech_table--column2">
+              12 Mp + 12 Mp + 12 Mp (Triple)
+            </td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Zoom</td>

@@ -4,12 +4,11 @@
 .recommended {
     &__title {
         color: var(--gray-primary, #0F0F11);
-        /* Desktop & Tablet/H2 */
         font-family: Mont;
         font-size: 32px;
         font-style: normal;
         font-weight: 800;
-        line-height: 41px; /* 128.125% */
+        line-height: 41px;
 
     }
 
