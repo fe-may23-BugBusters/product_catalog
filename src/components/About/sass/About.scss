@@ -55,9 +55,6 @@
     line-height: 21px;
     margin-bottom: 32px;
     @include for-phone() {
-    }
-    font-weight: 600;
-    @include for-phone() {
       align-self: stretch;
       font-weight: 600;
       margin-bottom: 0;

@@ -1,0 +1,97 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+.tech {
+  background-color: #fafbfc;
+  // width: 100%;
+  color: #0f0f11;
+  font-family: Mont;
+  margin-left: 65px;
+  @include for-tablet() {
+    margin-left: 26px;
+  }
+  @include for-phone() {
+    margin-left: 17px;
+  }
+
+  &_h2 {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%;
+    margin-bottom: 16px;
+    @include for-phone() {
+    }
+  }
+
+  &_table {
+    white-space: nowrap;
+    width: 512px;
+    @include for-tablet() {
+        width: 591px;
+    }
+    @include for-phone() {
+        width: 288px;
+    }
+
+    &--row {
+         // width: 512px;
+    }
+    &--body {
+         // width: 512px;
+         @include for-phone() {
+            width: 288px;
+        }
+    }
+
+    &--column2 {
+        text-align: right;
+        // width: 256px;
+        color: #0f0f11;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 21px;
+        margin-bottom: 8px;
+        @include for-phone() {
+        }
+      }
+      &--column1 {
+        text-align: left;
+        // width: 256px;
+        color: #89939a;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 21px;
+        margin-bottom: 8px;
+        @include for-phone() {
+
+        }
+        @include for-phone() {
+        }
+      }
+  }
+
+}
+
+.line-separator2::after {
+  content: '';
+  display: block;
+  border-top: 1px solid #e2e6e9;
+  width: 512px;
+  height: 1px;
+  margin-bottom: 25px;
+  @include for-tablet() {
+    width: 591px;
+  }
+  @include for-phone() {
+    width: 288px;
+  }
+}
+
+// .camera {
+//     @include for-phone() {
+//         max-width: 90px;
+//     }
+// }
