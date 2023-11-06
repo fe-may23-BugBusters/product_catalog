@@ -123,7 +123,7 @@ export const CartItem: React.FC<Props> = ({
             +
           </button>
           <p className="cartItem__calc__price">
-            {price}
+            {price * quantity}
             $
           </p>
         </div>

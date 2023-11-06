@@ -29,10 +29,10 @@
     line-height: 140%;
     margin-bottom: 16px;
     @include for-phone() {
-        align-self: stretch;
-        font-size: 20px;
-        font-weight: 700;
-        line-height: normal;
+      align-self: stretch;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: normal;
     }
   }
   &_h3 {
@@ -43,8 +43,8 @@
     line-height: normal;
     margin-bottom: 16px;
     @include for-phone() {
-        align-self: stretch;
-        font-size: 16px;
+      align-self: stretch;
+      font-size: 16px;
     }
   }
   &_p {
@@ -54,12 +54,13 @@
     font-weight: 500;
     line-height: 21px;
     margin-bottom: 32px;
-    @include for-phone() {}
+    @include for-phone() {
+    }
     font-weight: 600;
     @include for-phone() {
-        align-self: stretch;
-        font-weight: 600;
-        margin-bottom: 0;
+      align-self: stretch;
+      font-weight: 600;
+      margin-bottom: 0;
     }
   }
 }
