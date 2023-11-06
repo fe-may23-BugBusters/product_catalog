@@ -84,7 +84,7 @@ const PhoneDetailsPage = () => {
             zoom={phoneDetails.zoom}
           />
           <section className="info__main__about">
-            <About />
+            <About description={phoneDetails.description} />
           </section>
         </div>
       </div>
