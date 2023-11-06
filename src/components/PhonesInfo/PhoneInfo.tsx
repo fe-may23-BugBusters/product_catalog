@@ -50,7 +50,16 @@ const PhoneDetailsPage = () => {
     <div>
       <Photos images={phoneDetails.images} />
       <About />
-      <TechSpecs />
+      <TechSpecs
+        camera={phoneDetails.camera}
+        capacity={phoneDetails.capacity}
+        cell={phoneDetails.cell}
+        processor={phoneDetails.processor}
+        ram={phoneDetails.ram}
+        resolution={phoneDetails.resolution}
+        screen={phoneDetails.screen}
+        zoom={phoneDetails.zoom}
+      />
       <h1>{phoneDetails.name}</h1>
       <p>
         Item ID:

@@ -6,10 +6,7 @@ import { HomePage } from './components/HomePage/HomePage';
 import { Nav } from './components/Nav/Nav';
 import Footer from './components/footer';
 import { Cart } from './components/Cart/Cart';
-import { About } from './components/About/About';
-import { TechSpecs } from './components/TechSpecs/TechSpecs';
 import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
-import { Photos } from './components/Photos/Photos';
 
 function App() {
   return (
@@ -30,21 +27,6 @@ function App() {
           <Route path="/phoneinfo">
             <Route index element={<PhoneDetailsPage />} />
             <Route path="/phoneinfo/:phoneId" element={<PhoneDetailsPage />} />
-          </Route>
-          {/* docelowo element about bedzie czescia strony telefonu
-          teraz tylko dodaje podglad komponentu */}
-          <Route path="/about">
-            <Route index element={<About />} />
-          </Route>
-          {/* docelowo element tech-specs bedzie czescia strony telefonu
-          teraz tylko dodaje podglad komponentu */}
-          <Route path="/techspecs">
-            <Route index element={<TechSpecs />} />
-          </Route>
-          {/* docelowo element photos bedzie czescia strony telefonu
-          teraz tylko dodaje podglad komponentu */}
-          <Route path="/photos">
-            <Route index element={<Photos images={[]} />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

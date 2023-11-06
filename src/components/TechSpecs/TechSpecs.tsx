@@ -1,8 +1,29 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 import React from 'react';
 import './sass/TechSpecs.scss';
 
-export const TechSpecs: React.FC = () => {
+type PropsSpec = {
+  camera: string;
+  capacity: string;
+  cell: string[];
+  processor: string;
+  ram: string;
+  resolution: string;
+  screen: string;
+  zoom: string;
+};
+
+export const TechSpecs: React.FC<PropsSpec> = ({
+  camera,
+  capacity,
+  cell,
+  processor,
+  ram,
+  resolution,
+  screen,
+  zoom,
+}) => {
   return (
     <div className="tech">
       <h2 className="tech_h2 line-separator2">Tech specs</h2>
@@ -10,37 +31,39 @@ export const TechSpecs: React.FC = () => {
         <tbody className="tech_table--body">
           <tr className="tech_table--row">
             <td className="tech_table--column1">Screen</td>
-            <td className="tech_table--column2">6.5&quot; OLED</td>
+            <td className="tech_table--column2">{screen}</td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Resolution</td>
-            <td className="tech_table--column2">2688x1242</td>
+            <td className="tech_table--column2">{resolution}</td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Processor</td>
-            <td className="tech_table--column2">Apple A12 Bionic</td>
+            <td className="tech_table--column2">{processor}</td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">RAM</td>
-            <td className="tech_table--column2">3 GB</td>
+            <td className="tech_table--column2">{ram}</td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Built in memory</td>
-            <td className="tech_table--column2">64 GB</td>
+            <td className="tech_table--column2">{capacity}</td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1 camera">Camera</td>
             <td className="tech_table--column2">
-              12 Mp + 12 Mp + 12 Mp (Triple)
+              {camera}
             </td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Zoom</td>
-            <td className="tech_table--column2">Optical, 2x</td>
+            <td className="tech_table--column2">{zoom}</td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Cell</td>
-            <td className="tech_table--column2">GSM, LTE, UMTS</td>
+            <td className="tech_table--column2">
+              {cell.join(', ')}
+            </td>
           </tr>
         </tbody>
       </table>
