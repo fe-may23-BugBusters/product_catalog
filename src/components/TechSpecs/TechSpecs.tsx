@@ -51,9 +51,7 @@ export const TechSpecs: React.FC<PropsSpec> = ({
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1 camera">Camera</td>
-            <td className="tech_table--column2">
-              {camera}
-            </td>
+            <td className="tech_table--column2">{camera}</td>
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Zoom</td>
@@ -61,9 +59,7 @@ export const TechSpecs: React.FC<PropsSpec> = ({
           </tr>
           <tr className="tech_table--row">
             <td className="tech_table--column1">Cell</td>
-            <td className="tech_table--column2">
-              {cell.join(', ')}
-            </td>
+            <td className="tech_table--column2">{cell.join(', ')}</td>
           </tr>
         </tbody>
       </table>
