@@ -12,6 +12,7 @@ export const PhonesList: React.FC<Props> = ({ phones }) => (
     {phones.map((phone) => {
       return (
         <PhoneCard
+          itemid={phone.itemid}
           key={phone.id}
           name={phone.name}
           fullprice={phone.fullprice}

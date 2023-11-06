@@ -1,60 +1,122 @@
+@import '../../../utils/mixins.scss';
+
 .phoneInfoPhotos {
-    // width: 600px;
-    height: 600px;
-    background-color: #FAFBFC;
-    
+  // width: 600px;
+  height: 600px;
+  background-color: #fafbfc;
 
-    &_gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        display: grid;
-        grid-template-columns: 1fr 5fr;
+  &_gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 80px 442px;
+    @include for-tablet {
+        grid-template-columns: 35px 287px;
     }
-
-    &_thumbnails {
-        width: 80px;
-    }
-    &_frame {
-        width: 80px;
-        border-color: #B4BDC3;
-        border-width: 1px;
-        border-style: solid;
-        margin-bottom: 16px;
-        display: flex;
-        justify-content: center;
+    @include for-phone {
+        grid-template-columns: 1fr; 
+        grid-template-rows: 288px 50px;
+        row-gap: 16px;
         align-items: center;
     }
+  }
 
-    &_frame:hover {
-        border-color: #0F0F11;
-        
+  &_thumbnails {
+    width: 80px;
+    @include for-tablet {
+        width: 35px;
     }
-
-    &_thumbnail {
-        background-color: #FAFBFC;
-        // width: 66px;
-        height: 66px;
-        margin: 5px;
-        cursor: pointer;
-        padding: 7px;
-    }
-    &_main-image {
+    @include for-phone {
+        width: 280px;
+        height: 50px;
+        grid-row: 2;
+        display: flex;
+        margin-left: 16px;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #FAFBFC;
-        width: 442px;
-        height: 442px;
+    }
+  }
+  &_frame {
+    width: 80px;
+    border-color: #b4bdc3;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include for-tablet {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 8px;
+    }
+    @include for-phone {
+        border-radius: 4px;
+        width: 50px;
+        height: 50px; 
+        margin-bottom: 0;
+        margin-right: 8px;
+    }
+  }
+
+  &_frame:hover {
+    border-color: #0f0f11;
+  }
+
+  &_thumbnail {
+    background-color: #fafbfc;
+    // width: 66px;
+    height: 66px;
+    margin: 5px;
+    cursor: pointer;
+    padding: 7px;
+    @include for-tablet {
+        height: 28px;
+        padding: 0;
+        margin: 0;
+    }
+    @include for-phone {
+        display: flex;
         justify-content: center;
         align-items: center;
-        padding: 11px;
+        padding: 0;
+        margin: 0; 
     }
+  }
+  &_main-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafbfc;
+    width: 442px;
+    height: 442px;
+    justify-content: center;
+    align-items: center;
+    padding: 11px;
+    margin-left: 27px;
+    @include for-tablet {
+        height: 287px;
+        width: 287px;
+        padding: 6.8px;
+        margin-left: 16.4px;
+    }
+    @include for-phone {
+        width: 288px;
+        height: 288px;
+        padding: 6.8px;
+        grid-row: 1; 
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+  }
 }
 
 img {
-    background-color: #FAFBFC;
-    max-width: 100%;
-    max-height: 100%;
+  background-color: #fafbfc;
+  max-width: 100%;
+  max-height: 100%;
 }

@@ -10,7 +10,9 @@ import { TechSpecs } from '../TechSpecs/TechSpecs';
 
 const PhoneDetailsPage = () => {
   const { phoneId } = useParams();
-  const [phoneDetails, setPhoneDetails] = useState<ProductExtended | null>(null);
+  const [phoneDetails, setPhoneDetails] = useState<ProductExtended | null>(
+    null,
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
