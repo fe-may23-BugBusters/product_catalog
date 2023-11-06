@@ -52,11 +52,17 @@ export const Cart = () => {
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">
               <p className="cart__calculator__price">
-
-                {`$${calculateTotalPrice(cart)}`}
-
+                {`$
+                ${calculateTotalPrice(cart)}
+                `}
               </p>
-              <p className="cart__calculator__total">Total for 3 products</p>
+              <p className="cart__calculator__total">
+                Total for
+                {' '}
+                {cart.length}
+                {' '}
+                {cart.length === 1 ? 'product' : 'products'}
+              </p>
             </div>
 
             <div className="cart__calculator__line" />
