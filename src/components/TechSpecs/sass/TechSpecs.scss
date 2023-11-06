@@ -28,51 +28,49 @@
     white-space: nowrap;
     width: 512px;
     @include for-tablet() {
-        width: 591px;
+      width: 591px;
     }
     @include for-phone() {
-        width: 288px;
+      width: 288px;
     }
 
     &--row {
-         // width: 512px;
+      // width: 512px;
     }
     &--body {
-         // width: 512px;
-         @include for-phone() {
-            width: 288px;
-        }
+      // width: 512px;
+      @include for-phone() {
+        width: 288px;
+      }
     }
 
     &--column2 {
-        text-align: right;
-        // width: 256px;
-        color: #0f0f11;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 21px;
-        margin-bottom: 8px;
-        @include for-phone() {
-        }
+      text-align: right;
+      white-space: nowrap;
+      color: #0f0f11;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 21px;
+      margin-bottom: 8px;
+      @include for-phone() {
       }
-      &--column1 {
-        text-align: left;
-        // width: 256px;
-        color: #89939a;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 21px;
-        margin-bottom: 8px;
-        @include for-phone() {
-
-        }
-        @include for-phone() {
-        }
+    }
+    &--column1 {
+      text-align: left;
+      // width: 256px;
+      color: #89939a;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 21px;
+      margin-bottom: 8px;
+      @include for-phone() {
       }
+      @include for-phone() {
+      }
+    }
   }
-
 }
 
 .line-separator2::after {

@@ -7,6 +7,7 @@ import { useTContext, TypeContext } from '../../context/Context';
 
 type Props = {
   name: string;
+  itemid: string;
   fullprice: number;
   price: number;
   screen: string;
@@ -16,10 +17,12 @@ type Props = {
   year: string;
   image: string;
   product: Product;
+  is_discounted: boolean;
 };
 
 export const PhoneCard: React.FC<Props> = ({
   name,
+  itemid,
   fullprice,
   price,
   screen,
@@ -29,6 +32,7 @@ export const PhoneCard: React.FC<Props> = ({
   year,
   image,
   product,
+  is_discounted,
 }) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
@@ -54,7 +58,7 @@ export const PhoneCard: React.FC<Props> = ({
 
   return (
     <div className="phoneCard">
-      <Link to="/about">
+      <Link to={`/phoneinfo/${itemid}`}>
         <img
           // eslint-disable-next-line import/no-dynamic-require, global-require
           src={require(`../../${image}`)}
@@ -65,14 +69,26 @@ export const PhoneCard: React.FC<Props> = ({
 
       <h2 className="phoneCard__title">{name}</h2>
       <div className="phoneCard__price">
-        <p className="phoneCard__price__current">
-          {price}
-          $
-        </p>
-        <p className="phoneCard__price__old">
-          {fullprice}
-          $
-        </p>
+        {is_discounted && (
+          <>
+            <p className="phoneCard__price__current">
+              {price}
+              $
+            </p>
+            <p className="phoneCard__price__old">
+              {fullprice}
+              $
+            </p>
+          </>
+        )}
+        {!is_discounted && (
+          <>
+            <p className="phoneCard__price__current">
+              {fullprice}
+              $
+            </p>
+          </>
+        )}
       </div>
 
       <div className="phoneCard__description">
