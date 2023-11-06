@@ -177,7 +177,6 @@
 .product-card {
   grid-column: span 6;
   grid-row: auto;
-  height: 506px;
 
   @include for-tablet() {
     grid-column: span 4;
@@ -185,7 +184,6 @@
 
   @include for-phone() {
     grid-column: 1 / span 4;
-    height: 440px;
   }
 
   &__container {

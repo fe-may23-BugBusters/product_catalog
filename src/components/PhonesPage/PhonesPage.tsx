@@ -105,6 +105,7 @@ export const PhonesPage = () => {
               <div className="product-card" key={product.id}>
                 <PhoneCard
                   name={product.name}
+                  itemid={product.itemid}
                   fullprice={product.fullprice}
                   price={product.price}
                   screen={product.screen}
@@ -114,6 +115,7 @@ export const PhonesPage = () => {
                   year={product.year}
                   image={product.image}
                   product={product}
+                  is_discounted={product.is_discounted}
                 />
               </div>
             ))
