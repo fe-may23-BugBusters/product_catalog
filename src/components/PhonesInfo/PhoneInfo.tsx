@@ -1,12 +1,16 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
-import { Product } from '../../types/product';
+import { ProductExtended } from '../../types/product';
+import { Photos } from '../Photos/Photos';
+import { About } from '../About/About';
+import { TechSpecs } from '../TechSpecs/TechSpecs';
 
 const PhoneDetailsPage = () => {
   const { phoneId } = useParams();
-  const [phoneDetails, setPhoneDetails] = useState<Product | null>(null);
+  const [phoneDetails, setPhoneDetails] = useState<ProductExtended | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,6 +22,7 @@ const PhoneDetailsPage = () => {
 
         if (response.data) {
           setPhoneDetails(response.data);
+          console.log(response.data);
         } else {
           setPhoneDetails(null);
         }
@@ -41,26 +46,21 @@ const PhoneDetailsPage = () => {
 
   return (
     <div>
+      <Photos images={phoneDetails.images} />
+      <About />
+      <TechSpecs />
       <h1>{phoneDetails.name}</h1>
       <p>
-        Category:
-        {phoneDetails.category}
-      </p>
-      <p>
-        Phone ID:
-        {phoneDetails.phoneid}
-      </p>
-      <p>
         Item ID:
-        {phoneDetails.itemid}
+        {phoneDetails.id}
       </p>
       <p>
         Full Price:
-        {phoneDetails.fullprice}
+        {phoneDetails.price_regular}
       </p>
       <p>
         Price:
-        {phoneDetails.price}
+        {phoneDetails.price_discount}
       </p>
       <p>
         Screen:
@@ -78,11 +78,6 @@ const PhoneDetailsPage = () => {
         Ram:
         {phoneDetails.ram}
       </p>
-      <p>
-        Year:
-        {phoneDetails.year}
-      </p>
-      <img src={phoneDetails.image} alt={phoneDetails.name} />
     </div>
   );
 };

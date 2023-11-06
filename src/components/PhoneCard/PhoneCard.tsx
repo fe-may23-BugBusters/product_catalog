@@ -7,6 +7,7 @@ import { useTContext, TypeContext } from '../../context/Context';
 
 type Props = {
   name: string;
+  itemid: string;
   fullprice: number;
   price: number;
   screen: string;
@@ -20,6 +21,7 @@ type Props = {
 
 export const PhoneCard: React.FC<Props> = ({
   name,
+  itemid,
   fullprice,
   price,
   screen,
@@ -54,7 +56,7 @@ export const PhoneCard: React.FC<Props> = ({
 
   return (
     <div className="phoneCard">
-      <Link to="/about">
+      <Link to={`/phoneinfo/${itemid}`}>
         <img
           // eslint-disable-next-line import/no-dynamic-require, global-require
           src={require(`../../${image}`)}

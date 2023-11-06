@@ -14,3 +14,24 @@ export interface Product {
   image: string;
   quantity?: number;
 }
+
+export interface ProductExtended {
+  camera: string;
+  capacity: string;
+  capacity_available: string[];
+  cell: string[];
+  color: string;
+  colors_available: string[];
+  description: {};
+  id: string;
+  images: string[];
+  name: string;
+  namespace_id: string;
+  price_discount: string;
+  price_regular: string;
+  processor: string;
+  ram: string;
+  resolution: string;
+  screen: string;
+  zoom: string;
+}
