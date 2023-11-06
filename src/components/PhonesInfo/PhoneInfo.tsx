@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
+
 import { Link, useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
@@ -36,6 +37,7 @@ const PhoneDetailsPage = () => {
         setLoading(false);
       } catch (error) {
         console.error('There was a problem fetching phone details:', error);
+        setLoading(false);
       }
     };
 
@@ -51,7 +53,6 @@ const PhoneDetailsPage = () => {
   }
 
   return (
-    <div>
       <div className="info">
         <section className="info__head">
           <div className="info__head__container">
@@ -71,7 +72,6 @@ const PhoneDetailsPage = () => {
           </Link>
           <h1 className="info__head__title">{phoneDetails.name}</h1>
         </section>
-        <div className="info__main">
           <Photos images={phoneDetails.images} />
           <TechSpecs
             camera={phoneDetails.camera}
@@ -87,8 +87,6 @@ const PhoneDetailsPage = () => {
             <About description={phoneDetails.description} />
           </section>
         </div>
-      </div>
-    </div>
   );
 };
 

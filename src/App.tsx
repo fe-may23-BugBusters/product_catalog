@@ -6,6 +6,7 @@ import { HomePage } from './components/HomePage/HomePage';
 import { Nav } from './components/Nav/Nav';
 import Footer from './components/footer';
 import { Cart } from './components/Cart/Cart';
+import { About } from './components/About/About';
 import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
 
 function App() {
