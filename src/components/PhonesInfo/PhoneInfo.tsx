@@ -54,27 +54,23 @@ const PhoneDetailsPage = () => {
               <img src={home} alt="home" />
             </Link>
             <img src={arrow} className="info__head__arr" alt="arrow right" />
-            <Link to="/phones" className="info_head_phones">Phones</Link>
+            <Link to="/phones" className="info_head_phones">
+              Phones
+            </Link>
             <img src={arrow} className="info__head__arr" alt="arrow right" />
-            <p className="info__head__name">
-              {phoneDetails.name}
-            </p>
+            <p className="info__head__name">{phoneDetails.name}</p>
           </div>
           <Link to="/phones" className="info__head__back">
             <img src={arrowLeft} alt="arrow left" />
             Back
           </Link>
-          <h1 className="info__head__title">
-            {phoneDetails.name}
-          </h1>
+          <h1 className="info__head__title">{phoneDetails.name}</h1>
         </section>
         <div className="info__main">
           <section className="info__main__about">
             <About />
           </section>
-
         </div>
-
       </div>
 
       {/* <div>
@@ -121,7 +117,6 @@ const PhoneDetailsPage = () => {
         </p>
         <img src={phoneDetails.image} alt={phoneDetails.name} />
       </div> */}
-
     </>
   );
 };
