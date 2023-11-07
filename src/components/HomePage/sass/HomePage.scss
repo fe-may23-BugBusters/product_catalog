@@ -1,2 +1,86 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+
 .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include for-tablet {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &_title {
+        color: #0F0F11;
+        font-family: Mont;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 56px;
+        letter-spacing: -0.48px;
+        margin-bottom: 56px;
+        margin-left: 32px;
+        @include for-tablet {
+            width: 592px;
+            font-family: Mont;
+        }
+        @include for-phone {
+            width: 288px;
+            font-size: 32px;
+            letter-spacing: -0.32px;
+            font-family: Mont;
+        }
+    }
+
+    &_newModelsSlider {
+        height: 560px;
+        width: 90%;
+        position: relative;
+    }
+
+    .carousel-container {
+        height: 100%;
+    }
+
+    
+    .carousel-item {
+        width: 272px;
+    }
+
+    &_carousel-button-group {
+        position: absolute;
+        top: -10%;
+        right: 10%;
+
+        &-right {
+            background: url(../../../images/arrow_active.svg) !important;
+            background-size: 16px !important ;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            border-radius: 48px;
+            border: 1px solid #B4BDC3;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            margin-left: 16px;
+
+        }
+
+        &-left {
+            background: url(../../../images/arrow_active.svg) !important;
+            background-size: auto 16px !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            border-radius: 48px;
+            border: 1px solid #B4BDC3;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            transform: rotate(180deg);
+        }
+    }
+    
 }
