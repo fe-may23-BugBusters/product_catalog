@@ -36,7 +36,6 @@ export const HomePage = () => {
 
   const responsive = {
     superLargeDesktop: {
-
       breakpoint: { max: 4000, min: 1001 },
       items: 4,
     },
@@ -57,12 +56,12 @@ export const HomePage = () => {
   const ButtonGroup = ({
     next, previous, goToSlide, ...rest
   }: any) => {
-    const { carouselState: { currentSlide } } = rest;
+    const {
+      carouselState: { currentSlide },
+    } = rest;
 
     return (
-      <div
-        className="home_carousel-button-group"
-      >
+      <div className="home_carousel-button-group">
         <button
           className="home_carousel-button-group-left"
           onClick={() => previous()}
@@ -70,27 +69,21 @@ export const HomePage = () => {
           type="button"
         >
           {/* {'<'} */}
-
         </button>
         <button
           className="home_carousel-button-group-right"
           onClick={() => next()}
           type="button"
-
         >
           {/* {'>'} */}
-
         </button>
       </div>
-
     );
   };
 
   return (
     <div className="home">
-      <h1 className="home_title">
-        Welcome to Nice Gadgets store!
-      </h1>
+      <h1 className="home_title">Welcome to Nice Gadgets store!</h1>
       <div className="home_promo">
         <Promo />
       </div>
@@ -112,7 +105,7 @@ export const HomePage = () => {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item"
         >
-          {newModels.map((product => (
+          {newModels.map((product) => (
             <PhoneCard
               key={product.name}
               name={product.name}
@@ -128,10 +121,9 @@ export const HomePage = () => {
               product={product}
               is_discounted={product.is_discounted}
             />
-          )))}
+          ))}
         </Carousel>
       </div>
-
     </div>
   );
 };

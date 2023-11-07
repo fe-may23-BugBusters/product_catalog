@@ -20,7 +20,7 @@ const PhoneDetailsPage = () => {
     null,
   );
   const [loading, setLoading] = useState(true);
-  const [recommended, setRecommended] = useState<Product[] >([]);
+  const [recommended, setRecommended] = useState<Product[]>([]);
 
   const loadRecommended = async () => {
     const response = await axios.get(
@@ -53,7 +53,7 @@ const PhoneDetailsPage = () => {
 
     fetchPhoneDetails();
     loadRecommended();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phoneId]);
 
   if (loading) {

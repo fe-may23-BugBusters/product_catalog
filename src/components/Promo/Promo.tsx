@@ -9,7 +9,6 @@ import 'react-multi-carousel/lib/styles.css';
 export const Promo = () => {
   const responsive = {
     superLargeDesktop: {
-
       breakpoint: { max: 4000, min: 1001 },
       items: 1,
     },
@@ -30,12 +29,12 @@ export const Promo = () => {
   const ButtonGroup = ({
     next, previous, goToSlide, ...rest
   }: any) => {
-    const { carouselState: { currentSlide } } = rest;
+    const {
+      carouselState: { currentSlide },
+    } = rest;
 
     return (
-      <div
-        className="promo_carousel-button-group"
-      >
+      <div className="promo_carousel-button-group">
         <button
           className="promo_carousel-button-group-left"
           onClick={() => previous()}
@@ -43,19 +42,15 @@ export const Promo = () => {
           type="button"
         >
           {/* {'<'} */}
-
         </button>
         <button
           className="promo_carousel-button-group-right"
           onClick={() => next()}
           type="button"
-
         >
           {/* {'>'} */}
-
         </button>
       </div>
-
     );
   };
 
@@ -63,6 +58,8 @@ export const Promo = () => {
     <div className="promo">
       <div className="promo_newModelsSlider">
         <Carousel
+          showDots
+          renderDotsOutside
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
           arrows={false}
@@ -80,15 +77,25 @@ export const Promo = () => {
           itemClass="promo_carousel-item"
         >
           <img
-          // eslint-disable-next-line import/no-dynamic-require, global-require
+            // eslint-disable-next-line import/no-dynamic-require, global-require
             src={require('../../img/banner/banner.png')}
             alt="We are trying to get a pic..."
             className="promo_image"
           />
-
+          <img
+            // eslint-disable-next-line import/no-dynamic-require, global-require
+            src={require('../../img/banner/banner.png')}
+            alt="We are trying to get a pic..."
+            className="promo_image"
+          />
+          <img
+            // eslint-disable-next-line import/no-dynamic-require, global-require
+            src={require('../../img/banner/banner.png')}
+            alt="We are trying to get a pic..."
+            className="promo_image"
+          />
         </Carousel>
       </div>
-
     </div>
   );
 };
