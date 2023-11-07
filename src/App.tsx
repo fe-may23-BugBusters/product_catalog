@@ -1,4 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NotFound from './components/NotFoundPage/NotFound';
 import { PhonesPage } from './components/PhonesPage/PhonesPage';
@@ -7,6 +7,8 @@ import { Nav } from './components/Nav/Nav';
 import Footer from './components/footer';
 import { Cart } from './components/Cart/Cart';
 import { About } from './components/About/About';
+import TabletsPage from './components/TabletsPage/TabletsPage';
+import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route index element={<PhonesPage />} />
             <Route path=":tabId" element={<PhonesPage />} />
           </Route>
+          <Route path="/tablets" element={<TabletsPage />} />
+          <Route path="/accessories" element={<AccessoriesPage />} />
           <Route index element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
           {/* <Route path="/nav" element={<Navigate to="/" />} /> */}
