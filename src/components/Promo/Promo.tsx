@@ -28,9 +28,12 @@ export const Promo = () => {
   };
 
   const ButtonGroup = ({
-    next, previous, goToSlide, ...rest
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }: any) => {
+    next,
+    previous,
+    goToSlide,
+    ...rest
+  } // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : any) => {
     const {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       carouselState: { currentSlide },

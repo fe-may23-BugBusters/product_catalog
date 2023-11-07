@@ -4,6 +4,9 @@
 .promo {
   height: 400px;
   // align-self: center;
+  @include for-tablet {
+    height: 189px;
+  }
 
   &_custom-dot-list-style {
     position: absolute;

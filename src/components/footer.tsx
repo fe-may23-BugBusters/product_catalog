@@ -23,13 +23,14 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <div className="footer-logo-cont">
-          <img className="footer-logo" src={require('../img/FooterLogo.jpg')} alt="Logo" />
+          <img
+            className="footer-logo"
+            src={require('../img/FooterLogo.jpg')}
+            alt="Logo"
+          />
         </div>
         <div className="footer-buttons">
-          <button
-            type="button"
-            onClick={() => handleClick('GITHUB')}
-          >
+          <button type="button" onClick={() => handleClick('GITHUB')}>
             GITHUB
           </button>
         </div>
@@ -44,10 +45,7 @@ const Footer = () => {
           </button>
         </div>
         <div className="footer-back-to-top">
-          <a
-            href={`#${lastPart}`}
-            className="footer-arrow"
-          >
+          <a href={`#${lastPart}`} className="footer-arrow">
             <img
               className="footer-arrow-img"
               src={require('../img/Vector.jpg')}

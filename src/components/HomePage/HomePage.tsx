@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/react-in-jsx-scope */
 import axios from 'axios';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Product } from '../../types/product';
@@ -25,7 +25,7 @@ export const HomePage = () => {
         'https://product-catalog-be-6qo2.onrender.com/products/new',
       );
       const response2 = await axios.get(
-        'https://product-catalog-be-6qo2.onrender.com/products/new',
+        'https://product-catalog-be-6qo2.onrender.com/products/discounted',
       );
 
       setNewModels(response1.data);
@@ -58,9 +58,12 @@ export const HomePage = () => {
   };
 
   const ButtonGroup = ({
-    next, previous, goToSlide, ...rest
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }: any) => {
+    next,
+    previous,
+    goToSlide,
+    ...rest
+  } // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : any) => {
     const {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       carouselState: { currentSlide },
@@ -89,13 +92,13 @@ export const HomePage = () => {
 
   return (
     <div className="home">
-      <h1 className="home_title" id="header">Welcome to Nice Gadgets store!</h1>
+      <h1 className="home_title" id="header">
+        Welcome to Nice Gadgets store!
+      </h1>
       <div className="home_promo">
         <Promo />
       </div>
-      <h1 className="home_h1">
-        Brand new models
-      </h1>
+      <h1 className="home_h1">Brand new models</h1>
       <div className="home_newModelsSlider">
         <Carousel
           renderButtonGroupOutside
@@ -133,9 +136,7 @@ export const HomePage = () => {
           ))}
         </Carousel>
       </div>
-      <h1 className="home_h1">
-        Shop by category
-      </h1>
+      <h1 className="home_h1">Shop by category</h1>
       <div className="home_category">
         <div className="home_category_container">
           <div className="home_category_mobile home_category_div">
@@ -145,12 +146,8 @@ export const HomePage = () => {
               alt="trying to load..."
             />
           </div>
-          <h3 className="home_category_h3">
-            Mobile phones
-          </h3>
-          <p className="home_category_p">
-            95 models
-          </p>
+          <h3 className="home_category_h3">Mobile phones</h3>
+          <p className="home_category_p">95 models</p>
         </div>
         <div className="home_category_container">
           <div className="home_category_tablets home_category_div">
@@ -160,12 +157,8 @@ export const HomePage = () => {
               alt="trying to load..."
             />
           </div>
-          <h3 className="home_category_h3">
-            Tablets
-          </h3>
-          <p className="home_category_p">
-            24 models
-          </p>
+          <h3 className="home_category_h3">Tablets</h3>
+          <p className="home_category_p">24 models</p>
         </div>
         <div className="home_category_container">
           <div className="home_category_accesories home_category_div">
@@ -175,17 +168,11 @@ export const HomePage = () => {
               alt="trying to load..."
             />
           </div>
-          <h3 className="home_category_h3">
-            Accessories
-          </h3>
-          <p className="home_category_p">
-            100 models
-          </p>
+          <h3 className="home_category_h3">Accessories</h3>
+          <p className="home_category_p">100 models</p>
         </div>
       </div>
-      <h1 className="home_h1">
-        Hot prices
-      </h1>
+      <h1 className="home_h1">Hot prices</h1>
       <div className="home_newModelsSlider">
         <Carousel
           renderButtonGroupOutside

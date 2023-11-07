@@ -2,7 +2,7 @@
 @import '../../../utils/mixins.scss';
 
 .home {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,28 +105,53 @@
 
   &_category {
     display: flex;
+    @include for-tablet {
+    }
+    @include for-phone {
+      flex-direction: column;
+    }
 
     &_mobile {
-      background-color: #6D6474;
+      background-color: #6d6474;
     }
     &_tablets {
-      background: url(../../../img/banner/category-tablets.png), lightgray 50% / cover no-repeat;
+      background:
+        url(../../../img/banner/category-tablets.png),
+        lightgray 50% / cover no-repeat;
     }
     &_accesories {
-      background-color: #D53C51;
+      background-color: #d53c51;
     }
     &_div {
+      border-radius: 8px;
       width: 368px;
       height: 368px;
       margin-left: 16px;
       overflow: hidden;
+      @include for-tablet {
+        width: 187px;
+        height: 187px;
+      }
+      @include for-phone {
+        width: 288px;
+        height: 288px;
+      }
     }
 
     &_container {
+
+      @include for-tablet {
+        margin-left: 16px;
+        width: 187px;
+      }
+      @include for-phone {
+        margin-left: 16px;
+        width: 288px;
+      }
     }
 
     &_h3 {
-      color:  #0F0F11;
+      color: #0f0f11;
       font-family: Mont;
       font-size: 20px;
       font-style: normal;
@@ -137,7 +162,7 @@
     }
 
     &_p {
-      color: #89939A;
+      color: #89939a;
       font-family: Mont;
       font-size: 14px;
       font-style: normal;
@@ -151,21 +176,21 @@
       margin-left: 20px;
       max-width: 100%;
       max-height: 100%;
-        &-1 {
-          margin-left: 100px;
-          margin-top: 100px;
-          transform: scale(1.5);
-        }
-        &-2 {
-          margin-left: 200px;
-          margin-top: 200px;
-          transform: scale(2);
-        }
-        &-3 {
-          margin-left: 200px;
-          margin-top: 140px;
-          transform: scale(2);
-        }
+      &-1 {
+        margin-left: 100px;
+        margin-top: 100px;
+        transform: scale(1.5);
+      }
+      &-2 {
+        margin-left: 200px;
+        margin-top: 200px;
+        transform: scale(2);
+      }
+      &-3 {
+        margin-left: 200px;
+        margin-top: 140px;
+        transform: scale(2);
+      }
     }
   }
 }

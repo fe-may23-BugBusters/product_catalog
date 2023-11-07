@@ -9,13 +9,13 @@
 .footer-logo-cont {
   width: 89px;
   height: 32px;
-  object-fit: contain; 
+  object-fit: contain;
 }
 
 .footer-logo {
   width: 89px;
   height: 32px;
-  object-fit: contain; 
+  object-fit: contain;
 }
 
 .footer-buttons {
@@ -54,9 +54,9 @@
   justify-content: center;
   align-items: center;
   width: 32px;
-    height: 32px;
-    border-radius: 48px;
-    border: 1px solid #B4BDC3;
+  height: 32px;
+  border-radius: 48px;
+  border: 1px solid #b4bdc3;
 }
 
 @media screen and (max-width: 639px) {
@@ -73,6 +73,5 @@
   .footer-back-to-top {
     line-height: 15px;
     margin-left: 40%;
-    
   }
 }
