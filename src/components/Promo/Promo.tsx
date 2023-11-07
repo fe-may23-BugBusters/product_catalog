@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable @typescript-eslint/quotes */
@@ -28,8 +29,10 @@ export const Promo = () => {
 
   const ButtonGroup = ({
     next, previous, goToSlide, ...rest
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }: any) => {
     const {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       carouselState: { currentSlide },
     } = rest;
 

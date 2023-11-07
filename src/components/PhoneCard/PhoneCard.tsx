@@ -1,4 +1,4 @@
-import React, { SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 import './sass/PhoneCard.scss';
 import { Link } from 'react-router-dom';
 import { Product } from '../../types/product';
