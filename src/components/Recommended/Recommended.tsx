@@ -42,9 +42,9 @@ export const Recommended = () => {
           ? products.map((product) => (
             <div className="recommended__cards__card" key={product.id}>
               <PhoneCard
-                itemid={product.itemid}
-                is_discounted={product.is_discounted}
+                key={product.name}
                 name={product.name}
+                itemid={product.itemid}
                 fullprice={product.fullprice}
                 price={product.price}
                 screen={product.screen}
@@ -54,6 +54,7 @@ export const Recommended = () => {
                 year={product.year}
                 image={product.image}
                 product={product}
+                is_discounted={product.is_discounted}
               />
             </div>
           ))
