@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-console */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
-// import cn from 'classnames';
 import './sass/PhonesPage.scss';
 import Home from '../../icons/Home.svg';
 import ArrowRight from '../../icons/Chevron (Arrow Right).svg';
@@ -18,7 +16,6 @@ export const PhonesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(16);
   const [totalPosts, setTotalPosts] = useState(0);
-  // const [cart] = useState<Product[]>([]);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -30,7 +27,6 @@ export const PhonesPage = () => {
       );
 
       setProducts(response.data.rows);
-      console.log(response.data.count, response.data.rows);
       setTotalPosts(response.data.count);
       setLoading(false);
     };
@@ -62,6 +58,7 @@ export const PhonesPage = () => {
         <h1 className="phonePage__title">Mobile Phones</h1>
         <p className="phonePage__text phonePage__text--models">95 models</p>
 
+        {/* <div className="phonePage__select__container"> */}
         <div className="phonePage__select phonePage__select--1">
           <label
             htmlFor="sort-by"
@@ -101,24 +98,29 @@ export const PhonesPage = () => {
             </option>
           </select>
         </div>
-        {!loading
-          ? products.map((product) => (
-            <div className="product-card" key={product.id}>
-              <PhoneCard
-                name={product.name}
-                fullprice={product.fullprice}
-                price={product.price}
-                screen={product.screen}
-                capacity={product.capacity}
-                color={product.color}
-                ram={product.ram}
-                year={product.year}
-                image={product.image}
-                product={product}
-              />
-            </div>
-          ))
-          : 'Loading...'}
+
+        <div className="product-card__container">
+          {!loading
+            ? products.map((product) => (
+              <div className="product-card" key={product.id}>
+                <PhoneCard
+                  name={product.name}
+                  itemid={product.itemid}
+                  fullprice={product.fullprice}
+                  price={product.price}
+                  screen={product.screen}
+                  capacity={product.capacity}
+                  color={product.color}
+                  ram={product.ram}
+                  year={product.year}
+                  image={product.image}
+                  product={product}
+                  is_discounted={product.is_discounted}
+                />
+              </div>
+            ))
+            : 'Loading...'}
+        </div>
       </main>
       <Pagination
         currentPage={currentPage}

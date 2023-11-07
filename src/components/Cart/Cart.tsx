@@ -1,10 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Chevron from '../../icons/chevron-left.svg';
+import { useTContext, TypeContext } from '../../context/Context';
 import './sass/Cart.scss';
+import { Product } from '../../types/product';
 import { CartItem } from '../CartItem/CartItem';
 
 export const Cart = () => {
+  const { cart } = useTContext() as TypeContext;
+
+  const calculateTotalPrice = (itemsInCart: Product[]) => {
+    return itemsInCart.reduce((total, cartItem) => {
+      if (cartItem.quantity !== undefined) {
+        return total + cartItem.price * cartItem.quantity;
+      }
+
+      return total;
+    }, 0);
+  };
+
   return (
     <>
       <div className="cart">
@@ -21,14 +35,34 @@ export const Cart = () => {
         </section>
         <div className="cart__main">
           <section className="cart__cartItems">
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {cart.map(
+              (product) => product.quantity && (
+                <CartItem
+                  key={product.name}
+                  name={product.name}
+                  // fullprice={product.fullprice}
+                  price={product.price}
+                  image={product.image}
+                  product={product}
+                  quantity={product.quantity}
+                />
+              ),
+            )}
           </section>
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">
-              <p className="cart__calculator__price">$2137</p>
-              <p className="cart__calculator__total">Total for 3 products</p>
+              <p className="cart__calculator__price">
+                {`$
+                ${calculateTotalPrice(cart)}
+                `}
+              </p>
+              <p className="cart__calculator__total">
+                Total for
+                {' '}
+                {cart.length}
+                {' '}
+                {cart.length === 1 ? 'product' : 'products'}
+              </p>
             </div>
 
             <div className="cart__calculator__line" />

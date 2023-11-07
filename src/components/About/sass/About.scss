@@ -1,0 +1,79 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+.about {
+  background-color: #fafbfc;
+  width: 559px;
+  color: #0f0f11;
+  font-family: Mont;
+  margin-left: 33px;
+  @include for-tablet() {
+    width: 591px;
+    margin-left: 25px;
+  }
+  @include for-phone() {
+    display: flex;
+    align-self: center;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    margin-left: 17px;
+    margin-right: 16px;
+  }
+
+  &_h2 {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%;
+    margin-bottom: 16px;
+    @include for-phone() {
+      align-self: stretch;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  &_h3 {
+    color: #0f0f11;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 16px;
+    @include for-phone() {
+      align-self: stretch;
+      font-size: 16px;
+    }
+  }
+  &_p {
+    color: #89939a;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 32px;
+
+    @include for-phone() {
+      align-self: stretch;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.line-separator::before {
+  content: '';
+  display: block;
+  border-top: 1px solid #e2e6e9;
+  width: 560px;
+  height: 1px;
+  margin-bottom: 32px;
+  @include for-tablet() {
+    width: 592px;
+  }
+  @include for-phone() {
+    width: 100%;
+  }
+}

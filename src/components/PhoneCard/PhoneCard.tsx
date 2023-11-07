@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { SetStateAction, useState } from 'react';
 import './sass/PhoneCard.scss';
+import { Link } from 'react-router-dom';
 import { Product } from '../../types/product';
 import { useTContext, TypeContext } from '../../context/Context';
 
 type Props = {
   name: string;
+  itemid: string;
   fullprice: number;
   price: number;
   screen: string;
@@ -15,10 +17,12 @@ type Props = {
   year: string;
   image: string;
   product: Product;
+  is_discounted: boolean;
 };
 
 export const PhoneCard: React.FC<Props> = ({
   name,
+  itemid,
   fullprice,
   price,
   screen,
@@ -28,6 +32,7 @@ export const PhoneCard: React.FC<Props> = ({
   year,
   image,
   product,
+  is_discounted,
 }) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
@@ -37,34 +42,53 @@ export const PhoneCard: React.FC<Props> = ({
     setIsLiked(!isLiked);
   };
 
+  const conditionToAdd = !cart.some((item) => item.id === product.id);
+
   const handleAdd = () => {
-    if (!isAdded) {
-      setCart([...cart, product]);
+    const productWithQuantity = {
+      ...product,
+      quantity: 1,
+    };
+
+    if (!isAdded && conditionToAdd) {
+      setCart([...cart, productWithQuantity]);
       setIsAdded(!isAdded);
     }
-
-    // eslint-disable-next-line no-console
-    console.log('we added product to cart', cart, cart.length);
   };
 
   return (
     <div className="phoneCard">
-      <img
-        // eslint-disable-next-line import/no-dynamic-require, global-require
-        src={require(`../../${image}`)}
-        alt={`We are trying to get a pic of: ${name}...`}
-        className="phoneCard__image"
-      />
+      <Link to={`/phoneinfo/${itemid}`}>
+        <img
+          // eslint-disable-next-line import/no-dynamic-require, global-require
+          src={require(`../../${image}`)}
+          alt={`We are trying to get a pic of: ${name}...`}
+          className="phoneCard__image"
+        />
+      </Link>
+
       <h2 className="phoneCard__title">{name}</h2>
       <div className="phoneCard__price">
-        <p className="phoneCard__price__current">
-          {price}
-          $
-        </p>
-        <p className="phoneCard__price__old">
-          {fullprice}
-          $
-        </p>
+        {is_discounted && (
+          <>
+            <p className="phoneCard__price__current">
+              {price}
+              $
+            </p>
+            <p className="phoneCard__price__old">
+              {fullprice}
+              $
+            </p>
+          </>
+        )}
+        {!is_discounted && (
+          <>
+            <p className="phoneCard__price__current">
+              {fullprice}
+              $
+            </p>
+          </>
+        )}
       </div>
 
       <div className="phoneCard__description">

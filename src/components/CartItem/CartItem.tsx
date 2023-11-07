@@ -1,22 +1,89 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react';
-import photo from '../../01.jpg';
+import React from 'react';
 import './sass/CartItem.scss';
+import { useTContext, TypeContext } from '../../context/Context';
+import { Product } from '../../types/product';
 
-export const CartItem = () => {
-  const [quantity, setQuantity] = useState<number>(1);
+type Props = {
+  name: string;
+  // fullprice: number;
+  price: number;
+  image: string;
+  product: Product;
+  quantity: number;
+};
+
+export const CartItem: React.FC<Props> = ({
+  name,
+  // fullprice,
+  price,
+  image,
+  product,
+  quantity,
+}) => {
+  const { cart, setCart } = useTContext() as TypeContext;
+
+  const handleIncrease = () => {
+    const updatedCart = cart.map((p) => {
+      // dla zadanego id dodajemy quantity + 1
+      if (p.id === product.id) {
+        return {
+          ...p,
+          quantity: quantity + 1,
+        };
+      }
+      // dla pozostalych nic sie nie zmieni
+
+      return p;
+    });
+
+    // Ustaw zaktualizowany koszyk
+    setCart([...updatedCart]);
+  };
+
+  const handleDecrease = () => {
+    const updatedCart = cart.map((p) => {
+      // dla zadanego id q-1
+      if (p.id === product.id) {
+        return {
+          ...p,
+          quantity: quantity - 1,
+        };
+      }
+      // dla pozostalych nic sie nie zmieni
+
+      return p;
+    });
+
+    // Ustaw zaktualizowany koszyk
+    setCart([...updatedCart]);
+  };
 
   const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+    handleIncrease();
   };
 
   const removeItemFromCart = () => {
-    /* tutaj funkcja dla usuwania */
+    if (cart.length === 1) {
+      setCart([]);
+      const cartJSON = JSON.stringify([]);
+
+      localStorage.setItem('cart', cartJSON);
+    } else {
+      const updatedCart = cart.filter((p) => {
+        return p.id !== product.id;
+      });
+
+      // Ustaw zaktualizowany kosz
+      setCart([...updatedCart]);
+    }
   };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      handleDecrease();
     }
   };
 
@@ -29,11 +96,12 @@ export const CartItem = () => {
             className="cartItem__info__close"
             onClick={removeItemFromCart}
           />
-          {/* sample photo */}
-          <img src={photo} alt="iphone" className="cartItem__info__img" />
-          <h2 className="cartItem__info__name">
-            Apple iPhone 14 Pro 128GB Silver (MQ023)
-          </h2>
+          <img
+            src={require(`../../${image}`)}
+            alt="iphone"
+            className="cartItem__info__img"
+          />
+          <h2 className="cartItem__info__name">{name}</h2>
         </div>
 
         <div className="cartItem__calc">
@@ -54,7 +122,10 @@ export const CartItem = () => {
           >
             +
           </button>
-          <p className="cartItem__calc__price">$2137</p>
+          <p className="cartItem__calc__price">
+            {price * quantity}
+            $
+          </p>
         </div>
       </div>
     </>
