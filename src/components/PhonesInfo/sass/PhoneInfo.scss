@@ -1,0 +1,70 @@
+@import '../../../utils/fonts.scss';
+
+.info {
+  background-color: #fafbfc;
+  padding: 24px 152px;
+
+  &__head {
+    &__container {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 40px;
+      align-items: center;
+      color: var(--gray-secondary, #89939a);
+      font-family: Mont;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    &__back {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    &__title {
+      color: var(--gray-primary, #0f0f11);
+      /* Desktop & Tablet/H2 */
+      font-family: Mont;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 41px; /* 128.125% */
+      letter-spacing: -0.32px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    &__about {
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+
+  //   &__recommendedSection {
+  //     display: flex;
+  //     gap: 16px;
+  //     overflow: auto;
+  //     position: relative;
+  //   }
+  //   &__recommendedCards {
+  //     display: flex;
+  //     gap: 16px;
+  //     transition: transform 0.3s ease;
+  // }
+  //   &__recommendedCard {
+  //     width: 237px;
+  //     height: 512px;
+  //     padding: 32px;
+  //     flex: 0 0 auto;
+  //     gap: 8px;
+  //     margin-right: 16px;
+  //   }
+  }
+}
