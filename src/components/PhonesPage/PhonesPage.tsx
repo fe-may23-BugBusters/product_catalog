@@ -22,7 +22,7 @@ export const PhonesPage = () => {
     const loadProducts = async () => {
       setLoading(true);
       const response = await axios.get(
-        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage - 1}&pageSize=${postPerPage}`,
+        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage - 1}&pageSize=${postPerPage}&sort=${sortType}`,
       );
 
       setProducts(response.data.rows);
@@ -31,7 +31,7 @@ export const PhonesPage = () => {
     };
 
     loadProducts();
-  }, [currentPage, postPerPage]);
+  }, [currentPage, postPerPage, sortType]);
 
   const numberOfPages = Math.ceil(totalPosts / postPerPage);
 
