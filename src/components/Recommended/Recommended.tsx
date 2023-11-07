@@ -10,22 +10,6 @@ export const Recommended = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const loadProducts = async () => {
-      setLoading(true);
-      const response = await axios.get(
-        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${
-          currentPage - 1
-        }`,
-      );
-
-      setProducts(response.data.rows);
-      setLoading(false);
-    };
-
-    loadProducts();
-  }, [currentPage]);
-
   return (
     <>
       <div className="recommended" />
