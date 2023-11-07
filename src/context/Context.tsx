@@ -1,4 +1,5 @@
 import React, {
+  Dispatch,
   ReactNode,
   SetStateAction,
   createContext,
@@ -6,6 +7,8 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { Product } from '../types/product';
 
 export interface TypeContext {

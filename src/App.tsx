@@ -9,6 +9,10 @@ import { Cart } from './components/Cart/Cart';
 import { About } from './components/About/About';
 import TabletsPage from './components/TabletsPage/TabletsPage';
 import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
+import { TechSpecs } from './components/TechSpecs/TechSpecs';
+import { Recommended } from './components/Recommended/Recommended';
+import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
+
 
 function App() {
   return (
@@ -28,10 +32,15 @@ function App() {
           <Route path="/cart">
             <Route index element={<Cart />} />
           </Route>
-          {/* docelowo element about bedzie czescia ProductCarda
+          <Route path="/phoneinfo">
+            <Route index element={<PhoneDetailsPage />} />
+            <Route path="/phoneinfo/:phoneId" element={<PhoneDetailsPage />} />
+          </Route>
+
+          {/* docelowo element tech-specs bedzie czescia strony telefonu
           teraz tylko dodaje podglad komponentu */}
-          <Route path="/about">
-            <Route index element={<About />} />
+          <Route path="/recommended">
+            <Route index element={<Recommended />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

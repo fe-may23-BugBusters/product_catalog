@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Chevron from '../../icons/chevron-left.svg';
+import { useTContext, TypeContext } from '../../context/Context';
 import './sass/Cart.scss';
 import { Product } from '../../types/product';
 import { CartItem } from '../CartItem/CartItem';
-import { useTContext, TypeContext } from '../../context/Context';
 
 export const Cart = () => {
   const { cart } = useTContext() as TypeContext;
