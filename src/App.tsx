@@ -13,7 +13,6 @@ import { TechSpecs } from './components/TechSpecs/TechSpecs';
 import { Recommended } from './components/Recommended/Recommended';
 import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
 
-
 function App() {
   return (
     <div className="container">
