@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 import './sass/PhonesPage.scss';
@@ -103,18 +104,22 @@ export const PhonesPage = () => {
           {!loading
             ? products.map((product) => (
               <div className="product-card" key={product.id}>
-                <PhoneCard
-                  name={product.name}
-                  fullprice={product.fullprice}
-                  price={product.price}
-                  screen={product.screen}
-                  capacity={product.capacity}
-                  color={product.color}
-                  ram={product.ram}
-                  year={product.year}
-                  image={product.image}
-                  product={product}
-                />
+                <Link to={`/product/${product.id}`}>
+                  {' '}
+                  {/* Przekierowanie do strony produktu */}
+                  <PhoneCard
+                    name={product.name}
+                    fullprice={product.fullprice}
+                    price={product.price}
+                    screen={product.screen}
+                    capacity={product.capacity}
+                    color={product.color}
+                    ram={product.ram}
+                    year={product.year}
+                    image={product.image}
+                    product={product}
+                  />
+                </Link>
               </div>
             ))
             : 'Loading...'}

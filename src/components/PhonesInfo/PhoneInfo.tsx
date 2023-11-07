@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 import { Product } from '../../types/product';
@@ -41,6 +41,7 @@ const PhoneDetailsPage = () => {
 
   return (
     <div>
+      <Link to="/phones">Back to Phones</Link>
       <h1>{phoneDetails.name}</h1>
       <p>
         Category:

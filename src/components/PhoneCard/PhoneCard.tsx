@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { SetStateAction, useState } from 'react';
 import './sass/PhoneCard.scss';
 import { Link } from 'react-router-dom';
@@ -54,7 +53,7 @@ export const PhoneCard: React.FC<Props> = ({
 
   return (
     <div className="phoneCard">
-      <Link to="/about">
+      <Link to={`/product/${product.id}`}>
         <img
           // eslint-disable-next-line import/no-dynamic-require, global-require
           src={require(`../../${image}`)}
@@ -62,7 +61,6 @@ export const PhoneCard: React.FC<Props> = ({
           className="phoneCard__image"
         />
       </Link>
-
       <h2 className="phoneCard__title">{name}</h2>
       <div className="phoneCard__price">
         <p className="phoneCard__price__current">
