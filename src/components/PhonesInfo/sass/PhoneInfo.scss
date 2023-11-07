@@ -46,5 +46,25 @@
       grid-column: 2/3;
       grid-row: 2/3;
     }
+
+  //   &__recommendedSection {
+  //     display: flex;
+  //     gap: 16px;
+  //     overflow: auto;
+  //     position: relative;
+  //   }
+  //   &__recommendedCards {
+  //     display: flex;
+  //     gap: 16px;
+  //     transition: transform 0.3s ease;
+  // }
+  //   &__recommendedCard {
+  //     width: 237px;
+  //     height: 512px;
+  //     padding: 32px;
+  //     flex: 0 0 auto;
+  //     gap: 8px;
+  //     margin-right: 16px;
+  //   }
   }
 }
