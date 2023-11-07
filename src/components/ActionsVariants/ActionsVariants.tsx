@@ -89,12 +89,13 @@ export const ActionsVariants: React.FC<Props> = ({
         <button
           type="button"
           onClick={handleLike}
-          className={`phoneCard__heart ${isLiked ? 'phoneCard__heart--liked' : ''}`}
+          className={`phoneCard__heart ${
+            isLiked ? 'phoneCard__heart--liked' : ''
+          }`}
         >
           {' '}
         </button>
       </div>
-
     </>
   );
 };

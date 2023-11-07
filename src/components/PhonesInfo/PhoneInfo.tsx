@@ -20,7 +20,7 @@ const PhoneDetailsPage = () => {
     null,
   );
   const [loading, setLoading] = useState(true);
-  const [recommended, setRecommended] = useState<Product[] >([]);
+  const [recommended, setRecommended] = useState<Product[]>([]);
 
   const loadRecommended = async () => {
     const response = await axios.get(
@@ -53,7 +53,7 @@ const PhoneDetailsPage = () => {
 
     fetchPhoneDetails();
     loadRecommended();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phoneId]);
 
   if (loading) {
@@ -115,30 +115,29 @@ const PhoneDetailsPage = () => {
         </section>
         <div className="info__main__recommendedSection">
           <div className="info__main__recommendedCards">
-            {recommended && (recommended.map((product: Product) => (
-              <div className="info__main__recommendedCard" key={product.name}>
-                <PhoneCard
-                  key={product.name}
-                  name={product.name}
-                  itemid={product.itemid}
-                  fullprice={product.fullprice}
-                  price={product.price}
-                  screen={product.screen}
-                  capacity={product.capacity}
-                  color={product.color}
-                  ram={product.ram}
-                  year={product.year}
-                  image={product.image}
-                  product={product}
-                  is_discounted={product.is_discounted}
-                />
-              </div>
-
-            )))}
+            {recommended
+              && recommended.map((product: Product) => (
+                <div className="info__main__recommendedCard" key={product.name}>
+                  <PhoneCard
+                    key={product.name}
+                    name={product.name}
+                    itemid={product.itemid}
+                    fullprice={product.fullprice}
+                    price={product.price}
+                    screen={product.screen}
+                    capacity={product.capacity}
+                    color={product.color}
+                    ram={product.ram}
+                    year={product.year}
+                    image={product.image}
+                    product={product}
+                    is_discounted={product.is_discounted}
+                  />
+                </div>
+              ))}
           </div>
         </div>
       </div>
-
     </div>
   );
 };
