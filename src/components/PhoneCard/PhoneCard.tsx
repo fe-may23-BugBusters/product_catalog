@@ -57,7 +57,7 @@ export const PhoneCard: React.FC<Props> = ({
 
   return (
     <div className="phoneCard">
-      <Link to={`/phoneinfo/${itemid}`}>
+      <Link to={`/phoneinfo/${itemid}`} className="phoneCard__link">
         <img
           // eslint-disable-next-line import/no-dynamic-require, global-require
           src={require(`../../${image}`)}
