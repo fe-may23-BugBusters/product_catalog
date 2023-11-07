@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-
 import { Link, useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
