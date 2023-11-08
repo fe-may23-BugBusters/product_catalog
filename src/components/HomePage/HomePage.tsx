@@ -29,9 +29,7 @@ export const HomePage = () => {
       );
 
       setNewModels(response1.data);
-      console.log(response1.data);
       setDiscounted(response2.data);
-      console.log(response2.data);
       setLoading(false);
     };
 
@@ -40,20 +38,24 @@ export const HomePage = () => {
 
   const responsive = {
     superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1001 },
-      items: 4,
+      breakpoint: { max: 4000, min: 1201 },
+      items: 3.5,
     },
     desktop: {
-      breakpoint: { max: 1000, min: 800 },
+      breakpoint: { max: 1200, min: 940 },
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 800, min: 501 },
-      items: 2,
+      breakpoint: { max: 939, min: 780 },
+      items: 2.5,
     },
     mobile: {
-      breakpoint: { max: 500, min: 0 },
-      items: 1,
+      breakpoint: { max: 779, min: 640 },
+      items: 2,
+    },
+    mobilemin: {
+      breakpoint: { max: 639, min: 0 },
+      items: 1.5,
     },
   };
 
@@ -61,9 +63,8 @@ export const HomePage = () => {
     next,
     previous,
     goToSlide,
-    ...rest
-  } // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  : any) => {
+    ...rest // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }: any) => {
     const {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       carouselState: { currentSlide },

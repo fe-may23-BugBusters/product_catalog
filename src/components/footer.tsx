@@ -14,10 +14,10 @@ const Footer = () => {
   const urlParts = currentUrl.split('/');
   const lastPart = urlParts[urlParts.length - 1];
 
-  console.log(currentUrl);
-  console.log(lastPart);
+  // console.log(currentUrl);
+  // console.log(lastPart);
 
-  console.log(location);
+  // console.log(location);
 
   return (
     <footer>

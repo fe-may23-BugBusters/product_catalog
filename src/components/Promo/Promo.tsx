@@ -31,9 +31,8 @@ export const Promo = () => {
     next,
     previous,
     goToSlide,
-    ...rest
-  } // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  : any) => {
+    ...rest // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }: any) => {
     const {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       carouselState: { currentSlide },

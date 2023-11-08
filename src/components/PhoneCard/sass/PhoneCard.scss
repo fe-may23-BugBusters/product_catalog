@@ -21,12 +21,14 @@
   }
 
   &__image-link {
+    display: flex;
     width: 208px;
     height: 196px;
     margin: 0 auto;
   }
 
   &__image {
+    align-items: center;
     // width: 208px;
     height: 100%;
     margin: 0 auto;
