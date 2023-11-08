@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
 import './sass/ActionsVariants.scss';
 import { useTContext, TypeContext } from '../../context/Context';
@@ -10,6 +11,8 @@ type Props = {
   capacity: string;
   color: string;
   ram: string;
+  colors_available: string[];
+  capacity_available: string[];
 };
 
 export const ActionsVariants: React.FC<Props> = ({
@@ -19,10 +22,17 @@ export const ActionsVariants: React.FC<Props> = ({
   capacity,
   color,
   ram,
+  colors_available,
+  capacity_available,
 }) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const { cart, setCart } = useTContext() as TypeContext;
+  const [chosenColor, setChosenColor] = useState<string>(colors_available[0]);
+
+  const handleColorChange = (newColor: string) => {
+    setChosenColor(newColor);
+  };
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -44,6 +54,31 @@ export const ActionsVariants: React.FC<Props> = ({
 
   return (
     <>
+      <section className="actions__sec">
+        <p>Available colors</p>
+        <div className="actions__buttons">
+          {colors_available.map((col) => (
+            <button
+              key={col}
+              onClick={() => handleColorChange}
+              style={{ backgroundColor: col }}
+              type="button"
+              className="actions__color"
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="actions__sec">
+        <p>Available capacity</p>
+        <div className="actions__buttons">
+          {capacity_available.map((cap) => (
+            <button type="button" key={cap} className="actions__capacity">
+              {cap}
+            </button>
+          ))}
+        </div>
+      </section>
       <div className="phoneCard__price">
         {price_discount && (
           <>
