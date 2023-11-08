@@ -6,10 +6,8 @@ import { HomePage } from './components/HomePage/HomePage';
 import { Nav } from './components/Nav/Nav';
 import Footer from './components/footer';
 import { Cart } from './components/Cart/Cart';
-import { About } from './components/About/About';
 import TabletsPage from './components/TabletsPage/TabletsPage';
 import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
-import { TechSpecs } from './components/TechSpecs/TechSpecs';
 import { Recommended } from './components/Recommended/Recommended';
 import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
 

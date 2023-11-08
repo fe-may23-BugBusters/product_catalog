@@ -11,6 +11,7 @@ import arrow from '../../icons/Chevron (Arrow Right).svg';
 import arrowLeft from '../../icons/chevron-left.svg';
 import home from '../../icons/Home.svg';
 import './sass/PhoneInfo.scss';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PhoneCard } from '../PhoneCard/PhoneCard';
 import { ActionsVariants } from '../ActionsVariants/ActionsVariants';
 
@@ -20,6 +21,8 @@ const PhoneDetailsPage = () => {
     null,
   );
   const [loading, setLoading] = useState(true);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [recommended, setRecommended] = useState<Product[]>([]);
 
   const loadRecommended = async () => {

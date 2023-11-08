@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './sass/BurgerMenu.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useTContext, TypeContext } from '../../context/Context';
 
 export const BurgerMenu = () => {
@@ -46,18 +46,18 @@ export const BurgerMenu = () => {
 
       <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
         <div className="links menu_links">
-          <a href="http#" className="menu_link">
+          <Link to="/" className="menu_link" onClick={toggleMenu}>
             home
-          </a>
-          <a href="http#" className="menu_link">
+          </Link>
+          <Link to="/phones" className="menu_link" onClick={toggleMenu}>
             PHONES
-          </a>
-          <a href="http#" className="menu_link">
+          </Link>
+          <Link to="/tablets" className="menu_link" onClick={toggleMenu}>
             TABLETS
-          </a>
-          <a href="http#" className="menu_link">
+          </Link>
+          <Link to="/accessories" className="menu_link" onClick={toggleMenu}>
             ACCESSORIES
-          </a>
+          </Link>
         </div>
         <div className="menu_footer">
           <a href="http#" className="menu_heart" aria-label="Wykonaj akcję">
