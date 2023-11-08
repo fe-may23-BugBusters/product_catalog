@@ -35,7 +35,9 @@ export const PhonesPage = () => {
       }
 
       const response = await axios.get(
-        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage - 1}&pageSize=${postPerPage}&sortField=${sortField}&sortOrder=${sortOrder}`,
+        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${
+          currentPage - 1
+        }&pageSize=${postPerPage}&sortField=${sortField}&sortOrder=${sortOrder}`,
       );
 
       setProducts(response.data.rows);
