@@ -30,7 +30,7 @@ export const ActionsVariants: React.FC<Props> = ({
   const { cart, setCart } = useTContext() as TypeContext;
   const [chosenColor, setChosenColor] = useState<string>(colors_available[0]);
 
-  const handleColorChange = (newColor:string) => {
+  const handleColorChange = (newColor: string) => {
     setChosenColor(newColor);
   };
 
@@ -73,11 +73,7 @@ export const ActionsVariants: React.FC<Props> = ({
         <p>Available capacity</p>
         <div className="actions__buttons">
           {capacity_available.map((cap) => (
-            <button
-              type="button"
-              key={cap}
-              className="actions__capacity"
-            >
+            <button type="button" key={cap} className="actions__capacity">
               {cap}
             </button>
           ))}

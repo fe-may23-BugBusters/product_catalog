@@ -171,7 +171,6 @@ export const HomePage = () => {
                 alt="trying to load..."
               />
             </Link>
-
           </div>
           <h3 className="home_category_h3">Mobile phones</h3>
           <p className="home_category_p">95 models</p>

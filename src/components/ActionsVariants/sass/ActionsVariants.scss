@@ -2,58 +2,56 @@
 @import '../../../utils/mixins.scss';
 
 .actions {
-    &__sec {
-        border-bottom: 1px solid #E2E6E9;
-        color: var(--gray-secondary, #89939A);
-        font-family: Mont;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        padding: 24px 0;
+  &__sec {
+    border-bottom: 1px solid #e2e6e9;
+    color: var(--gray-secondary, #89939a);
+    font-family: Mont;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 24px 0;
+  }
+
+  &__color {
+    border: 1px solid #e2e6e9;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      border: 1px solid black;
     }
 
-    &__color {
-        border: 1px solid #E2E6E9;
-        border-radius: 50%;
-        width: 32px;
-height: 32px;
+    &:focus {
+      border: 1px solid black;
+    }
+  }
 
-&:hover {
-    border: 1px solid black;
-}
+  &__buttons {
+    display: flex;
+    gap: 8px;
+    width: fit-content;
+    margin-top: 8px;
+  }
 
-&:focus {
-    border: 1px solid black;
-}
+  &__capacity {
+    border-radius: 4px;
+    border: 1px solid var(--gray-icons-placeholders, #b4bdc3);
+    background-color: inherit;
+    width: 60px;
+    height: 32px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
 
+    &:focus {
+      background-color: black;
+      color: white;
     }
 
-    &__buttons {
-        display: flex;
-        gap: 8px;
-        width: fit-content;
-        margin-top: 8px;
-
+    &:hover {
+      border: 1px solid black;
     }
-
-    &__capacity {
-        border-radius: 4px;
-border: 1px solid var(--gray-icons-placeholders, #B4BDC3);
-background-color: inherit;
-width: 60px;
-height: 32px;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-
-        &:focus {
-            background-color: black;
-            color: white;
-        }
-
-        &:hover {
-            border: 1px solid black;
-        }
-    }
+  }
 }
