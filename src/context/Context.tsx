@@ -1,5 +1,4 @@
 import React, {
-  Dispatch,
   ReactNode,
   SetStateAction,
   createContext,
@@ -7,13 +6,13 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import { Product } from '../types/product';
 
 export interface TypeContext {
   cart: Product[];
   setCart: React.Dispatch<SetStateAction<Product[]>>;
+  favourites: Product[];
+  setFavourites: React.Dispatch<SetStateAction<Product[]>>;
 }
 
 const TContext = createContext<TypeContext | null>(null);
@@ -24,6 +23,25 @@ export function useTContext() {
 
 export function Provider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<Product[]>([]);
+  const [favourites, setFavourites] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const savedFavouritesJSON = localStorage.getItem('favourites');
+
+    if (savedFavouritesJSON) {
+      const savedFavourites = JSON.parse(savedFavouritesJSON);
+
+      setFavourites([...savedFavourites]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (favourites.length > 0) {
+      const favouritesJSON = JSON.stringify(favourites);
+
+      localStorage.setItem('favourites', favouritesJSON);
+    }
+  }, [favourites]);
 
   useEffect(() => {
     const savedCartJSON = localStorage.getItem('cart');
@@ -46,6 +64,8 @@ export function Provider({ children }: { children: ReactNode }) {
   const contextValues: TypeContext = {
     cart,
     setCart,
+    favourites,
+    setFavourites,
   };
 
   return (

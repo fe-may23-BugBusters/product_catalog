@@ -156,6 +156,8 @@ export const HomePage = () => {
               image={product.image}
               product={product}
               is_discounted={product.is_discounted}
+              isAddedToCart={product.isAddedToCart}
+              isLiked={product.isAddedToCart}
             />
           ))}
         </Carousel>
@@ -241,6 +243,8 @@ export const HomePage = () => {
               image={product.image}
               product={product}
               is_discounted={product.is_discounted}
+              isAddedToCart={product.isAddedToCart}
+              isLiked={product.isAddedToCart}
             />
           ))}
         </Carousel>

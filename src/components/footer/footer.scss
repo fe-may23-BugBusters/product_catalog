@@ -1,0 +1,131 @@
+@import '../../utils/fonts.scss';
+.footer {
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin: 32px;
+  }
+
+  &-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
+  }
+
+  &-logo-cont {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &-logo {
+    width: 89px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &-arrow {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #b4bdc3;
+    background-color: #f0f0f000;
+    cursor: pointer;
+
+    &-img {
+      max-width: 100%;
+    }
+  }
+
+  &-back-to-top {
+    margin-left: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 48px;
+    border: 1px solid #b4bdc3;
+
+    &-container {
+      font-family: Mont;
+      line-height: 32px;
+      color: #89939a;
+      font-weight: 600;
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+
+    & button {
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 11px;
+      font-family: Mont;
+      text-decoration: none;
+      padding: 6px 8px;
+      border: none;
+      background-color: white;
+      color: #89939a;
+      cursor: pointer;
+    }
+  }
+
+  &-buttons button {
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 11px;
+    font-family: Mont;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: none;
+    background-color: white;
+    color: #89939a;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .footer {
+    &-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    &-content {
+      gap: 32px;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: white;
+      justify-content: space-evenly;
+    }
+
+    &-buttons {
+      flex-direction: column;
+    }
+
+    &-buttons button {
+      padding-left: 0;
+    }
+
+    &-back-to-top {
+      line-height: 15px;
+      margin-left: 40%;
+    }
+    &-back-to-top {
+      margin: 0;
+      &-container {
+        gap: 16px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

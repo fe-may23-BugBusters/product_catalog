@@ -14,6 +14,8 @@ export interface Product {
   image: string;
   is_discounted: boolean;
   quantity?: number;
+  isAddedToCart?: boolean;
+  isLiked?: boolean;
 }
 
 export interface ProductExtended {

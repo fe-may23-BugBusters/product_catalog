@@ -104,24 +104,22 @@ export const PhonesPage = () => {
           {!loading
             ? products.map((product) => (
               <div className="product-card" key={product.id}>
-                <Link to={`/product/${product.id}`}>
-                  {' '}
-                  {/* Przekierowanie do strony produktu */}
-                  <PhoneCard
-                    name={product.name}
-                    itemid={product.itemid}
-                    fullprice={product.fullprice}
-                    price={product.price}
-                    screen={product.screen}
-                    capacity={product.capacity}
-                    color={product.color}
-                    ram={product.ram}
-                    year={product.year}
-                    image={product.image}
-                    product={product}
-                    is_discounted={product.is_discounted}
-                  />
-                </Link>
+                <PhoneCard
+                  name={product.name}
+                  itemid={product.itemid}
+                  fullprice={product.fullprice}
+                  price={product.price}
+                  screen={product.screen}
+                  capacity={product.capacity}
+                  color={product.color}
+                  ram={product.ram}
+                  year={product.year}
+                  image={product.image}
+                  product={product}
+                  is_discounted={product.is_discounted}
+                  isAddedToCart={product.isAddedToCart}
+                  isLiked={product.isAddedToCart}
+                />
               </div>
             ))
             : 'Loading...'}
