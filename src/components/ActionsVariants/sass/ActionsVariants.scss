@@ -1,8 +1,13 @@
 @import '../../../utils/fonts.scss';
 @import '../../../utils/mixins.scss';
 
+.info__main__actions {
+  align-items: center;
+}
+
 .actions {
   &__sec {
+    margin-top: 58px;
     border-bottom: 1px solid #e2e6e9;
     color: var(--gray-secondary, #89939a);
     font-family: Mont;

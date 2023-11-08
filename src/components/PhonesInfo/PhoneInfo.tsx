@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
+import Carousel from 'react-multi-carousel';
 import { Product, ProductExtended } from '../../types/product';
 import { Photos } from '../Photos/Photos';
 import { About } from '../About/About';
@@ -67,6 +68,69 @@ const PhoneDetailsPage = () => {
     return <div>Phone not found</div>;
   }
 
+  const responsiveInfo = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1401 },
+      items: 4.5,
+    },
+    largeDesktop: {
+      breakpoint: { max: 1400, min: 1201 },
+      items: 3.5,
+    },
+    desktop: {
+      breakpoint: { max: 1200, min: 940 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 939, min: 780 },
+      items: 2.5,
+    },
+    mobile: {
+      breakpoint: { max: 779, min: 640 },
+      items: 2,
+    },
+    mobilemin: {
+      breakpoint: { max: 639, min: 471 },
+      items: 1.5,
+    },
+    mobileminmin: {
+      breakpoint: { max: 470, min: 0 },
+      items: 1.1,
+    },
+  };
+
+  const ButtonGroupInfo = ({
+    next,
+    previous,
+    goToSlide,
+    ...rest // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }: any) => {
+    const {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      carouselState: { currentSlide },
+    } = rest;
+
+    return (
+      <div className="info-carousel-button-group">
+        <button
+          className="info-carousel-button-group-left"
+          onClick={() => previous()}
+          aria-label="button"
+          type="button"
+        >
+          {/* {'<'} */}
+        </button>
+        <button
+          className="info-carousel-button-group-right"
+          onClick={() => next()}
+          type="button"
+        >
+          {/* {'>'} */}
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="info">
       <section className="info__head">
@@ -119,8 +183,48 @@ const PhoneDetailsPage = () => {
           <About description={phoneDetails.description} />
         </section>
         <div className="info__main__recommendedSection">
+          <p className="info__slider__title">You may also like</p>
           <div className="info__main__recommendedCards">
-            {recommended
+            <Carousel
+              renderButtonGroupOutside
+              customButtonGroup={<ButtonGroupInfo />}
+              arrows={false}
+              swipeable={false}
+              draggable={false}
+              responsive={responsiveInfo}
+              ssr
+              infinite
+              autoPlaySpeed={1000}
+              keyBoardControl
+              transitionDuration={500}
+              containerClass="info-carousel-container"
+              dotListClass="info-custom-dot-list-style"
+              itemClass="info-carousel-item"
+            >
+              {recommended.map((product) => (
+                <div className="info__main__recommendedCard" key={product.name}>
+
+                  <PhoneCard
+                    key={product.name}
+                    name={product.name}
+                    itemid={product.itemid}
+                    fullprice={product.fullprice}
+                    price={product.price}
+                    screen={product.screen}
+                    capacity={product.capacity}
+                    color={product.color}
+                    ram={product.ram}
+                    year={product.year}
+                    image={product.image}
+                    product={product}
+                    is_discounted={product.is_discounted}
+                    isAddedToCart={product.isAddedToCart}
+                    isLiked={product.isAddedToCart}
+                  />
+                </div>
+              ))}
+            </Carousel>
+            {/* {recommended
               && recommended.map((product: Product) => (
                 <div className="info__main__recommendedCard" key={product.name}>
                   <PhoneCard
@@ -137,9 +241,11 @@ const PhoneDetailsPage = () => {
                     image={product.image}
                     product={product}
                     is_discounted={product.is_discounted}
+                    isAddedToCart={product.isAddedToCart}
+                    isLiked={product.isLiked}
                   />
                 </div>
-              ))}
+              ))} */}
           </div>
         </div>
       </div>

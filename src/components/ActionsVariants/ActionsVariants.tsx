@@ -70,7 +70,7 @@ export const ActionsVariants: React.FC<Props> = ({
       </section>
 
       <section className="actions__sec">
-        <p>Available capacity</p>
+        <p>Select capacity</p>
         <div className="actions__buttons">
           {capacity_available.map((cap) => (
             <button type="button" key={cap} className="actions__capacity">
