@@ -2,10 +2,10 @@
 .footer {
   &-content {
     display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  margin: 32px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin: 32px;
   }
 
   &-container {
@@ -14,7 +14,7 @@
     justify-content: space-evenly;
   }
 
-  &-logo-cont{
+  &-logo-cont {
     display: flex;
     flex-grow: 1;
   }
@@ -25,18 +25,18 @@
     object-fit: contain;
   }
 
-  &-buttons{
+  &-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
   &-arrow {
-    display: inline-flex; /* Use flex display for better alignment */
-    align-items: center; /* Center content vertically */
-    border: 1px solid #B4BDC3; /* Add borders or other styling */
-    background-color: #f0f0f000; /* Set background color */
-    cursor: pointer; /* Change cursor on hover */
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #b4bdc3;
+    background-color: #f0f0f000;
+    cursor: pointer;
 
     &-img {
       max-width: 100%;
@@ -56,7 +56,7 @@
     &-container {
       font-family: Mont;
       line-height: 32px;
-      color:#89939A;
+      color: #89939a;
       font-weight: 600;
       display: flex;
       flex-grow: 1;
@@ -99,7 +99,6 @@
       gap: 16px;
     }
     &-content {
-
       gap: 32px;
       flex-direction: column;
       align-items: flex-start;
@@ -107,7 +106,7 @@
       justify-content: space-evenly;
     }
 
-    &-buttons{
+    &-buttons {
       flex-direction: column;
     }
 
@@ -120,14 +119,13 @@
       margin-left: 40%;
     }
     &-back-to-top {
-      margin:0;
+      margin: 0;
       &-container {
-        gap:16px;
-        width:100%;
+        gap: 16px;
+        width: 100%;
         display: flex;
         justify-content: center;
       }
     }
   }
-
 }

@@ -12,8 +12,8 @@ const Footer = () => {
 
   const scrollToTop = () => {
     scroll.scrollToTop({
-      duration: 1000, // Duration of the smooth scroll in milliseconds
-      smooth: 'easeInOutQuart', // Easing function for the animation
+      duration: 1000,
+      smooth: 'easeInOutQuart',
     });
   };
 
@@ -21,11 +21,7 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <div className="footer-logo-cont">
-          <img
-            className="footer-logo"
-            src={Logo}
-            alt="Logo"
-          />
+          <img className="footer-logo" src={Logo} alt="Logo" />
         </div>
         <div className="footer-container">
           <div className="footer-buttons">
@@ -47,8 +43,11 @@ const Footer = () => {
         <div className="footer-back-to-top-container">
           Back to top
           <div className="footer-back-to-top">
-
-            <button type="button" className="footer-arrow" onClick={scrollToTop}>
+            <button
+              type="button"
+              className="footer-arrow"
+              onClick={scrollToTop}
+            >
               <img
                 className="footer-arrow-img"
                 src={require('../../img/Vector.jpg')}
