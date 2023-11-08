@@ -33,14 +33,14 @@ export const Favourites = () => {
         </div>
         <h1 className="favourites__title">Favourites</h1>
         <p className="favourites__text favourites__text--models">
-          {(favourites.length > 1) && (
+          {favourites.length > 1 && (
             <p>
               {`${favourites.length}`}
               {' '}
               items
             </p>
           )}
-          {(favourites.length <= 1) && (
+          {favourites.length <= 1 && (
             <p>
               {`${favourites.length}`}
               {' '}

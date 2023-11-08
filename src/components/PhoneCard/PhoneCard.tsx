@@ -59,8 +59,9 @@ export const PhoneCard: React.FC<Props> = ({
       setFavourites([...favourites, productLiked]);
       setIsLikedClick(!isLikedClick);
     } else {
-      const newFavourites = favourites
-        .filter((item) => item.itemid !== product.itemid);
+      const newFavourites = favourites.filter(
+        (item) => item.itemid !== product.itemid,
+      );
 
       setFavourites([...newFavourites]);
     }
