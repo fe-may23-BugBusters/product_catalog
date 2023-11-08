@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './sass/BurgerMenu.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTContext, TypeContext } from '../../context/Context';
 
 export const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { cart } = useTContext() as TypeContext;
+  const { favourites } = useTContext() as TypeContext;
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -60,9 +61,21 @@ export const BurgerMenu = () => {
           </Link>
         </div>
         <div className="menu_footer">
-          <a href="http#" className="menu_heart" aria-label="Wykonaj akcję">
-            <p />
-          </a>
+          <Link
+            to="/favourites"
+            className="menu_heart-2"
+            aria-label="Wykonaj akcję"
+            onClick={toggleMenu}
+          >
+            <div className="menu_bag--container">
+              {/* eslint-disable */}
+              {favourites.length > 0 && (
+                <span className="menu_bag--elipse">
+                  <p className="menu_bag--paragraph">{favourites.length}</p>
+                </span>
+              )}
+            </div>
+          </Link>
           <Link
             to="/cart"
             className="menu_bag"

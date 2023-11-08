@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { TypeContext, useTContext } from '../../context/Context';
 
 export const Header = () => {
   const { cart } = useTContext() as TypeContext;
+  const { favourites } = useTContext() as TypeContext;
 
   return (
     <>
@@ -47,7 +49,20 @@ export const Header = () => {
         </div>
 
         <div className="header__buttons">
-          <button type="button" className="header__buttons__like" />
+          <Link
+            to="/favourites"
+            type="button"
+            className="header__buttons__cart-heart"
+          >
+            {/* eslint-disable */}
+            {favourites.length > 0 && (
+              <span className="header__buttons__cart--elipse">
+                <p className="header__buttons__cart--paragraph">
+                  {favourites.length}
+                </p>
+              </span>
+            )}
+          </Link>
           <Link to="/cart" type="button" className="header__buttons__cart">
             {/* eslint-disable */}
             {cart.length > 0 && (

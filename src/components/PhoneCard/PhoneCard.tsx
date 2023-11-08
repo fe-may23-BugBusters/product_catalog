@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import './sass/PhoneCard.scss';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,8 @@ type Props = {
   image: string;
   product: Product;
   is_discounted: boolean;
+  isAddedToCart: boolean | undefined;
+  isLiked: boolean | undefined;
 };
 
 export const PhoneCard: React.FC<Props> = ({
@@ -32,21 +35,43 @@ export const PhoneCard: React.FC<Props> = ({
   image,
   product,
   is_discounted,
+  isAddedToCart,
+  isLiked,
 }) => {
-  const [isLiked, setIsLiked] = useState<boolean>(false);
+  const [isLikedClick, setIsLikedClick] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const { cart, setCart } = useTContext() as TypeContext;
-
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-  };
+  const { favourites, setFavourites } = useTContext() as TypeContext;
 
   const conditionToAdd = !cart.some((item) => item.id === product.id);
+  const conditionToLike = !favourites.some((item) => item.id === product.id);
+
+  const haveLike = favourites.some((item) => item.itemid === product.itemid);
+  const wasSelected = cart.some((item) => item.itemid === product.itemid);
+
+  const handleLike = () => {
+    const productLiked = {
+      ...product,
+      isLiked: true,
+    };
+
+    if (!isLikedClick && conditionToLike) {
+      setFavourites([...favourites, productLiked]);
+      setIsLikedClick(!isLikedClick);
+    } else {
+      const newFavourites = favourites.filter(
+        (item) => item.itemid !== product.itemid,
+      );
+
+      setFavourites([...newFavourites]);
+    }
+  };
 
   const handleAdd = () => {
     const productWithQuantity = {
       ...product,
       quantity: 1,
+      isAddedToCart: true,
     };
 
     if (!isAdded && conditionToAdd) {
@@ -106,7 +131,11 @@ export const PhoneCard: React.FC<Props> = ({
         <button
           type="button"
           onClick={handleAdd}
-          className={`phoneCard__add ${isAdded ? 'phoneCard__add--added' : ''}`}
+          className={`phoneCard__add ${
+            isAdded || product.isAddedToCart || wasSelected
+              ? 'phoneCard__add--added'
+              : ''
+          }`}
         >
           {isAdded ? 'Added to cart' : 'Add to cart'}
         </button>
@@ -114,7 +143,9 @@ export const PhoneCard: React.FC<Props> = ({
           type="button"
           onClick={handleLike}
           className={`phoneCard__heart ${
-            isLiked ? 'phoneCard__heart--liked' : ''
+            isLikedClick || product.isLiked || haveLike
+              ? 'phoneCard__heart--liked'
+              : ''
           }`}
         >
           {' '}

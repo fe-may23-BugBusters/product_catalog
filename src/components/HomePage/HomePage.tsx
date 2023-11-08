@@ -156,6 +156,8 @@ export const HomePage = () => {
               image={product.image}
               product={product}
               is_discounted={product.is_discounted}
+              isAddedToCart={product.isAddedToCart}
+              isLiked={product.isAddedToCart}
             />
           ))}
         </Carousel>
@@ -171,7 +173,6 @@ export const HomePage = () => {
                 alt="trying to load..."
               />
             </Link>
-
           </div>
           <h3 className="home_category_h3">Mobile phones</h3>
           <p className="home_category_p">95 models</p>
@@ -242,6 +243,8 @@ export const HomePage = () => {
               image={product.image}
               product={product}
               is_discounted={product.is_discounted}
+              isAddedToCart={product.isAddedToCart}
+              isLiked={product.isAddedToCart}
             />
           ))}
         </Carousel>
