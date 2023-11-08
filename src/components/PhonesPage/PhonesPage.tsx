@@ -16,45 +16,46 @@ export const PhonesPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(16);
+  const [perPage, setPerPage] = useState(16);
   const [totalPosts, setTotalPosts] = useState(0);
-  const [sortType, setSortType] = useState('year-asc');
+  const [orderBy, setOrderBy] = useState('year');
+  const [order, setOrder] = useState('asc');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
-      const sortTypeParts = sortType.split('-');
-      const sortField = sortTypeParts[0];
-      const sortOrder = sortTypeParts[1];
 
-      if (!supportedSortByOrder.includes(sortField)) {
-        console.error(`Sortowanie po polu ${sortField} nie jest obsługiwane.`);
+      if (!supportedSortByOrder.includes(orderBy)) {
+        console.error(`Sortowanie po polu ${orderBy} nie jest obsługiwane.`);
         setLoading(false);
 
         return;
       }
 
-      const response = await axios.get(
-        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${
-          currentPage - 1
-        }&pageSize=${postPerPage}&sortField=${sortField}&sortOrder=${sortOrder}`,
-      );
+      try {
+        const response = await axios.get(
+          `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage}&perPage=${perPage}&orderBy=${orderBy}&order=${order}&search=${search}`,
+        );
 
-      setProducts(response.data.rows);
-      setTotalPosts(response.data.count);
-      setLoading(false);
+        setProducts(response.data.rows);
+        setTotalPosts(response.data.count);
+        setLoading(false);
+      } catch (error) {
+        console.error('Błąd podczas pobierania produktów:', error);
+        setLoading(false);
+      }
     };
 
     loadProducts();
-  }, [currentPage, postPerPage, sortType]);
+  }, [currentPage, perPage, orderBy, order, search]);
 
-  const numberOfPages = Math.ceil(totalPosts / postPerPage);
+  const numberOfPages = Math.ceil(totalPosts / perPage);
 
-  const toggleSortType = () => {
-    const sortTypeParts = sortType.split('-');
-    const newSortOrder = sortTypeParts[1] === 'asc' ? 'desc' : 'asc';
+  const toggleOrder = () => {
+    const newOrder = order === 'asc' ? 'desc' : 'asc';
 
-    setSortType(`${sortTypeParts[0]}-${newSortOrder}`);
+    setOrder(newOrder);
   };
 
   return (
@@ -87,16 +88,22 @@ export const PhonesPage = () => {
             name="sort-by"
             id="sort-by"
             className="phonePage__select__field"
-            value={sortType}
-            onChange={(e) => setSortType(e.target.value)}
+            value={orderBy}
+            onChange={(e) => setOrderBy(e.target.value)}
           >
-            <option value="year-asc">Year: Ascending</option>
-            <option value="year-desc">Year: Descending</option>
-            <option value="fullprice-asc">Price: Ascending</option>
-            <option value="fullprice-desc">Price: Descending</option>
+            <option value="year">Year</option>
+            <option value="fullprice">Price</option>
+            <option value="id">ID</option>
           </select>
-          <button onClick={toggleSortType}>Toggle ASC/DESC</button>
+          <button onClick={toggleOrder}>Toggle ASC/DESC</button>
         </div>
+
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </main>
       <Pagination
         currentPage={currentPage}
