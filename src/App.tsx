@@ -10,6 +10,7 @@ import TabletsPage from './components/TabletsPage/TabletsPage';
 import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
 import { Recommended } from './components/Recommended/Recommended';
 import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
+import { Favourites } from './components/Favourites/Favourites';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path=":tabId" element={<PhonesPage />} />
           </Route>
           <Route path="/tablets" element={<TabletsPage />} />
+          <Route path="/favourites" element={<Favourites />} />
           <Route path="/accessories" element={<AccessoriesPage />} />
           <Route index element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />

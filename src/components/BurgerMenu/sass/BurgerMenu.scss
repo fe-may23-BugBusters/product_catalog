@@ -176,6 +176,20 @@
     box-shadow: -1px 0px 0px 0px #e2e6e9;
   }
 
+  &_heart-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 64px;
+    width: 50%;
+    background-size: 16px 16px;
+    background: url(../../../images/heart.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: -1px 0px 0px 0px #e2e6e9;
+  }
+
   &_bag--container {
     position: relative;
     height: 16px;
