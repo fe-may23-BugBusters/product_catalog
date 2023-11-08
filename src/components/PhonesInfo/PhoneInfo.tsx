@@ -99,6 +99,8 @@ const PhoneDetailsPage = () => {
             capacity={phoneDetails.capacity}
             color={phoneDetails.color}
             ram={phoneDetails.ram}
+            colors_available={phoneDetails.colors_available}
+            capacity_available={phoneDetails.capacity_available}
           />
         </section>
         <section className="info__main__tech">
