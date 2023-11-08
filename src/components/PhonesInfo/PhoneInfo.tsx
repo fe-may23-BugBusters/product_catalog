@@ -13,6 +13,7 @@ import home from '../../icons/Home.svg';
 import './sass/PhoneInfo.scss';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PhoneCard } from '../PhoneCard/PhoneCard';
+import { ActionsVariants } from '../ActionsVariants/ActionsVariants';
 
 const PhoneDetailsPage = () => {
   const { phoneId } = useParams();
@@ -20,6 +21,7 @@ const PhoneDetailsPage = () => {
     null,
   );
   const [loading, setLoading] = useState(true);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [recommended, setRecommended] = useState<Product[]>([]);
 
@@ -85,23 +87,39 @@ const PhoneDetailsPage = () => {
         </Link>
         <h1 className="info__head__title">{phoneDetails.name}</h1>
       </section>
-      <Photos images={phoneDetails.images} />
-      <TechSpecs
-        camera={phoneDetails.camera}
-        capacity={phoneDetails.capacity}
-        cell={phoneDetails.cell}
-        processor={phoneDetails.processor}
-        ram={phoneDetails.ram}
-        resolution={phoneDetails.resolution}
-        screen={phoneDetails.screen}
-        zoom={phoneDetails.zoom}
-      />
-      <section className="info__main__about">
-        <About description={phoneDetails.description} />
-      </section>
-      {/* <div className="info__main__recommendedSection">
-            <div className="info__main__recommendedCards">
-              {recommended && (recommended.map((product: Product) => (
+      <div className="info__main">
+        <section className="info__main__photos">
+          <Photos images={phoneDetails.images} />
+        </section>
+        <section className="info__main__actions">
+          <ActionsVariants
+            price_regular={phoneDetails.price_regular}
+            price_discount={phoneDetails.price_discount}
+            screen={phoneDetails.screen}
+            capacity={phoneDetails.capacity}
+            color={phoneDetails.color}
+            ram={phoneDetails.ram}
+          />
+        </section>
+        <section className="info__main__tech">
+          <TechSpecs
+            camera={phoneDetails.camera}
+            capacity={phoneDetails.capacity}
+            cell={phoneDetails.cell}
+            processor={phoneDetails.processor}
+            ram={phoneDetails.ram}
+            resolution={phoneDetails.resolution}
+            screen={phoneDetails.screen}
+            zoom={phoneDetails.zoom}
+          />
+        </section>
+        <section className="info__main__about">
+          <About description={phoneDetails.description} />
+        </section>
+        <div className="info__main__recommendedSection">
+          <div className="info__main__recommendedCards">
+            {recommended
+              && recommended.map((product: Product) => (
                 <div className="info__main__recommendedCard" key={product.name}>
                   <PhoneCard
                     key={product.name}
@@ -119,10 +137,10 @@ const PhoneDetailsPage = () => {
                     is_discounted={product.is_discounted}
                   />
                 </div>
-
-              )))}
-            </div>
-          </div> */}
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
