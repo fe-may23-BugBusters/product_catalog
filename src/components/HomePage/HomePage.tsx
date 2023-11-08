@@ -54,8 +54,12 @@ export const HomePage = () => {
       items: 2,
     },
     mobilemin: {
-      breakpoint: { max: 639, min: 0 },
+      breakpoint: { max: 639, min: 471 },
       items: 1.5,
+    },
+    mobileminmin: {
+      breakpoint: { max: 470, min: 0 },
+      items: 1.1,
     },
   };
 

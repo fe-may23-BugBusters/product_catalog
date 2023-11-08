@@ -1,4 +1,5 @@
 @import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
 
 * {
   box-sizing: border-box;
@@ -14,6 +15,8 @@
   border-radius: 8px;
   border: 1px solid #e2e6e9;
   background: white;
+  @include for-phone {
+  }
   // height: 100%;
 
   &:hover {
