@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import PropagateLoader from 'react-spinners/PropagateLoader';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Link } from 'react-router-dom';
 import { Product } from '../../types/product';
 import { PhoneCard } from '../PhoneCard/PhoneCard';
 import './sass/HomePage.scss';
@@ -39,7 +40,11 @@ export const HomePage = () => {
 
   const responsive = {
     superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1201 },
+      breakpoint: { max: 4000, min: 1401 },
+      items: 4.5,
+    },
+    largeDesktop: {
+      breakpoint: { max: 1400, min: 1201 },
       items: 3.5,
     },
     desktop: {
@@ -96,6 +101,7 @@ export const HomePage = () => {
     );
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const override: any = {
     alignSelf: 'center',
     position: 'absolute',
@@ -112,13 +118,10 @@ export const HomePage = () => {
       </div>
       <h1 className="home_h1">Brand new models</h1>
       <div className="home_newModelsSlider">
-        {(loading && newModels.length === 0) && (
+        {loading && newModels.length === 0 && (
           <div className="home_newModelSlider-loader">
             {/* <p>Loading in progress...</p> */}
-            <PropagateLoader
-              color="#0F0F11"
-              cssOverride={override}
-            />
+            <PropagateLoader color="#0F0F11" cssOverride={override} />
           </div>
         )}
         <Carousel
@@ -161,33 +164,40 @@ export const HomePage = () => {
       <div className="home_category">
         <div className="home_category_container">
           <div className="home_category_mobile home_category_div">
-            <img
-              className="home_category_image-1 home_category_image"
-              src={require('../../img/banner/category-phones.png')}
-              alt="trying to load..."
-            />
+            <Link to="/phones">
+              <img
+                className="home_category_image-1 home_category_image"
+                src={require('../../img/banner/category-phones.png')}
+                alt="trying to load..."
+              />
+            </Link>
+
           </div>
           <h3 className="home_category_h3">Mobile phones</h3>
           <p className="home_category_p">95 models</p>
         </div>
         <div className="home_category_container">
           <div className="home_category_tablets home_category_div">
-            <img
-              className="home_category_image-2 home_category_image"
-              src={require('../../img/banner/category-tablets.png')}
-              alt="trying to load..."
-            />
+            <Link to="/tablets">
+              <img
+                className="home_category_image-2 home_category_image"
+                src={require('../../img/banner/category-tablets.png')}
+                alt="trying to load..."
+              />
+            </Link>
           </div>
           <h3 className="home_category_h3">Tablets</h3>
           <p className="home_category_p">24 models</p>
         </div>
         <div className="home_category_container">
           <div className="home_category_accesories home_category_div">
-            <img
-              className="home_category_image-3 home_category_image"
-              src={require('../../img/banner/category-accessories.png')}
-              alt="trying to load..."
-            />
+            <Link to="/accessories">
+              <img
+                className="home_category_image-3 home_category_image"
+                src={require('../../img/banner/category-accessories.png')}
+                alt="trying to load..."
+              />
+            </Link>
           </div>
           <h3 className="home_category_h3">Accessories</h3>
           <p className="home_category_p">100 models</p>
@@ -195,13 +205,10 @@ export const HomePage = () => {
       </div>
       <h1 className="home_h1">Hot prices</h1>
       <div className="home_newModelsSlider">
-        {(loading && newModels.length === 0) && (
+        {loading && newModels.length === 0 && (
           <div className="home_newModelSlider-loader">
             {/* <p>Loading in progress...</p> */}
-            <PropagateLoader
-              color="#0F0F11"
-              cssOverride={override}
-            />
+            <PropagateLoader color="#0F0F11" cssOverride={override} />
           </div>
         )}
         <Carousel
