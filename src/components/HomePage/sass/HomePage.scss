@@ -1,2 +1,195 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
 .home {
+  background-color: #fafbfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include for-tablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_title {
+    color: #0f0f11;
+    font-family: Mont;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 56px;
+    letter-spacing: -0.48px;
+    margin-top: 32px;
+    margin-bottom: 56px;
+    margin-left: 32px;
+    @include for-tablet {
+      width: 592px;
+      font-family: Mont;
+    }
+    @include for-phone {
+      width: 288px;
+      font-size: 32px;
+      letter-spacing: -0.32px;
+      font-family: Mont;
+    }
+  }
+
+  &_h1 {
+    color: #0f0f11;
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -0.32px;
+    margin-top: 80px;
+    @include for-tablet {
+      width: 491px;
+      font-family: Mont;
+    }
+    @include for-phone {
+      width: 136px;
+      font-size: 22px;
+      font-family: Mont;
+      line-height: 140%;
+    }
+  }
+
+  &_newModelsSlider {
+    // height: 560px;
+    width: 90%;
+    position: relative;
+  }
+
+  .carousel-container {
+    height: 100%;
+  }
+
+  .carousel-item {
+    width: 272px;
+  }
+
+  &_carousel-button-group {
+    position: absolute;
+    top: -10%;
+    right: 10%;
+
+    &-right {
+      background: url(../../../images/arrow_active.svg) !important;
+      background-size: 16px !important ;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      border-radius: 48px;
+      border: 1px solid #b4bdc3;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      margin-left: 16px;
+    }
+
+    &-left {
+      background: url(../../../images/arrow_active.svg) !important;
+      background-size: auto 16px !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      border-radius: 48px;
+      border: 1px solid #b4bdc3;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      transform: rotate(180deg);
+    }
+  }
+
+  &_category {
+    display: flex;
+    @include for-tablet {
+    }
+    @include for-phone {
+      flex-direction: column;
+    }
+
+    &_mobile {
+      background-color: #6d6474;
+    }
+    &_tablets {
+      background:
+        url(../../../img/banner/category-tablets.png),
+        lightgray 50% / cover no-repeat;
+    }
+    &_accesories {
+      background-color: #d53c51;
+    }
+    &_div {
+      border-radius: 8px;
+      width: 368px;
+      height: 368px;
+      margin-left: 16px;
+      overflow: hidden;
+      @include for-tablet {
+        width: 187px;
+        height: 187px;
+      }
+      @include for-phone {
+        width: 288px;
+        height: 288px;
+      }
+    }
+
+    &_container {
+      @include for-tablet {
+        margin-left: 16px;
+        width: 187px;
+      }
+      @include for-phone {
+        margin-left: 16px;
+        width: 288px;
+      }
+    }
+
+    &_h3 {
+      color: #0f0f11;
+      font-family: Mont;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 24px;
+      margin-left: 16px;
+    }
+
+    &_p {
+      color: #89939a;
+      font-family: Mont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 21px;
+      margin-left: 16px;
+    }
+
+    &_image {
+      background-color: transparent;
+      margin-left: 20px;
+      max-width: 100%;
+      max-height: 100%;
+      &-1 {
+        margin-left: 100px;
+        margin-top: 100px;
+        transform: scale(1.5);
+      }
+      &-2 {
+        margin-left: 200px;
+        margin-top: 200px;
+        transform: scale(2);
+      }
+      &-3 {
+        margin-left: 200px;
+        margin-top: 140px;
+        transform: scale(2);
+      }
+    }
+  }
 }

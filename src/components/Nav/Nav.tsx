@@ -33,7 +33,7 @@ export const Nav = () => {
       <div className="headerNav">
         {mobileSize ? <Header /> : <BurgerMenu />}
       </div>
-      <nav>
+      {/* <nav>
         <ul>
           <li>
             <Link to="/">Strona główna</Link>
@@ -48,7 +48,7 @@ export const Nav = () => {
             <Link to="/phoneinfo">Telefon</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </>
   );
 };

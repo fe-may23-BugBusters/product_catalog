@@ -1,0 +1,132 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+.promo {
+  height: 400px;
+  // align-self: center;
+  @include for-tablet {
+    height: 189px;
+  }
+
+  &_custom-dot-list-style {
+    position: absolute;
+    margin-top: 8px;
+    // width: 80px;
+    // height: 24px;
+    bottom: -28px;
+  }
+
+  &_newModelsSlider {
+    position: relative;
+    width: 1125px;
+    height: 400px;
+    margin-left: 36px;
+
+    @include for-tablet {
+      width: 600px;
+      height: 189px;
+    }
+    @include for-phone {
+      width: 320px;
+      height: 320px;
+      margin: 0;
+    }
+  }
+
+  &_carousel-container {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    // height: 100%;
+    width: 1040px;
+    margin-left: 28px;
+    @include for-tablet {
+      left: 20px;
+      width: 490px;
+      height: 189px;
+      margin-left: 38px;
+    }
+    @include for-phone {
+      width: 320px;
+      height: 320px;
+      background: url(../../../img/banner/bannerMobile.png) !important;
+      background-size: auto;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      margin: 0;
+      left: 0;
+    }
+  }
+
+  &_carousel-item {
+    max-width: 1040px;
+    @include for-tablet {
+      width: 490px;
+      height: 189px;
+    }
+    @include for-phone {
+      width: 320px;
+      height: 320px;
+    }
+  }
+
+  &_image {
+    @include for-phone {
+      display: none;
+    }
+  }
+
+  &_carousel-button-group {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &-right {
+      background: url(../../../images/arrow_active.svg) !important;
+      background-size: 16px !important ;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      border-radius: 48px;
+      border: 1px solid #b4bdc3;
+      cursor: pointer;
+      width: 32px;
+      height: 400px;
+      flex-shrink: 0;
+      margin-left: 1056px;
+      @include for-tablet {
+        margin-left: 490px;
+        height: 189px;
+      }
+      @include for-phone {
+        display: none;
+      }
+    }
+
+    &-left {
+      background: url(../../../images/arrow_active.svg) !important;
+      background-size: auto 16px !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      border-radius: 48px;
+      border: 1px solid #b4bdc3;
+      cursor: pointer;
+      width: 32px;
+      height: 400px;
+      transform: rotate(180deg);
+      @include for-tablet {
+        margin-right: 40px;
+        height: 189px;
+      }
+      @include for-phone {
+        display: none;
+      }
+    }
+  }
+}
+
+.react-multi-carousel-dot button {
+  border-radius: 0;
+  border-style: none;
+  height: 4px;
+  margin-left: 12px;
+}
