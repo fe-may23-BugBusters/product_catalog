@@ -49,7 +49,11 @@ export const Header = () => {
         </div>
 
         <div className="header__buttons">
-          <Link to="/favourites" type="button" className="header__buttons__cart-heart">
+          <Link
+            to="/favourites"
+            type="button"
+            className="header__buttons__cart-heart"
+          >
             {/* eslint-disable */}
             {favourites.length > 0 && (
               <span className="header__buttons__cart--elipse">

@@ -32,7 +32,22 @@ export const Favourites = () => {
           <p className="favourites__current__text">Favourites</p>
         </div>
         <h1 className="favourites__title">Favourites</h1>
-        <p className="favourites__text favourites__text--models">5 items</p>
+        <p className="favourites__text favourites__text--models">
+          {(favourites.length > 1) && (
+            <p>
+              {`${favourites.length}`}
+              {' '}
+              items
+            </p>
+          )}
+          {(favourites.length <= 1) && (
+            <p>
+              {`${favourites.length}`}
+              {' '}
+              item
+            </p>
+          )}
+        </p>
 
         <div className="product-card__container">
           {favourites.map((product) => (

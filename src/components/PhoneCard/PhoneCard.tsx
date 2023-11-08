@@ -43,22 +43,28 @@ export const PhoneCard: React.FC<Props> = ({
   const { cart, setCart } = useTContext() as TypeContext;
   const { favourites, setFavourites } = useTContext() as TypeContext;
 
+  const conditionToAdd = !cart.some((item) => item.id === product.id);
+  const conditionToLike = !favourites.some((item) => item.id === product.id);
+
+  const haveLike = favourites.some((item) => item.itemid === product.itemid);
+  const wasSelected = cart.some((item) => item.itemid === product.itemid);
+
   const handleLike = () => {
     const productLiked = {
       ...product,
       isLiked: true,
     };
 
-    if (!isLikedClick) {
+    if (!isLikedClick && conditionToLike) {
       setFavourites([...favourites, productLiked]);
       setIsLikedClick(!isLikedClick);
+    } else {
+      const newFavourites = favourites
+        .filter((item) => item.itemid !== product.itemid);
+
+      setFavourites([...newFavourites]);
     }
   };
-
-  const conditionToAdd = !cart.some((item) => item.id === product.id);
-
-  const haveLike = favourites.some((item) => item.itemid === product.itemid);
-  const wasSelected = cart.some((item) => item.itemid === product.itemid);
 
   const handleAdd = () => {
     const productWithQuantity = {
@@ -124,7 +130,11 @@ export const PhoneCard: React.FC<Props> = ({
         <button
           type="button"
           onClick={handleAdd}
-          className={`phoneCard__add ${(isAdded || product.isAddedToCart || wasSelected) ? 'phoneCard__add--added' : ''}`}
+          className={`phoneCard__add ${
+            isAdded || product.isAddedToCart || wasSelected
+              ? 'phoneCard__add--added'
+              : ''
+          }`}
         >
           {isAdded ? 'Added to cart' : 'Add to cart'}
         </button>
@@ -132,7 +142,9 @@ export const PhoneCard: React.FC<Props> = ({
           type="button"
           onClick={handleLike}
           className={`phoneCard__heart ${
-            (isLikedClick || product.isLiked || haveLike) ? 'phoneCard__heart--liked' : ''
+            isLikedClick || product.isLiked || haveLike
+              ? 'phoneCard__heart--liked'
+              : ''
           }`}
         >
           {' '}
