@@ -35,12 +35,12 @@ export const Header = () => {
                 </Link>
               </li>
               <li className="header__nav__list__item">
-                <a
-                  href="/accessories"
+                <Link
+                  to="/accessories"
                   className="header__nav__list__item__link"
                 >
                   Accessories
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

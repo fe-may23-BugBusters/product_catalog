@@ -188,16 +188,28 @@
         margin-left: 100px;
         margin-top: 100px;
         transform: scale(1.5);
+        @include for-tablet {
+          margin-left: 50px;
+          margin-top: 50px;
+        }
       }
       &-2 {
         margin-left: 200px;
         margin-top: 200px;
         transform: scale(2);
+        @include for-tablet {
+          margin-left: 100px;
+          margin-top: 100px;
+        }
       }
       &-3 {
         margin-left: 200px;
         margin-top: 140px;
         transform: scale(2);
+        @include for-tablet {
+          margin-left: 120px;
+          margin-top: 70px;
+        }
       }
     }
   }

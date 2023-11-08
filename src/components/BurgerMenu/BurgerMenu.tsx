@@ -52,10 +52,10 @@ export const BurgerMenu = () => {
           <Link to="/phones" className="menu_link" onClick={toggleMenu}>
             PHONES
           </Link>
-          <Link to="http#" className="menu_link" onClick={toggleMenu}>
+          <Link to="/tablets" className="menu_link" onClick={toggleMenu}>
             TABLETS
           </Link>
-          <Link to="http#" className="menu_link" onClick={toggleMenu}>
+          <Link to="/accessories" className="menu_link" onClick={toggleMenu}>
             ACCESSORIES
           </Link>
         </div>
