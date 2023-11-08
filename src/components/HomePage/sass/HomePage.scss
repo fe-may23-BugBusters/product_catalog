@@ -61,6 +61,15 @@
     // height: 560px;
     width: 90%;
     position: relative;
+    &-loader {
+      position: relative;
+      left: 50%;
+      align-self: center;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      width: 100%;
+    }
   }
 
   .carousel-container {

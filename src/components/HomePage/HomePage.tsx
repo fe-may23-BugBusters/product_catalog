@@ -4,6 +4,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import PropagateLoader from 'react-spinners/PropagateLoader';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Product } from '../../types/product';
@@ -95,6 +96,12 @@ export const HomePage = () => {
     );
   };
 
+  const override: any = {
+    alignSelf: 'center',
+    position: 'absolute',
+    left: '40vW',
+  };
+
   return (
     <div className="home">
       <h1 className="home_title" id="header">
@@ -105,6 +112,15 @@ export const HomePage = () => {
       </div>
       <h1 className="home_h1">Brand new models</h1>
       <div className="home_newModelsSlider">
+        {(loading && newModels.length === 0) && (
+          <div className="home_newModelSlider-loader">
+            {/* <p>Loading in progress...</p> */}
+            <PropagateLoader
+              color="#0F0F11"
+              cssOverride={override}
+            />
+          </div>
+        )}
         <Carousel
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
@@ -179,6 +195,15 @@ export const HomePage = () => {
       </div>
       <h1 className="home_h1">Hot prices</h1>
       <div className="home_newModelsSlider">
+        {(loading && newModels.length === 0) && (
+          <div className="home_newModelSlider-loader">
+            {/* <p>Loading in progress...</p> */}
+            <PropagateLoader
+              color="#0F0F11"
+              cssOverride={override}
+            />
+          </div>
+        )}
         <Carousel
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
