@@ -4,7 +4,7 @@ import NotFound from './components/NotFoundPage/NotFound';
 import { PhonesPage } from './components/PhonesPage/PhonesPage';
 import { HomePage } from './components/HomePage/HomePage';
 import { Nav } from './components/Nav/Nav';
-import Footer from './components/footer';
+import Footer from './components/footer/footer';
 import { Cart } from './components/Cart/Cart';
 import TabletsPage from './components/TabletsPage/TabletsPage';
 import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
