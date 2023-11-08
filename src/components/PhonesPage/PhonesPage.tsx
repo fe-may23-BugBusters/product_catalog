@@ -1,5 +1,5 @@
-/* eslint-disable indent */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -10,19 +10,32 @@ import { PhoneCard } from '../PhoneCard/PhoneCard';
 import { Pagination } from '../Pagination/Pagination';
 import { Product } from '../../types/product';
 
+const supportedSortByOrder = ['fullprice', 'id', 'year'];
+
 export const PhonesPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(16);
   const [totalPosts, setTotalPosts] = useState(0);
-  const [sortType, setSortType] = useState('newest');
+  const [sortType, setSortType] = useState('year-asc');
 
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
+      const sortTypeParts = sortType.split('-');
+      const sortField = sortTypeParts[0];
+      const sortOrder = sortTypeParts[1];
+
+      if (!supportedSortByOrder.includes(sortField)) {
+        console.error(`Sortowanie po polu ${sortField} nie jest obsługiwane.`);
+        setLoading(false);
+
+        return;
+      }
+
       const response = await axios.get(
-        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage - 1}&pageSize=${postPerPage}&sort=${sortType}`,
+        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage - 1}&pageSize=${postPerPage}&sortField=${sortField}&sortOrder=${sortOrder}`,
       );
 
       setProducts(response.data.rows);
@@ -35,24 +48,12 @@ export const PhonesPage = () => {
 
   const numberOfPages = Math.ceil(totalPosts / postPerPage);
 
-  const sortProducts = () => {
-    switch (sortType) {
-      case 'price-low-to-high':
-        return products.slice().sort((a, b) => a.price - b.price);
-      case 'price-high-to-low':
-        return products.slice().sort((a, b) => b.price - a.price);
-      case 'ram':
-        return products.slice().sort((a, b) => a.ram.localeCompare(b.ram));
-      case 'model':
-        return products.slice().sort((a, b) => a.name.localeCompare(b.name));
-      case 'color':
-        return products.slice().sort((a, b) => a.color.localeCompare(b.color));
-      default:
-        return products;
-    }
-  };
+  const toggleSortType = () => {
+    const sortTypeParts = sortType.split('-');
+    const newSortOrder = sortTypeParts[1] === 'asc' ? 'desc' : 'asc';
 
-  const sortedProducts = sortProducts();
+    setSortType(`${sortTypeParts[0]}-${newSortOrder}`);
+  };
 
   return (
     <>
@@ -73,9 +74,6 @@ export const PhonesPage = () => {
           <p className="phonePage__current__text">Phones</p>
         </div>
 
-        <h1 className="phonePage__title">Mobile Phones</h1>
-        <p className="phonePage__text phonePage__text--models">95 models</p>
-
         <div className="phonePage__select phonePage__select--1">
           <label
             htmlFor="sort-by"
@@ -90,59 +88,12 @@ export const PhonesPage = () => {
             value={sortType}
             onChange={(e) => setSortType(e.target.value)}
           >
-            <option value="newest">Newest</option>
-            <option value="price-low-to-high">Price: Low to High</option>
-            <option value="price-high-to-low">Price: High to Low</option>
-            <option value="ram">RAM</option>
-            <option value="model">Model</option>
-            <option value="color">Color</option>
+            <option value="year-asc">Year: Ascending</option>
+            <option value="year-desc">Year: Descending</option>
+            <option value="fullprice-asc">Price: Ascending</option>
+            <option value="fullprice-desc">Price: Descending</option>
           </select>
-        </div>
-
-        <div className="phonePage__select phonePage__select--2">
-          <label
-            htmlFor="items-on-page"
-            className="phonePage__text phonePage__select__text"
-          >
-            Items on Page:
-          </label>
-          <select
-            name="items-on-page"
-            id="items-on-page"
-            className="phonePage__select__field"
-            value={postPerPage}
-            onChange={(e) => setPostPerPage(Number(e.target.value))}
-          >
-            <option value="8">8</option>
-            <option value="16">16</option>
-            <option value="24">24</option>
-          </select>
-        </div>
-
-        <div className="product-card__container">
-          {!loading
-            ? sortedProducts.map((product) => (
-              <div className="product-card" key={product.id}>
-                <Link to={`/product/${product.id}`}>
-                  <PhoneCard
-                    key={product.name}
-                    name={product.name}
-                    itemid={product.itemid}
-                    fullprice={product.fullprice}
-                    price={product.price}
-                    screen={product.screen}
-                    capacity={product.capacity}
-                    color={product.color}
-                    ram={product.ram}
-                    year={product.year}
-                    image={product.image}
-                    product={product}
-                    is_discounted={product.is_discounted}
-                  />
-                </Link>
-              </div>
-            ))
-            : 'Loading...'}
+          <button onClick={toggleSortType}>Toggle ASC/DESC</button>
         </div>
       </main>
       <Pagination
