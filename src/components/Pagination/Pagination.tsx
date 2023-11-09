@@ -30,7 +30,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       <button
         // eslint-disable-next-line max-len
         className={
-          isSelected && selectedPage === i
+          selectedPage === i
             ? 'pagination_button--selected'
             : 'pagination_button'
         }

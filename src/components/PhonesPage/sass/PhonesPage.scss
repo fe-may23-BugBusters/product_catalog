@@ -109,7 +109,11 @@
   &__select {
     height: 59px;
     margin-bottom: 16px;
-
+    &_cont {
+      grid-column-start: 1;
+      display: flex;
+      width: 800px;
+    }
     &__container {
       display: flex;
     }
@@ -143,8 +147,7 @@
 
     &--1 {
       grid-column-start: 1;
-      width: 176px;
-
+      margin-right: 10px;
       @include for-phone() {
         grid-column: 1/3;
         width: 100%;
