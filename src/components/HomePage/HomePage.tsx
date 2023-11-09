@@ -105,7 +105,7 @@ export const HomePage = () => {
   const override: any = {
     alignSelf: 'center',
     position: 'absolute',
-    left: '40vW',
+    left: '44vW',
   };
 
   return (
