@@ -45,6 +45,7 @@ export const ActionsVariants: React.FC<Props> = ({
       (prod) => prod.itemid === product.id,
     ) as Product;
 
+
     const adding = {
       ...prodToAdd,
       quantity: 1,
