@@ -77,6 +77,8 @@ export const ActionsVariants: React.FC<Props> = ({
     )}`;
 
     window.location.href = newPath;
+
+    window.location.reload();
   };
 
   const handleColorClick = (selectedColor: string) => {
@@ -85,6 +87,8 @@ export const ActionsVariants: React.FC<Props> = ({
     )}`;
 
     window.location.href = newPath;
+
+    window.location.reload();
   };
 
   return (

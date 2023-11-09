@@ -44,7 +44,9 @@ export const PhonesPage = () => {
 
       try {
         const response = await axios.get(
-          `https://product-catalog-be-6qo2.onrender.com/products?perPage=${perPage}&pageNumber=${currentPage - 1}&orderBy=${orderBy}&order=${order}`,
+          `https://product-catalog-be-6qo2.onrender.com/products?perPage=${perPage}&pageNumber=${
+            currentPage - 1
+          }&orderBy=${orderBy}&order=${order}`,
         );
 
         setProducts(response.data.rows);
@@ -165,8 +167,8 @@ export const PhonesPage = () => {
           </div> */}
         </div>
         <div className="product-card__container">
-          {!loading
-            ? products.map((product) => (
+          {!loading ? (
+            products.map((product) => (
               <div className="product-card" key={product.id}>
                 <PhoneCard
                   name={product.name}
@@ -187,7 +189,9 @@ export const PhonesPage = () => {
                 />
               </div>
             ))
-            : <PropagateLoader color="#0F0F11" cssOverride={override} />}
+          ) : (
+            <PropagateLoader color="#0F0F11" cssOverride={override} />
+          )}
         </div>
       </main>
       <Pagination
