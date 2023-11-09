@@ -63,12 +63,15 @@
   }
 
   &__calc {
+    margin-left: auto;
+    margin-right: 10px;
     display: flex;
     gap: 24px;
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center;
 
     @include for-phone {
+      margin-left: 0;
       gap: 16px;
       align-items: center;
       justify-content: center;
