@@ -97,7 +97,11 @@ export const PhoneCard: React.FC<Props> = ({
 
   return (
     <div className="phoneCard">
-      <Link to={`/phoneinfo/${itemid}`} className="phoneCard__image-link" onClick={handleOpened}>
+      <Link
+        to={`/phoneinfo/${itemid}`}
+        className="phoneCard__image-link"
+        onClick={handleOpened}
+      >
         <img
           // eslint-disable-next-line import/no-dynamic-require, global-require
           src={require(`../../${image}`)}

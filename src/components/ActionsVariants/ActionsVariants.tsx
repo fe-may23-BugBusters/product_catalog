@@ -16,7 +16,7 @@ type Props = {
   colors_available: string[];
   capacity_available: string[];
   product: ProductExtended;
-  name:string;
+  name: string;
   id: string;
 };
 
@@ -41,7 +41,9 @@ export const ActionsVariants: React.FC<Props> = ({
   const { favourites, setFavourites } = useTContext() as TypeContext;
 
   const handleAdd = () => {
-    const prodToAdd = opened.find((prod) => (prod.itemid === product.id)) as Product;
+    const prodToAdd = opened.find(
+      (prod) => prod.itemid === product.id,
+    ) as Product;
 
     const adding = {
       ...prodToAdd,
@@ -53,7 +55,9 @@ export const ActionsVariants: React.FC<Props> = ({
   };
 
   const handleLike = () => {
-    const prodToLike = opened.find((prod) => (prod.itemid === product.id)) as Product;
+    const prodToLike = opened.find(
+      (prod) => prod.itemid === product.id,
+    ) as Product;
 
     setFavourites([...favourites, prodToLike]);
     setIsLiked(!isLiked);
@@ -68,13 +72,17 @@ export const ActionsVariants: React.FC<Props> = ({
   }, [colors_available]);
 
   const handleCapacityClick = (selectedCapacity: string) => {
-    const newPath = `#/phoneinfo/${nameLink}-${selectedCapacity.toLowerCase()}-${encodeURIComponent(color.toLowerCase())}`;
+    const newPath = `#/phoneinfo/${nameLink}-${selectedCapacity.toLowerCase()}-${encodeURIComponent(
+      color.toLowerCase(),
+    )}`;
 
     window.location.href = newPath;
   };
 
   const handleColorClick = (selectedColor: string) => {
-    const newPath = `#/phoneinfo/${nameLink}-${capacity.toLowerCase()}-${encodeURIComponent(selectedColor.toLowerCase())}`;
+    const newPath = `#/phoneinfo/${nameLink}-${capacity.toLowerCase()}-${encodeURIComponent(
+      selectedColor.toLowerCase(),
+    )}`;
 
     window.location.href = newPath;
   };
@@ -100,7 +108,12 @@ export const ActionsVariants: React.FC<Props> = ({
         <p>Select capacity</p>
         <div className="actions__buttons">
           {capacity_available.map((cap) => (
-            <button type="button" key={cap} className="actions__capacity" onClick={() => handleCapacityClick(cap)}>
+            <button
+              type="button"
+              key={cap}
+              className="actions__capacity"
+              onClick={() => handleCapacityClick(cap)}
+            >
               {cap}
             </button>
           ))}
