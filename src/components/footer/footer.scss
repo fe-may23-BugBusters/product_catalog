@@ -98,12 +98,12 @@
 
 @media screen and (max-width: 639px) {
   .footer {
-    &-content{
-    gap: 32px;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: white;
-    justify-content: space-evenly;
+    &-content {
+      gap: 32px;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: white;
+      justify-content: space-evenly;
     }
 
     &-container {
