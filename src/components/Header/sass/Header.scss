@@ -11,9 +11,7 @@
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  border-bottom: 1px solid var(--gray-elements, #E2E6E9);
-  // box-shadow: 0px 1px 0px 10px #E2E6E9;
-  // z-index: 1000;
+  border-bottom: 1px solid var(--gray-elements, #e2e6e9);
 
   @include for-phone() {
     display: none;
@@ -57,7 +55,7 @@
             color: black;
           }
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             border-radius: 20px;
             width: 100%;
@@ -111,7 +109,7 @@
       background-color: white;
       box-shadow: -1px 0px 0px 0px #e2e6e9;
       border: none;
-      border-bottom: 1px solid var(--gray-elements, #E2E6E9);
+      border-bottom: 1px solid #e2e6e9;
 
       @include for-tablet() {
         height: 48px;
@@ -128,7 +126,7 @@
       background-color: white;
       box-shadow: -1px 0px 0px 0px #e2e6e9;
       border: none;
-      border-bottom: 1px solid var(--gray-elements, #E2E6E9);
+      border-bottom: 1px solid var(--gray-elements, #e2e6e9);
 
       @include for-tablet() {
         height: 48px;
