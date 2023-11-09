@@ -128,8 +128,8 @@ export const HomePage = () => {
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
           arrows={false}
-          swipeable={false}
-          draggable={false}
+          swipeable
+          draggable
           responsive={responsive}
           ssr
           infinite
@@ -218,8 +218,8 @@ export const HomePage = () => {
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
           arrows={false}
-          swipeable={false}
-          draggable={false}
+          swipeable
+          draggable
           responsive={responsive}
           ssr
           infinite

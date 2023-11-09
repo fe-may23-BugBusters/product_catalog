@@ -179,9 +179,7 @@ export const PhoneCard: React.FC<Props> = ({
           type="button"
           onClick={handleLike}
           className={`phoneCard__heart ${
-            haveLike
-              ? 'phoneCard__heart--liked'
-              : ''
+            haveLike ? 'phoneCard__heart--liked' : ''
           }`}
         >
           {' '}
