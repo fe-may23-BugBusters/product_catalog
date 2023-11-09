@@ -8,7 +8,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 export const Promo = () => {
-  const responsive = {
+  const responsivePromo = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1001 },
       items: 1,
@@ -68,9 +68,9 @@ export const Promo = () => {
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
           arrows={false}
-          swipeable={false}
-          draggable={false}
-          responsive={responsive}
+          swipeable
+          draggable
+          responsive={responsivePromo}
           ssr
           infinite
           autoPlay

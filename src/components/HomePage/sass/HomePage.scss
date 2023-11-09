@@ -113,12 +113,21 @@
   }
 
   &_category {
-    margin-top: 32px;
     display: flex;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    margin-top: 32px;
+    
     @include for-tablet {
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
     }
     @include for-phone {
-      flex-direction: column;
+      display: grid;
+      place-items: center;
+      grid-auto-flow: row;
     }
 
     &_mobile {
@@ -132,7 +141,24 @@
     &_accesories {
       background-color: #d53c51;
     }
+
+    &_container {
+      display: grid;
+      place-items: center;
+      width: 33%;
+      align-self:stretch;
+      @include for-tablet {
+        margin-left: 16px;
+        width: 187px;
+      }
+      @include for-phone {
+        margin-left: 16px;
+        width: 288px;
+      }
+    }
+
     &_div {
+      align-self: center;
       border-radius: 8px;
       width: 368px;
       height: 368px;
@@ -148,17 +174,6 @@
       }
     }
 
-    &_container {
-      @include for-tablet {
-        margin-left: 16px;
-        width: 187px;
-      }
-      @include for-phone {
-        margin-left: 16px;
-        width: 288px;
-      }
-    }
-
     &_h3 {
       color: #0f0f11;
       font-family: Mont;
@@ -168,6 +183,7 @@
       line-height: normal;
       margin-top: 24px;
       margin-left: 16px;
+      max-width: 368px;
     }
 
     &_p {
@@ -178,6 +194,7 @@
       font-weight: 500;
       line-height: 21px;
       margin-left: 16px;
+      max-width: 368px;
     }
 
     &_image {
@@ -195,21 +212,21 @@
         }
       }
       &-2 {
-        margin-left: 200px;
-        margin-top: 200px;
-        transform: scale(2);
-        @include for-tablet {
-          margin-left: 100px;
-          margin-top: 100px;
-        }
-      }
-      &-3 {
-        margin-left: 200px;
+        margin-left: 140px;
         margin-top: 140px;
         transform: scale(2);
         @include for-tablet {
-          margin-left: 120px;
+          margin-left: 70px;
           margin-top: 70px;
+        }
+      }
+      &-3 {
+        margin-left: 150px;
+        margin-top: 60px;
+        transform: scaleX(1.5);
+        @include for-tablet {
+          margin-left: 90px;
+          margin-top: 40px;
         }
       }
     }
