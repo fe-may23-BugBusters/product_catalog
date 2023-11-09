@@ -150,6 +150,7 @@
       @include for-tablet {
         margin-left: 16px;
         width: 187px;
+        margin-left: 0;
       }
       @include for-phone {
         // margin-left: 16px;
@@ -167,6 +168,7 @@
       @include for-tablet {
         width: 187px;
         height: 187px;
+        margin-left: 0;
       }
       @include for-phone {
         width: 288px;

@@ -126,22 +126,13 @@ export const ActionsVariants: React.FC<Props> = ({
       <div className="phoneCard__price">
         {price_discount && (
           <>
-            <p className="phoneCard__price__current">
-              {price_discount}
-              $
-            </p>
-            <p className="phoneCard__price__old">
-              {price_regular}
-              $
-            </p>
+            <p className="phoneCard__price__current">{price_discount}$</p>
+            <p className="phoneCard__price__old">{price_regular}$</p>
           </>
         )}
         {!price_discount && (
           <>
-            <p className="phoneCard__price__current">
-              {price_regular}
-              $
-            </p>
+            <p className="phoneCard__price__current">{price_regular}$</p>
           </>
         )}
       </div>
