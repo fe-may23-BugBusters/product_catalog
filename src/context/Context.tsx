@@ -13,6 +13,8 @@ export interface TypeContext {
   setCart: React.Dispatch<SetStateAction<Product[]>>;
   favourites: Product[];
   setFavourites: React.Dispatch<SetStateAction<Product[]>>;
+  opened: Product[];
+  setOpened: React.Dispatch<SetStateAction<Product[]>>;
 }
 
 const TContext = createContext<TypeContext | null>(null);
@@ -24,6 +26,25 @@ export function useTContext() {
 export function Provider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<Product[]>([]);
   const [favourites, setFavourites] = useState<Product[]>([]);
+  const [opened, setOpened] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const savedOpenedJSON = localStorage.getItem('opened');
+
+    if (savedOpenedJSON) {
+      const savedOpened = JSON.parse(savedOpenedJSON);
+
+      setOpened([...savedOpened]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (opened.length > 0) {
+      const openedJSON = JSON.stringify(opened);
+
+      localStorage.setItem('opened', openedJSON);
+    }
+  }, [opened]);
 
   useEffect(() => {
     const savedFavouritesJSON = localStorage.getItem('favourites');
@@ -66,6 +87,8 @@ export function Provider({ children }: { children: ReactNode }) {
     setCart,
     favourites,
     setFavourites,
+    opened,
+    setOpened,
   };
 
   return (

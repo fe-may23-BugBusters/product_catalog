@@ -20,6 +20,7 @@ type Props = {
   is_discounted: boolean;
   isAddedToCart: boolean | undefined;
   isLiked: boolean | undefined;
+  wasOpened: boolean | undefined;
 };
 
 export const PhoneCard: React.FC<Props> = ({
@@ -37,14 +38,17 @@ export const PhoneCard: React.FC<Props> = ({
   is_discounted,
   isAddedToCart,
   isLiked,
+  wasOpened,
 }) => {
   const [isLikedClick, setIsLikedClick] = useState<boolean>(false);
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const { cart, setCart } = useTContext() as TypeContext;
   const { favourites, setFavourites } = useTContext() as TypeContext;
+  const { opened, setOpened } = useTContext() as TypeContext;
 
   const conditionToAdd = !cart.some((item) => item.id === product.id);
   const conditionToLike = !favourites.some((item) => item.id === product.id);
+  const conditionToOpened = !opened.some((item) => item.id === product.id);
 
   const haveLike = favourites.some((item) => item.itemid === product.itemid);
   const wasSelected = cart.some((item) => item.itemid === product.itemid);
@@ -80,9 +84,20 @@ export const PhoneCard: React.FC<Props> = ({
     }
   };
 
+  const handleOpened = () => {
+    const productOpened = {
+      ...product,
+      wasOpened: true,
+    };
+
+    if (conditionToOpened) {
+      setOpened([...opened, productOpened]);
+    }
+  };
+
   return (
     <div className="phoneCard">
-      <Link to={`/phoneinfo/${itemid}`} className="phoneCard__image-link">
+      <Link to={`/phoneinfo/${itemid}`} className="phoneCard__image-link" onClick={handleOpened}>
         <img
           // eslint-disable-next-line import/no-dynamic-require, global-require
           src={require(`../../${image}`)}

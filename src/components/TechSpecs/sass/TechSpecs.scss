@@ -6,7 +6,6 @@
   // width: 100%;
   color: #0f0f11;
   font-family: Mont;
-  margin-left: 65px;
   @include for-tablet() {
     margin-left: 26px;
   }
@@ -26,13 +25,7 @@
 
   &_table {
     white-space: nowrap;
-    width: 512px;
-    @include for-tablet() {
-      width: 591px;
-    }
-    @include for-phone() {
-      width: 288px;
-    }
+    width: 100%;
 
     &--row {
       // width: 512px;
@@ -78,7 +71,6 @@
   content: '';
   display: block;
   border-top: 1px solid #e2e6e9;
-  width: 512px;
   height: 1px;
   margin-bottom: 25px;
   margin-top: 16px;

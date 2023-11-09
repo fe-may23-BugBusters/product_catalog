@@ -26,6 +26,7 @@ export const PhonesList: React.FC<Props> = ({ phones }) => (
           product={phone}
           isAddedToCart={phone.isAddedToCart}
           isLiked={phone.isAddedToCart}
+          wasOpened={phone.wasOpened}
         />
       );
     })}

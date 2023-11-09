@@ -41,6 +41,7 @@ export const Recommended = () => {
                 is_discounted={product.is_discounted}
                 isAddedToCart={product.isAddedToCart}
                 isLiked={product.isAddedToCart}
+                wasOpened={product.wasOpened}
               />
             </div>
           ))

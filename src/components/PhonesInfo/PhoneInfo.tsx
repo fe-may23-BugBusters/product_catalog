@@ -163,6 +163,9 @@ const PhoneDetailsPage = () => {
             ram={phoneDetails.ram}
             colors_available={phoneDetails.colors_available}
             capacity_available={phoneDetails.capacity_available}
+            product={phoneDetails}
+            name={phoneDetails.name}
+            id={phoneDetails.id}
           />
         </section>
         <section className="info__main__tech">
@@ -217,6 +220,7 @@ const PhoneDetailsPage = () => {
                     is_discounted={product.is_discounted}
                     isAddedToCart={product.isAddedToCart}
                     isLiked={product.isAddedToCart}
+                    wasOpened={product.wasOpened}
                   />
                 </div>
               ))}

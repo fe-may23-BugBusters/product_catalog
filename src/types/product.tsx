@@ -16,6 +16,7 @@ export interface Product {
   quantity?: number;
   isAddedToCart?: boolean;
   isLiked?: boolean;
+  wasOpened?: boolean;
 }
 
 export interface ProductExtended {

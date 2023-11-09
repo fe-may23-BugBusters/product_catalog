@@ -70,6 +70,7 @@ export const Favourites = () => {
                 is_discounted={product.is_discounted}
                 isAddedToCart={product.isAddedToCart}
                 isLiked={product.isAddedToCart}
+                wasOpened={product.wasOpened}
               />
               {/* </Link> */}
             </div>

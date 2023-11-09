@@ -158,6 +158,7 @@ export const HomePage = () => {
               is_discounted={product.is_discounted}
               isAddedToCart={product.isAddedToCart}
               isLiked={product.isAddedToCart}
+              wasOpened={product.wasOpened}
             />
           ))}
         </Carousel>
@@ -245,6 +246,7 @@ export const HomePage = () => {
               is_discounted={product.is_discounted}
               isAddedToCart={product.isAddedToCart}
               isLiked={product.isAddedToCart}
+              wasOpened={product.wasOpened}
             />
           ))}
         </Carousel>

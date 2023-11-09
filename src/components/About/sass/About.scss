@@ -3,10 +3,8 @@
 
 .about {
   background-color: #fafbfc;
-  width: 559px;
   color: #0f0f11;
   font-family: Mont;
-  margin-left: 33px;
   @include for-tablet() {
     width: 591px;
     margin-left: 25px;
