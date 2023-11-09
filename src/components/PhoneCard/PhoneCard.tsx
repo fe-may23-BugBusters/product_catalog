@@ -58,13 +58,22 @@ export const PhoneCard: React.FC<Props> = ({
     if (!isLikedClick && conditionToLike) {
       setFavourites([...favourites, productLiked]);
       setIsLikedClick(!isLikedClick);
+      console.log('liked', itemid, conditionToLike);
     } else {
       const newFavourites = favourites.filter(
         (item) => item.itemid !== product.itemid,
       );
 
       setIsLikedClick(!isLikedClick);
+      console.log('unliked', itemid, conditionToLike);
       setFavourites([...newFavourites]);
+
+      if (favourites.length === 1) {
+        setFavourites([]);
+        const favouritesJSON = JSON.stringify([]);
+
+        localStorage.setItem('favourites', favouritesJSON);
+      }
     }
   };
 
@@ -144,7 +153,7 @@ export const PhoneCard: React.FC<Props> = ({
           type="button"
           onClick={handleLike}
           className={`phoneCard__heart ${
-            isLikedClick || product.isLiked || haveLike
+            haveLike
               ? 'phoneCard__heart--liked'
               : ''
           }`}

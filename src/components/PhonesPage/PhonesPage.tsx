@@ -22,6 +22,14 @@ export const PhonesPage = () => {
   const [orderBy, setOrderBy] = useState('id');
   const [order, setOrder] = useState('ASC');
   const [search, setSearch] = useState('');
+  const [numberOfPages, setNumberOfPages] = useState<number>(1);
+
+  useEffect(() => {
+    const numberOfPagesChange = Math.ceil(totalPosts / perPage);
+
+    setNumberOfPages(numberOfPagesChange);
+    setCurrentPage(1);
+  }, [perPage, totalPosts]);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -50,8 +58,6 @@ export const PhonesPage = () => {
 
     loadProducts();
   }, [currentPage, perPage, orderBy, order, search]);
-
-  const numberOfPages = Math.ceil(totalPosts / perPage);
 
   const toggleOrder = () => {
     const newOrder = order === 'ASC' ? 'DESC' : 'ASC';
