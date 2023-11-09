@@ -22,7 +22,7 @@
   }
 
   @include for-phone() {
-    min-width:auto;
+    min-width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,9 +120,9 @@
       width: 800px;
       @include for-phone {
         display: inline-block;
-        width: auto; 
+        width: auto;
       }
-     }
+    }
     &__text {
       font-size: 12px;
       font-style: normal;

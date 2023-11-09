@@ -24,27 +24,27 @@ export const Recommended = () => {
       <div className="recommended__cards">
         {!loading
           ? products.map((product) => (
-            <div className="recommended__cards__card" key={product.id}>
-              <PhoneCard
-                key={product.name}
-                name={product.name}
-                itemid={product.itemid}
-                fullprice={product.fullprice}
-                price={product.price}
-                screen={product.screen}
-                capacity={product.capacity}
-                color={product.color}
-                ram={product.ram}
-                year={product.year}
-                image={product.image}
-                product={product}
-                is_discounted={product.is_discounted}
-                isAddedToCart={product.isAddedToCart}
-                isLiked={product.isAddedToCart}
-                wasOpened={product.wasOpened}
-              />
-            </div>
-          ))
+              <div className="recommended__cards__card" key={product.id}>
+                <PhoneCard
+                  key={product.name}
+                  name={product.name}
+                  itemid={product.itemid}
+                  fullprice={product.fullprice}
+                  price={product.price}
+                  screen={product.screen}
+                  capacity={product.capacity}
+                  color={product.color}
+                  ram={product.ram}
+                  year={product.year}
+                  image={product.image}
+                  product={product}
+                  is_discounted={product.is_discounted}
+                  isAddedToCart={product.isAddedToCart}
+                  isLiked={product.isAddedToCart}
+                  wasOpened={product.wasOpened}
+                />
+              </div>
+            ))
           : 'Loading...'}
       </div>
     </>

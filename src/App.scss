@@ -1,0 +1,12 @@
+@import './utils/mixins.scss';
+.routes-container {
+  min-height: calc(100vh - 64px - 98px);
+
+  @include for-tablet {
+    min-height: calc(100vh - 48px - 98px);
+  }
+
+  @include for-phone {
+    min-height: calc(100vh - 48px - 288px);
+  }
+}
