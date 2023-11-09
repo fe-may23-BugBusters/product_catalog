@@ -9,8 +9,7 @@
   display: grid;
   grid-template-columns: repeat(24, 32px);
   gap: 0 16px;
-  padding-left: 152px;
-  padding-right: 152px;
+  justify-content: center;
   background-color: #fafbfc;
   min-width: fit-content;
 
