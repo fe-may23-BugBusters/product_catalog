@@ -118,7 +118,7 @@
     align-content: center;
     width: 100%;
     margin-top: 32px;
-    
+
     @include for-tablet {
       display: grid;
       place-items: center;
@@ -146,13 +146,13 @@
       display: grid;
       place-items: center;
       width: 33%;
-      align-self:stretch;
+      align-self: stretch;
       @include for-tablet {
         margin-left: 16px;
         width: 187px;
       }
       @include for-phone {
-        margin-left: 16px;
+        // margin-left: 16px;
         width: 288px;
       }
     }
@@ -171,6 +171,7 @@
       @include for-phone {
         width: 288px;
         height: 288px;
+        margin-left: 0;
       }
     }
 
