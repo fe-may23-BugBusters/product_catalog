@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/control-has-associated-label */
+import classNames from 'classnames';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import './sass/Header.scss';
 import { TypeContext, useTContext } from '../../context/Context';
@@ -15,34 +16,51 @@ export const Header = () => {
       <header className="header">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <div className="header__container">
-          <Link to="/" className="header__logo">
+          <NavLink to="/" className="header__logo">
             <img src={Logo} alt="logo" />
-          </Link>
+          </NavLink>
 
           <nav className="header__nav">
             <ul className="header__nav__list">
               <li className="header__nav__list__item">
-                <Link to="/" className="header__nav__list__item__link">
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => classNames('header__nav__list__item__link', {
+                    'is-active': isActive,
+                  })}
+                >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="header__nav__list__item">
-                <Link to="/phones" className="header__nav__list__item__link">
+                <NavLink
+                  to="/phones"
+                  className={({ isActive }) => classNames('header__nav__list__item__link', {
+                    'is-active': isActive,
+                  })}
+                >
                   Phones
-                </Link>
+                </NavLink>
               </li>
               <li className="header__nav__list__item">
-                <Link to="/tablets" className="header__nav__list__item__link">
+                <NavLink
+                  to="/tablets"
+                  className={({ isActive }) => classNames('header__nav__list__item__link', {
+                    'is-active': isActive,
+                  })}
+                >
                   Tablets
-                </Link>
+                </NavLink>
               </li>
               <li className="header__nav__list__item">
-                <Link
+                <NavLink
                   to="/accessories"
-                  className="header__nav__list__item__link"
+                  className={({ isActive }) => classNames('header__nav__list__item__link', {
+                    'is-active': isActive,
+                  })}
                 >
                   Accessories
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>

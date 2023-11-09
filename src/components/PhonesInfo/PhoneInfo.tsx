@@ -201,7 +201,6 @@ const PhoneDetailsPage = () => {
             >
               {recommended.map((product) => (
                 <div className="info__main__recommendedCard" key={product.name}>
-
                   <PhoneCard
                     key={product.name}
                     name={product.name}
