@@ -50,32 +50,23 @@
 
   &__main {
     display: flex;
+    gap: 16px;
 
     @include for-tablet {
-      display: flex;
       flex-direction: column;
+      gap: 32px;
     }
 
     @include for-phone {
-      display: flex;
       flex-direction: column;
+      gap: 32px;
     }
   }
 
   &__cartItems {
-    width: 100%;
-
-    @include for-phone {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @include for-tablet {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   &__calculator {
