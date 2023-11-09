@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 import './sass/PhonesPage.scss';
 import Home from '../../icons/Home.svg';
@@ -11,37 +10,58 @@ import { PhoneCard } from '../PhoneCard/PhoneCard';
 import { Pagination } from '../Pagination/Pagination';
 import { Product } from '../../types/product';
 
+const supportedSortByOrder = ['fullprice', 'id', 'year'];
+
 export const PhonesPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(16);
+  const [perPage, setPerPage] = useState(16);
   const [totalPosts, setTotalPosts] = useState(0);
+  const [orderBy, setOrderBy] = useState('year');
+  const [order, setOrder] = useState('asc');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
-      const response = await axios.get(
-        `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${
-          currentPage - 1
-        }`,
-      );
 
-      setProducts(response.data.rows);
-      setTotalPosts(response.data.count);
-      setLoading(false);
+      if (!supportedSortByOrder.includes(orderBy)) {
+        console.error(`Sortowanie po polu ${orderBy} nie jest obsługiwane.`);
+        setLoading(false);
+
+        return;
+      }
+
+      try {
+        const response = await axios.get(
+          `https://product-catalog-be-6qo2.onrender.com/products?pageNumber=${currentPage}&perPage=${perPage}&orderBy=${orderBy}&order=${order}&search=${search}`,
+        );
+
+        setProducts(response.data.rows);
+        setTotalPosts(response.data.count);
+        setLoading(false);
+      } catch (error) {
+        console.error('Błąd podczas pobierania produktów:', error);
+        setLoading(false);
+      }
     };
 
     loadProducts();
-  }, [currentPage]);
+  }, [currentPage, perPage, orderBy, order, search]);
 
-  const numberOfPages = Math.ceil(totalPosts / postPerPage);
+  const numberOfPages = Math.ceil(totalPosts / perPage);
+
+  const toggleOrder = () => {
+    const newOrder = order === 'asc' ? 'desc' : 'asc';
+
+    setOrder(newOrder);
+  };
 
   return (
     <>
       <main className="phonePage">
         <div className="phonePage__current">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <img
               src={Home}
@@ -56,48 +76,26 @@ export const PhonesPage = () => {
           />
           <p className="phonePage__current__text">Phones</p>
         </div>
-        <h1 className="phonePage__title">Mobile Phones</h1>
-        <p className="phonePage__text phonePage__text--models">95 models</p>
 
-        {/* <div className="phonePage__select__container"> */}
         <div className="phonePage__select phonePage__select--1">
           <label
             htmlFor="sort-by"
             className="phonePage__text phonePage__select__text"
           >
-            Sort by
+            Sort by:
           </label>
           <select
             name="sort-by"
             id="sort-by"
             className="phonePage__select__field"
+            value={orderBy}
+            onChange={(e) => setOrderBy(e.target.value)}
           >
-            <option className="phonePage__select__option">Newest</option>
+            <option value="year">Year</option>
+            <option value="fullprice">Price</option>
+            <option value="id">ID</option>
           </select>
-        </div>
-
-        <div className="phonePage__select phonePage__select--2">
-          <label
-            htmlFor="items-on-page"
-            className="phonePage__text phonePage__select__text"
-          >
-            Items on Page
-          </label>
-          <select
-            name="items-on-page"
-            id="items-on-page"
-            className="phonePage__select__field"
-            onClick={(e) => {
-              const target = e.target as HTMLSelectElement;
-              const value = parseInt(target.value, 10);
-
-              setPostPerPage(value);
-            }}
-          >
-            <option value="16" className="phonePage__select__option">
-              16
-            </option>
-          </select>
+          <button onClick={toggleOrder}>Toggle ASC/DESC</button>
         </div>
 
         <div className="product-card__container">

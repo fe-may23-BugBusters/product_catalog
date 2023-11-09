@@ -22,8 +22,6 @@ const PhoneDetailsPage = () => {
     null,
   );
   const [loading, setLoading] = useState(true);
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [recommended, setRecommended] = useState<Product[]>([]);
 
   const loadRecommended = async () => {
