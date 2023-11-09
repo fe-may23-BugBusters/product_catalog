@@ -2,11 +2,13 @@
 @import '../../../utils/mixins.scss';
 
 .header {
-  background-color: white;
+  background: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 64px;
+  // box-shadow: 0px 1px 0px 10px #E2E6E9;
+  // z-index: 1000;
 
   @include for-phone() {
     display: none;
@@ -88,6 +90,23 @@
         width: 48px;
       }
     }
+    &__cart-heart {
+      position: relative;
+      background-image: url('../../../images/heart.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 64px;
+      height: 64px;
+      background-color: white;
+      box-shadow: -1px 0px 0px 0px #e2e6e9;
+      border: none;
+
+      @include for-tablet() {
+        height: 48px;
+        width: 48px;
+      }
+    }
+
     &__cart--elipse {
       position: absolute;
       background-size: 14px 14px;

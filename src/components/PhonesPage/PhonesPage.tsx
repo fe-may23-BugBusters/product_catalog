@@ -98,12 +98,30 @@ export const PhonesPage = () => {
           <button onClick={toggleOrder}>Toggle ASC/DESC</button>
         </div>
 
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className="product-card__container">
+          {!loading
+            ? products.map((product) => (
+              <div className="product-card" key={product.id}>
+                <PhoneCard
+                  name={product.name}
+                  itemid={product.itemid}
+                  fullprice={product.fullprice}
+                  price={product.price}
+                  screen={product.screen}
+                  capacity={product.capacity}
+                  color={product.color}
+                  ram={product.ram}
+                  year={product.year}
+                  image={product.image}
+                  product={product}
+                  is_discounted={product.is_discounted}
+                  isAddedToCart={product.isAddedToCart}
+                  isLiked={product.isAddedToCart}
+                />
+              </div>
+            ))
+            : 'Loading...'}
+        </div>
       </main>
       <Pagination
         currentPage={currentPage}

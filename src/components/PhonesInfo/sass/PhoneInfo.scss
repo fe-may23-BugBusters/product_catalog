@@ -1,8 +1,18 @@
 @import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
 
 .info {
   background-color: #fafbfc;
   padding: 24px 152px;
+  width: fit-content;
+
+  @include for-tablet {
+    padding: 16px;
+  }
+
+  @include for-phone {
+    padding: 16px;
+  }
 
   &__head {
     &__container {
@@ -40,31 +50,152 @@
   &__main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
-    &__about {
-      grid-column: 2/3;
-      grid-row: 2/3;
+    grid-template-rows: repeat(3, 1fr);
+    @include for-tablet {
+      grid-template-rows: repeat(4, auto);
     }
 
-    //   &__recommendedSection {
-    //     display: flex;
-    //     gap: 16px;
-    //     overflow: auto;
-    //     position: relative;
-    //   }
-    //   &__recommendedCards {
-    //     display: flex;
-    //     gap: 16px;
-    //     transition: transform 0.3s ease;
+    @include for-phone {
+      grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    &__photos {
+      grid-column: 1/2;
+      grid-row: 1/2;
+
+      @include for-phone {
+        grid-column: 1/3;
+      }
+    }
+
+    &__actions {
+      grid-column: 2/3;
+      grid-row: 1/2;
+
+      @include for-phone {
+        grid-column: 1/3;
+        grid-row: auto / span 1;
+      }
+    }
+
+    &__about {
+      grid-column: 1/2;
+      grid-row: 2/3;
+
+      @include for-tablet {
+        grid-column: 1/3;
+        grid-row: 2/3;
+      }
+
+      @include for-phone {
+        grid-column: 1/3;
+        grid-row: auto / span 1;
+        margin-top: 32px;
+      }
+    }
+
+    &__tech {
+      grid-column: 2/3;
+      grid-row: 2/3;
+      @include for-tablet {
+        grid-column: 1/3;
+        grid-row: 3/4;
+      }
+
+      @include for-phone {
+        grid-column: 1/3;
+        grid-row: auto / span 1;
+        margin-top: 32px;
+      }
+    }
+
+    &__recommendedSection {
+      // display: flex;
+      // flex-direction: column;
+      gap: 16px;
+      overflow: auto;
+      position: relative;
+      grid-column: 1/3;
+      grid-row: 3/4;
+
+      @include for-tablet {
+        grid-column: 1/3;
+        grid-row: 4/5;
+      }
+
+      @include for-phone {
+        grid-column: 1/3;
+        grid-row: auto / span 1;
+      }
+    }
+    &__recommendedCards {
+      width: 90%;
+      position: relative;
+      // display: flex;
+      // gap: 16px;
+      // transition: transform 0.3s ease;
+    }
+    // &__recommendedCard {
+    //   width: 237px;
+    //   padding: 32px;
+    //   display: flex;
+    //   gap: 8px;
+    //   margin-right: 16px;
     // }
-    //   &__recommendedCard {
-    //     width: 237px;
-    //     height: 512px;
-    //     padding: 32px;
-    //     flex: 0 0 auto;
-    //     gap: 8px;
-    //     margin-right: 16px;
-    //   }
+  }
+}
+
+.info__slider__title {
+  width: 50%;
+  color: var(--gray-primary, #0f0f11);
+  /* Desktop & Tablet/H2 */
+  font-family: Mont;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 41px; /* 128.125% */
+  letter-spacing: -0.32px;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.info-carousel-container {
+  height: 100%;
+}
+
+.info-carousel-item {
+  width: 272px;
+}
+
+.info-carousel-button-group {
+  position: absolute;
+  top: -32px;
+  right: 0;
+  z-index: 1000;
+
+  &-right {
+    background: url(../../../images/arrow_active.svg) !important;
+    background-size: 16px !important ;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 48px;
+    border: 1px solid #b4bdc3;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+  }
+
+  &-left {
+    background: url(../../../images/arrow_active.svg) !important;
+    background-size: auto 16px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 48px;
+    border: 1px solid #b4bdc3;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    transform: rotate(180deg);
   }
 }

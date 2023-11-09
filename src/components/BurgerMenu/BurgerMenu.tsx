@@ -6,6 +6,7 @@ import { useTContext, TypeContext } from '../../context/Context';
 export const BurgerMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { cart } = useTContext() as TypeContext;
+  const { favourites } = useTContext() as TypeContext;
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -46,23 +47,35 @@ export const BurgerMenu = () => {
 
       <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
         <div className="links menu_links">
-          <a href="http#" className="menu_link">
+          <Link to="/" className="menu_link" onClick={toggleMenu}>
             home
-          </a>
-          <a href="http#" className="menu_link">
+          </Link>
+          <Link to="/phones" className="menu_link" onClick={toggleMenu}>
             PHONES
-          </a>
-          <a href="http#" className="menu_link">
+          </Link>
+          <Link to="/tablets" className="menu_link" onClick={toggleMenu}>
             TABLETS
-          </a>
-          <a href="http#" className="menu_link">
+          </Link>
+          <Link to="/accessories" className="menu_link" onClick={toggleMenu}>
             ACCESSORIES
-          </a>
+          </Link>
         </div>
         <div className="menu_footer">
-          <a href="http#" className="menu_heart" aria-label="Wykonaj akcję">
-            <p />
-          </a>
+          <Link
+            to="/favourites"
+            className="menu_heart-2"
+            aria-label="Wykonaj akcję"
+            onClick={toggleMenu}
+          >
+            <div className="menu_bag--container">
+              {/* eslint-disable */}
+              {favourites.length > 0 && (
+                <span className="menu_bag--elipse">
+                  <p className="menu_bag--paragraph">{favourites.length}</p>
+                </span>
+              )}
+            </div>
+          </Link>
           <Link
             to="/cart"
             className="menu_bag"

@@ -4,14 +4,13 @@ import NotFound from './components/NotFoundPage/NotFound';
 import { PhonesPage } from './components/PhonesPage/PhonesPage';
 import { HomePage } from './components/HomePage/HomePage';
 import { Nav } from './components/Nav/Nav';
-import Footer from './components/footer';
+import Footer from './components/footer/footer';
 import { Cart } from './components/Cart/Cart';
-import { About } from './components/About/About';
 import TabletsPage from './components/TabletsPage/TabletsPage';
 import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
-import { TechSpecs } from './components/TechSpecs/TechSpecs';
 import { Recommended } from './components/Recommended/Recommended';
 import PhoneDetailsPage from './components/PhonesInfo/PhoneInfo';
+import { Favourites } from './components/Favourites/Favourites';
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
             <Route path=":tabId" element={<PhonesPage />} />
           </Route>
           <Route path="/tablets" element={<TabletsPage />} />
+          <Route path="/favourites" element={<Favourites />} />
           <Route path="/accessories" element={<AccessoriesPage />} />
           <Route index element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
