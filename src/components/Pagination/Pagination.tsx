@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-plusplus */
-import React, { SetStateAction, useState } from 'react';
+import React, { SetStateAction, useEffect, useState } from 'react';
 import './scss/Pagination.scss';
 
 type PaginationProps = {
@@ -22,7 +22,18 @@ export const Pagination: React.FC<PaginationProps> = ({
   const [arrowLeftDis, setArrowLeftDis] = useState(true);
   const [arrowRightDis, setArrowRightDis] = useState(false);
 
-  const buttons = [];
+  const buttons: any[] = [];
+
+  useEffect(() => {
+    console.log(currentPage);
+    setSelectedPage(currentPage);
+    setCurrentPage(currentPage);
+    setIsSelected(true);
+    if (currentPage === 1) {
+      setStart(1);
+      setStop(4);
+    }
+  }, [numberOfPages, currentPage]);
 
   // eslint-disable-next-line no-plusplus
   for (let i = start; i <= stop; i++) {
