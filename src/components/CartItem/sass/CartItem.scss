@@ -64,14 +64,15 @@
 
   &__calc {
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 24px;
     display: flex;
     gap: 24px;
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 
     @include for-phone {
       margin-left: 0;
+      margin-right: 0;
       gap: 16px;
       align-items: center;
       justify-content: center;
@@ -99,6 +100,7 @@
     }
 
     &__price {
+      width: 80px;
       color: #0f0f11;
       text-align: right;
       font-size: 22px;

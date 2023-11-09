@@ -1,8 +1,9 @@
 @import '../../utils/fonts.scss';
 .footer {
+  display: block;
+
   &-content {
-    position: fixed;
-    bottom: 0;  
+    bottom: 0;
     width: 100%;
     border-top: 1px solid var(--gray-elements, #e2e6e9);
     display: flex;
@@ -97,17 +98,18 @@
 
 @media screen and (max-width: 639px) {
   .footer {
+    &-content{
+    gap: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    justify-content: space-evenly;
+    }
+
     &-container {
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
-    }
-    &-content {
-      gap: 32px;
-      flex-direction: column;
-      align-items: flex-start;
-      background-color: white;
-      justify-content: space-evenly;
     }
 
     &-buttons {

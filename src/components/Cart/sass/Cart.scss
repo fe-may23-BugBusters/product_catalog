@@ -2,6 +2,8 @@
 @import '../../../utils/mixins.scss';
 
 .cart {
+  display: flex;
+  flex-direction: column;
   padding: 40px 152px 80px 152px;
   background-color: #fafbfc;
   font-family: Mont;
@@ -50,24 +52,29 @@
     display: flex;
 
     @include for-tablet {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
     @include for-phone {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
   }
 
   &__cartItems {
-    width: 752px;
-    height: 500px;
+    width: 100%;
 
     @include for-phone {
       width: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     @include for-tablet {
       width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   }
 

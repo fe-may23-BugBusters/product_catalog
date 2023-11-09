@@ -18,7 +18,7 @@ const Footer = () => {
   };
 
   return (
-    <footer>
+    <footer className="footer">
       <div className="footer-content">
         <div className="footer-logo-cont">
           <img className="footer-logo" src={Logo} alt="Logo" />
