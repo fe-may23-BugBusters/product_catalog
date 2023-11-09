@@ -1,6 +1,10 @@
 @import '../../../utils/fonts.scss';
 @import '../../../utils/mixins.scss';
 
+.header__logo img {
+  background-color: #fff !important;
+}
+
 .is-active {
   color: black !important;
 }

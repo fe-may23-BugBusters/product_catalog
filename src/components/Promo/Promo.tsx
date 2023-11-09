@@ -73,9 +73,10 @@ export const Promo = () => {
           responsive={responsive}
           ssr
           infinite
-          autoPlaySpeed={1000}
+          autoPlay
+          autoPlaySpeed={3000}
           keyBoardControl
-          // customTransition="all .5"
+          customTransition="all 4"
           transitionDuration={500}
           containerClass="promo_carousel-container"
           dotListClass="promo_custom-dot-list-style"
@@ -89,7 +90,7 @@ export const Promo = () => {
           />
           <img
             // eslint-disable-next-line import/no-dynamic-require, global-require
-            src={require('../../img/banner/banner.png')}
+            src={require('../../img/banner/banner-phones.png')}
             alt="We are trying to get a pic..."
             className="promo_image"
           />
@@ -97,7 +98,7 @@ export const Promo = () => {
             // eslint-disable-next-line import/no-dynamic-require, global-require
             src={require('../../img/banner/banner.png')}
             alt="We are trying to get a pic..."
-            className="promo_image"
+            className="promo_image-tablets"
           />
         </Carousel>
       </div>

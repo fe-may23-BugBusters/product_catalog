@@ -133,9 +133,10 @@ export const HomePage = () => {
           responsive={responsive}
           ssr
           infinite
-          autoPlaySpeed={1000}
+          // autoPlay={true}
+          // autoPlaySpeed={500}
           keyBoardControl
-          // customTransition="all .5"
+          customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
           dotListClass="custom-dot-list-style"
