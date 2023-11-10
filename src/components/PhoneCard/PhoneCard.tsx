@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './sass/PhoneCard.scss';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { Product } from '../../types/product';
 import { useTContext, TypeContext } from '../../context/Context';
 
@@ -82,6 +83,7 @@ export const PhoneCard: React.FC<Props> = ({
   };
 
   const handleAdd = () => {
+    axios.get('https://product-catalog-be-6qo2.onrender.com', { withCredentials: true });
     const productWithQuantity = {
       ...product,
       quantity: 1,

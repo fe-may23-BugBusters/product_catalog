@@ -16,7 +16,7 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="container">
+    <div className="container" style={{ userSelect: 'none' }}>
       <Nav />
       <div className="routes-container">
         <Routes>
