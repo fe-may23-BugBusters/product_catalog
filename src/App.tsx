@@ -14,7 +14,7 @@ import { Favourites } from './components/Favourites/Favourites';
 
 function App() {
   return (
-    <div className="container">
+    <div className="container" style={{ userSelect: 'none' }}>
       <Nav />
       <Routes>
         <Route path="/">
