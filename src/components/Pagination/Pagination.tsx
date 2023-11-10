@@ -21,6 +21,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   const [stop, setStop] = useState(4);
   const [arrowLeftDis, setArrowLeftDis] = useState(true);
   const [arrowRightDis, setArrowRightDis] = useState(false);
+  const [lastPage, setLastPage] = useState(numberOfPages);
 
   const buttons: any[] = [];
 
@@ -29,9 +30,13 @@ export const Pagination: React.FC<PaginationProps> = ({
     setSelectedPage(currentPage);
     setCurrentPage(currentPage);
     setIsSelected(true);
+    setLastPage(numberOfPages);
     if (currentPage === 1) {
       setStart(1);
       setStop(4);
+      setLastPage(numberOfPages);
+      setArrowLeftDis(true);
+      setArrowRightDis(false);
     }
   }, [numberOfPages, currentPage]);
 
@@ -93,7 +98,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         }
         type="button"
         onClick={() => {
-          if (stop === numberOfPages - 1) {
+          if (stop === lastPage - 1) {
             setArrowRightDis(true);
           }
 

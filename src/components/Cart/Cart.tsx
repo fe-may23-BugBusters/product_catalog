@@ -1,4 +1,6 @@
+
 import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import Chevron from '../../icons/chevron-left.svg';
 import { useTContext, TypeContext } from '../../context/Context';
@@ -38,17 +40,18 @@ export const Cart = () => {
         <div className="cart__main">
           <section className="cart__cartItems">
             {cart.map(
-              (product) => product.quantity && (
-                <CartItem
-                  key={product.name}
-                  name={product.name}
-                  // fullprice={product.fullprice}
-                  price={product.price}
-                  image={product.image}
-                  product={product}
-                  quantity={product.quantity}
-                />
-              ),
+              (product) =>
+                product.quantity && (
+                  <CartItem
+                    key={product.name}
+                    name={product.name}
+                    // fullprice={product.fullprice}
+                    price={product.price}
+                    image={product.image}
+                    product={product}
+                    quantity={product.quantity}
+                  />
+                ),
             )}
           </section>
           <section className="cart__calculator">
@@ -59,10 +62,7 @@ export const Cart = () => {
                 `}
               </p>
               <p className="cart__calculator__total">
-                Total for
-                {' '}
-                {cart.length}
-                {' '}
+                Total for {cart.length}{' '}
                 {cart.length === 1 ? 'product' : 'products'}
               </p>
             </div>

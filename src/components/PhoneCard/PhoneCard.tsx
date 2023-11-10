@@ -105,6 +105,8 @@ export const PhoneCard: React.FC<Props> = ({
     if (conditionToOpened) {
       setOpened([...opened, productOpened]);
     }
+
+    // window.location.reload();
   };
 
   return (
@@ -112,7 +114,12 @@ export const PhoneCard: React.FC<Props> = ({
       <Link
         to={`/phoneinfo/${itemid}`}
         className="phoneCard__image-link"
-        onClick={handleOpened}
+        onClick={() => {
+          handleOpened();
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
+        }}
       >
         <img
           // eslint-disable-next-line import/no-dynamic-require, global-require
@@ -174,9 +181,7 @@ export const PhoneCard: React.FC<Props> = ({
           type="button"
           onClick={handleLike}
           className={`phoneCard__heart ${
-            haveLike
-              ? 'phoneCard__heart--liked'
-              : ''
+            haveLike ? 'phoneCard__heart--liked' : ''
           }`}
         >
           {' '}

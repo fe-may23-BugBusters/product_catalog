@@ -91,37 +91,41 @@ export const CartItem: React.FC<Props> = ({
     <>
       <div className="cartItem">
         <div className="cartItem__info">
-          <button
-            type="button"
-            className="cartItem__info__close"
-            onClick={removeItemFromCart}
-          />
-          <img
-            src={require(`../../${image}`)}
-            alt="iphone"
-            className="cartItem__info__img"
-          />
+          <div className="cartItem__info-wraper">
+            <button
+              type="button"
+              className="cartItem__info__close"
+              onClick={removeItemFromCart}
+            />
+            <img
+              src={require(`../../${image}`)}
+              alt="iphone"
+              className="cartItem__info__img"
+            />
+          </div>
           <h2 className="cartItem__info__name">{name}</h2>
         </div>
 
         <div className="cartItem__calc">
-          <button
-            type="button"
-            onClick={decreaseQuantity}
-            className={`cartItem__calc__minus cartItem__calc__quantity ${
-              quantity === 1 ? 'inactive' : ''
-            }`}
-          >
-            -
-          </button>
-          <p>{quantity}</p>
-          <button
-            type="button"
-            onClick={increaseQuantity}
-            className="cartItem__calc__plus cartItem__calc__quantity"
-          >
-            +
-          </button>
+          <div className="cartItem__calc-wraper">
+            <button
+              type="button"
+              onClick={decreaseQuantity}
+              className={`cartItem__calc__minus cartItem__calc__quantity ${
+                quantity === 1 ? 'inactive' : ''
+              }`}
+            >
+              -
+            </button>
+            <p>{quantity}</p>
+            <button
+              type="button"
+              onClick={increaseQuantity}
+              className="cartItem__calc__plus cartItem__calc__quantity"
+            >
+              +
+            </button>
+          </div>
           <p className="cartItem__calc__price">
             {price * quantity}
             $

@@ -128,14 +128,15 @@ export const HomePage = () => {
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
           arrows={false}
-          swipeable={false}
-          draggable={false}
+          swipeable
+          draggable
           responsive={responsive}
           ssr
           infinite
-          autoPlaySpeed={1000}
+          // autoPlay={true}
+          // autoPlaySpeed={500}
           keyBoardControl
-          // customTransition="all .5"
+          customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
           dotListClass="custom-dot-list-style"
@@ -217,8 +218,8 @@ export const HomePage = () => {
           renderButtonGroupOutside
           customButtonGroup={<ButtonGroup />}
           arrows={false}
-          swipeable={false}
-          draggable={false}
+          swipeable
+          draggable
           responsive={responsive}
           ssr
           infinite
