@@ -124,6 +124,7 @@ const CheckoutPage = () => {
 
           </form>
         </div>
+
       </Modal>
     </div>
   );

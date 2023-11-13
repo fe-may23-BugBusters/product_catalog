@@ -112,6 +112,7 @@
   }
 
   &__select {
+
     height: 59px;
     margin-bottom: 16px;
     &_cont {
@@ -131,6 +132,8 @@
     }
 
     &__field {
+      background-color: #FAFBFC !important;
+      outline: none !important;
       width: 100%;
       border: 1px solid #b4bdc3;
       border-radius: 8px;

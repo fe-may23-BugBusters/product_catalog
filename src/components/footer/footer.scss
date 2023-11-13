@@ -56,10 +56,10 @@
     align-items: center;
     width: 32px;
     height: 32px;
-    border-radius: 48px;
-    border: 1px solid #b4bdc3;
+    
 
     &-container {
+
       font-family: Mont;
       line-height: 32px;
       color: #89939a;
@@ -67,33 +67,66 @@
       display: flex;
       flex-grow: 1;
       justify-content: flex-end;
+
+      
+
+      &-topress {
+        transition: color 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        &:hover {
+          color:black;
+
+          & .footer-arrow {
+            border: 2px solid #b4bdc3 !important;
+            margin-right: 0;
+            margin-left: 15px;
+            box-sizing: border-box;
+          }
+        }
+        & button {
+          margin-right: 1px;
+          margin-left: 16px;
+          border-radius: 48px;
+          border: 1px solid #b4bdc3 !important;
+          font-size: 12px;
+          font-weight: 800;
+          line-height: 11px;
+          font-family: Mont;
+          text-decoration: none;
+          padding: 6px 8px;
+          border: none;
+          background-color: white;
+          color: #89939a;
+          cursor: pointer;
+        }
+      }
     }
 
+    
+  }
+
+  &-buttons {
+
     & button {
+      transition: color 0.3s ease;
       font-size: 12px;
       font-weight: 800;
       line-height: 11px;
       font-family: Mont;
       text-decoration: none;
-      padding: 6px 8px;
+      padding: 5px 10px;
       border: none;
       background-color: white;
       color: #89939a;
       cursor: pointer;
-    }
+  }
+  
+  
+  & :hover {
+    color: black;
   }
 
-  &-buttons button {
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 11px;
-    font-family: Mont;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: none;
-    background-color: white;
-    color: #89939a;
-    cursor: pointer;
   }
 }
 
