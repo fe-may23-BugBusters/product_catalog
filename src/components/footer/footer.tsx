@@ -1,4 +1,5 @@
-/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable global-require */
 import { animateScroll as scroll } from 'react-scroll';
 import './footer.scss';
@@ -41,20 +42,25 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-back-to-top-container">
-          Back to top
-          <div className="footer-back-to-top">
-            <button
-              type="button"
-              className="footer-arrow"
+          <div>
+            <div
               onClick={scrollToTop}
+              className="footer-back-to-top-container-topress"
             >
-              <img
-                className="footer-arrow-img"
-                src={require('../../img/Vector.jpg')}
-                alt="Vector"
-              />
-            </button>
+              Back to top
+              <button
+                type="button"
+                className="footer-arrow"
+              >
+                <img
+                  className="footer-arrow-img"
+                  src={require('../../img/Vector.jpg')}
+                  alt="Vector"
+                />
+              </button>
+            </div>
           </div>
+
         </div>
       </div>
     </footer>

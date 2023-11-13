@@ -85,14 +85,16 @@
         line-height: 19px;
         margin-bottom: 10px;
         &__button {
+          background-size: 200% auto;
+          transition: 0.5s;
+          background-image: linear-gradient(to right, #bf3c5d 0%, #c13d5d 25%, #fdaf69 100%);
          width: 32%;
         display: flex; /* Use flex display to center the button horizontally */
         justify-content: center; 
         height: 22px;
-  
-
         }
         &:hover {
+          background-position: right center;
           border-color: #89939a;
         }
   
