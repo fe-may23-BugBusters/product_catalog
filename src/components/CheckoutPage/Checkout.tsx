@@ -25,7 +25,6 @@ const CheckoutPage = () => {
 
   return (
     <div className="checkout">
-
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -38,7 +37,6 @@ const CheckoutPage = () => {
             className="close-button"
           >
             X
-
           </button>
           <form
             id="form"
@@ -92,11 +90,8 @@ const CheckoutPage = () => {
               required
             />
             <div className="checkout__form__checkbox">
-              <label
-                htmlFor="agreement"
-              >
+              <label htmlFor="agreement">
                 Agreement for Site &apos;s Terms:
-
               </label>
               <input
                 className="checkout__form__checkbox__input"
@@ -110,7 +105,8 @@ const CheckoutPage = () => {
                 {' '}
                 <a href="#terms">terms</a>
                 {' '}
-                before submitting.
+                before
+                submitting.
               </p>
 
               <button
@@ -118,10 +114,8 @@ const CheckoutPage = () => {
                 type="submit"
               >
                 Proceed to Payment
-
               </button>
             </div>
-
           </form>
         </div>
 
