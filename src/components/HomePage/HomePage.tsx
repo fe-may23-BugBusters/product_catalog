@@ -110,9 +110,11 @@ export const HomePage = () => {
 
   return (
     <div className="home">
-      <h1 className="home_title" id="header">
-        Welcome to Nice Gadgets store!
-      </h1>
+      <div className="home_title_container">
+        <h1 className="home_title" id="header">
+          Welcome to Nice Gadgets store!
+        </h1>
+      </div>
       <div className="home_promo">
         <Promo />
       </div>
