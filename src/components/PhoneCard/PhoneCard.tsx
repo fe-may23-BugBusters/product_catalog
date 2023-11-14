@@ -83,7 +83,7 @@ export const PhoneCard: React.FC<Props> = ({
   };
 
   const handleAdd = () => {
-    axios.get('https://product-catalog-be-6qo2.onrender.com', { withCredentials: true });
+    // axios.get('https://product-catalog-be-6qo2.onrender.com', { withCredentials: true });
     const productWithQuantity = {
       ...product,
       quantity: 1,

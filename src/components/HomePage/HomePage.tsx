@@ -24,10 +24,10 @@ export const HomePage = () => {
     const loadProducts = async () => {
       setLoading(true);
       const response1 = await axios.get(
-        'https://product-catalog-be-6qo2.onrender.com/products/new',
+        'https://BE-copy-true.onrender.com/products/new',
       );
       const response2 = await axios.get(
-        'https://product-catalog-be-6qo2.onrender.com/products/discounted',
+        'https://BE-copy-true.onrender.com/products/discounted',
       );
 
       setNewModels(response1.data);
