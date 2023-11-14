@@ -26,7 +26,7 @@ const PhoneDetailsPage = () => {
 
   const loadRecommended = async () => {
     const response = await axios.get(
-      `https://product-catalog-be-6qo2.onrender.com/products/${phoneId}/recommended/`,
+      `https://BE-copy-true.onrender.com/products/${phoneId}/recommended/`,
     );
 
     setRecommended(response.data);
@@ -36,7 +36,7 @@ const PhoneDetailsPage = () => {
     const fetchPhoneDetails = async () => {
       try {
         const response = await axios.get(
-          `https://product-catalog-be-6qo2.onrender.com/products/${phoneId}`,
+          `https://BE-copy-true.onrender.com/products/${phoneId}`,
         );
 
         if (response.data) {
