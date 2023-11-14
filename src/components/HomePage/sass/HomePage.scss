@@ -23,10 +23,17 @@
     letter-spacing: -0.48px;
     margin-top: 32px;
     margin-bottom: 56px;
-    margin-left: 32px;
+    max-inline-size: 2000px;
+    text-align: center;
+    &_container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
     @include for-tablet {
-      width: 592px;
+      width: 640px;
       font-family: Mont;
+      font-size: 38px;
     }
     @include for-phone {
       width: 288px;
@@ -234,4 +241,8 @@
       }
     }
   }
+}
+
+.promo_newModelsSlider {
+  margin-left: 0 !important;
 }
