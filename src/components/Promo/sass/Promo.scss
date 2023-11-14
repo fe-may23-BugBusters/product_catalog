@@ -2,7 +2,7 @@
 @import '../../../utils/mixins.scss';
 
 .promo {
-  height: 400px;
+  height: 600px;
   // align-self: center;
   @include for-tablet {
     height: 189px;
@@ -18,9 +18,9 @@
 
   &_newModelsSlider {
     position: relative;
-    width: 1125px;
-    height: 400px;
-    margin-left: 36px;
+    width: 100vw;
+    height: 100%;
+    // margin-left: 36px;
 
     @include for-tablet {
       width: 600px;
@@ -38,8 +38,9 @@
     top: 0;
     left: 16px;
     // height: 100%;
-    width: 1040px;
-    margin-left: 28px;
+    width: 100vw;
+    height: 100%;
+    // margin-left: 28px;
     @include for-tablet {
       left: 20px;
       width: 490px;
@@ -59,7 +60,10 @@
   }
 
   &_carousel-item {
-    max-width: 1040px;
+    width: 100vw;
+    // height: 400vh;
+    max-width: 100vw;
+    // object-fit: contain;
     @include for-tablet {
       width: 490px;
       height: 189px;
@@ -71,6 +75,11 @@
   }
 
   &_image {
+    // width: 100vw;
+    // height: 400px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     @include for-phone {
       display: none;
     }
