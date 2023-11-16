@@ -26,7 +26,7 @@ const PhoneDetailsPage = () => {
 
   const loadRecommended = async () => {
     const response = await axios.get(
-      `https://product-catalog-be-6qo2.onrender.com/products/${phoneId}/recommended/`,
+      `${process.env.REACT_APP_SERWER}/products/${phoneId}/recommended/`,
     );
 
     setRecommended(response.data);
@@ -36,12 +36,12 @@ const PhoneDetailsPage = () => {
     const fetchPhoneDetails = async () => {
       try {
         const response = await axios.get(
-          `https://product-catalog-be-6qo2.onrender.com/products/${phoneId}`,
+          `${process.env.REACT_APP_SERWER}/products/${phoneId}`,
         );
 
         if (response.data) {
           setPhoneDetails(response.data);
-          console.log(response.data);
+          // console.log(response.data);
         } else {
           setPhoneDetails(null);
         }
@@ -225,28 +225,6 @@ const PhoneDetailsPage = () => {
                 </div>
               ))}
             </Carousel>
-            {/* {recommended
-              && recommended.map((product: Product) => (
-                <div className="info__main__recommendedCard" key={product.name}>
-                  <PhoneCard
-                    key={product.name}
-                    name={product.name}
-                    itemid={product.itemid}
-                    fullprice={product.fullprice}
-                    price={product.price}
-                    screen={product.screen}
-                    capacity={product.capacity}
-                    color={product.color}
-                    ram={product.ram}
-                    year={product.year}
-                    image={product.image}
-                    product={product}
-                    is_discounted={product.is_discounted}
-                    isAddedToCart={product.isAddedToCart}
-                    isLiked={product.isLiked}
-                  />
-                </div>
-              ))} */}
           </div>
         </div>
       </div>

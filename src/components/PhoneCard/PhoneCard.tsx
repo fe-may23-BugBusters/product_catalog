@@ -83,8 +83,6 @@ export const PhoneCard: React.FC<Props> = ({
   };
 
   const handleAdd = () => {
-
-
     const productWithQuantity = {
       ...product,
       quantity: 1,
