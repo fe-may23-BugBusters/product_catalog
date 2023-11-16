@@ -41,17 +41,18 @@ export const Cart = () => {
         <div className="cart__main">
           <section className="cart__cartItems">
             {cart.map(
-              (product) => product.quantity && (
-                <CartItem
-                  key={product.name}
-                  name={product.name}
-                  // fullprice={product.fullprice}
-                  price={product.price}
-                  image={product.image}
-                  product={product}
-                  quantity={product.quantity}
-                />
-              ),
+              (product) =>
+                product.quantity && (
+                  <CartItem
+                    key={product.name}
+                    name={product.name}
+                    // fullprice={product.fullprice}
+                    price={product.price}
+                    image={product.image}
+                    product={product}
+                    quantity={product.quantity}
+                  />
+                ),
             )}
           </section>
           <section className="cart__calculator">

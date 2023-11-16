@@ -26,7 +26,7 @@ const PhoneDetailsPage = () => {
 
   const loadRecommended = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_SERWER}/products/${phoneId}/recommended/`,
+      `${process.env.REACT_APP_SERWER}products/${phoneId}/recommended/`,
     );
 
     setRecommended(response.data);
@@ -36,7 +36,7 @@ const PhoneDetailsPage = () => {
     const fetchPhoneDetails = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_SERWER}/products/${phoneId}`,
+          `${process.env.REACT_APP_SERWER}products/${phoneId}`,
         );
 
         if (response.data) {

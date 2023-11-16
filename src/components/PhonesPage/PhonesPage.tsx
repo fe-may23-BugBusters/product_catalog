@@ -44,7 +44,9 @@ export const PhonesPage = () => {
 
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_SERWER}/products?perPage=${perPage}&pageNumber=${
+          `${
+            process.env.REACT_APP_SERWER
+          }products?perPage=${perPage}&pageNumber=${
             currentPage - 1
           }&orderBy=${orderBy}&order=${order}`,
         );

@@ -118,7 +118,6 @@ const CheckoutPage = () => {
             </div>
           </form>
         </div>
-
       </Modal>
     </div>
   );

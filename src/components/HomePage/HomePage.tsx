@@ -22,10 +22,10 @@ export const HomePage = () => {
     const loadProducts = async () => {
       setLoading(true);
       const response1 = await axios.get(
-        `${process.env.REACT_APP_SERWER}${'/products/new'}`,
+        `${process.env.REACT_APP_SERWER}${'products/new'}`,
       );
       const response2 = await axios.get(
-        `${process.env.REACT_APP_SERWER}${'/products/discounted'}`,
+        `${process.env.REACT_APP_SERWER}${'products/discounted'}`,
       );
 
       setNewModels(response1.data);
