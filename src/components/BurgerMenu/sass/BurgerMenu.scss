@@ -32,8 +32,10 @@
     justify-content: space-between;
   }
   &_link--logo {
-    width: 64px;
-    height: 22px;
+    min-width: 64px;
+    min-height: 22px;
+    max-width: 64px;
+    max-height: 22px;
     background: url(../../../images/Logo.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -139,7 +141,7 @@
   &_heart {
     position: relative;
     height: 64px;
-    width: 50%;
+    min-width: 50%;
     background-size: 16px 16px;
     background: url(../../../images/heart.svg);
     background-position: center;
@@ -168,7 +170,7 @@
     justify-content: center;
     position: relative;
     height: 64px;
-    width: 50%;
+    min-width: 50%;
     background-size: 16px 16px;
     background: url(../../../images/bag.svg);
     background-position: center;
@@ -182,7 +184,7 @@
     justify-content: center;
     position: relative;
     height: 64px;
-    width: 50%;
+    min-width: 50%;
     background-size: 16px 16px;
     background: url(../../../images/heart.svg);
     background-position: center;
