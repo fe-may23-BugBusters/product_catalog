@@ -11,6 +11,7 @@ import { CartItem } from '../CartItem/CartItem';
 import CheckoutPage from '../CheckoutPage/Checkout';
 
 export const Cart = () => {
+  const [user, setUser] = useState('SomeUserId');
   const { cart } = useTContext() as TypeContext;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -55,6 +56,7 @@ export const Cart = () => {
                 ),
             )}
           </section>
+          <div className="cart__main__calculator-container">
           <section className="cart__calculator">
             <div className="cart__calculator__price-container">
               <p className="cart__calculator__price">
@@ -77,9 +79,33 @@ export const Cart = () => {
               >
                 Checkout
               </button>
+              
               {isModalOpen ? <CheckoutPage /> : ''}
             </div>
+            
+            
           </section>
+          <section className="cart__calculator-orders">
+          <div className="cart__calculator__price-container">
+          <p className="cart__calculator__total">
+            {`Welcome guest with identyfier: ${user}`} <br /> 
+            {`Click below to see your personal history of orders`}
+              </p>
+          </div>
+
+          <div className="cart__calculator__line" />
+          <div className="cart__calculator__button-container">
+              <Link
+                to="/cart/orders"
+                className="cart__calculator__checkout-orders"
+              >
+                Your Orders History
+              </Link>
+          </div>
+            
+            </section>
+          </div>
+          
         </div>
       </div>
     </>
