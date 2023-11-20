@@ -108,16 +108,16 @@
       background-image: url('../../../images/bag.svg');
       background-repeat: no-repeat;
       background-position: center;
-      width: 64px;
-      height: 64px;
+      min-width: 64px;
+      min-height: 64px;
       background-color: white;
       box-shadow: -1px 0px 0px 0px #e2e6e9;
       border: none;
       border-bottom: 1px solid #e2e6e9;
 
       @include for-tablet() {
-        height: 48px;
-        width: 48px;
+        min-height: 48px;
+        min-width: 48px;
       }
     }
     &__cart-heart {
@@ -125,16 +125,18 @@
       background-image: url('../../../images/heart.svg');
       background-repeat: no-repeat;
       background-position: center;
-      width: 64px;
-      height: 64px;
+      min-width: 64px;
+      max-width: 64px;
+      min-height: 64px;
       background-color: white;
       box-shadow: -1px 0px 0px 0px #e2e6e9;
       border: none;
       border-bottom: 1px solid var(--gray-elements, #e2e6e9);
 
       @include for-tablet() {
-        height: 48px;
-        width: 48px;
+        min-height: 48px;
+        min-width: 48px;
+        max-width: 48px;
       }
     }
 

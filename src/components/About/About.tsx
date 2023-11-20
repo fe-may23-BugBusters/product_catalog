@@ -9,7 +9,7 @@ type PropsAbout = {
 };
 
 export const About: React.FC<PropsAbout> = ({ description }) => {
-  console.log(description);
+  // console.log(description);
 
   return (
     <div className="about">
