@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import './sass/CartItem.scss';
+import axios from 'axios';
 import { useTContext, TypeContext } from '../../context/Context';
 import { Product } from '../../types/product';
 
@@ -24,6 +25,7 @@ export const CartItem: React.FC<Props> = ({
   quantity,
 }) => {
   const { cart, setCart } = useTContext() as TypeContext;
+  const { hasId, setHasId } = useTContext() as TypeContext;
 
   const handleIncrease = () => {
     const updatedCart = cart.map((p) => {
@@ -65,7 +67,7 @@ export const CartItem: React.FC<Props> = ({
     handleIncrease();
   };
 
-  const removeItemFromCart = () => {
+  const removeItemFromCart = async () => {
     if (cart.length === 1) {
       setCart([]);
       const cartJSON = JSON.stringify([]);
@@ -78,6 +80,29 @@ export const CartItem: React.FC<Props> = ({
 
       // Ustaw zaktualizowany kosz
       setCart([...updatedCart]);
+    }
+
+    try {
+      if (hasId) {
+        console.log('hasid');
+        console.log('deleting');
+        await axios.patch(
+          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`, {}, { withCredentials: true },
+        );
+      } else {
+        console.log('new id');
+        await axios.get('https://product-catalog-be-6qo2.onrender.com/',
+          { withCredentials: true })
+          .then(async () => {
+            setHasId(true);
+            console.log('deleting');
+            await axios.patch(
+              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`, {}, { withCredentials: true },
+            );
+          });
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 

@@ -15,6 +15,8 @@ export interface TypeContext {
   setFavourites: React.Dispatch<SetStateAction<Product[]>>;
   opened: Product[];
   setOpened: React.Dispatch<SetStateAction<Product[]>>;
+  hasId: boolean;
+  setHasId: React.Dispatch<SetStateAction<boolean>>;
 }
 
 const TContext = createContext<TypeContext | null>(null);
@@ -24,6 +26,7 @@ export function useTContext() {
 }
 
 export function Provider({ children }: { children: ReactNode }) {
+  const [hasId, setHasId] = useState<boolean>(false);
   const [cart, setCart] = useState<Product[]>([]);
   const [favourites, setFavourites] = useState<Product[]>([]);
   const [opened, setOpened] = useState<Product[]>([]);
@@ -89,6 +92,8 @@ export function Provider({ children }: { children: ReactNode }) {
     setFavourites,
     opened,
     setOpened,
+    hasId,
+    setHasId,
   };
 
   return (

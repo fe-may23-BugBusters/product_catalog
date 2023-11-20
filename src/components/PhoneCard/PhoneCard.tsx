@@ -46,6 +46,7 @@ export const PhoneCard: React.FC<Props> = ({
   const { cart, setCart } = useTContext() as TypeContext;
   const { favourites, setFavourites } = useTContext() as TypeContext;
   const { opened, setOpened } = useTContext() as TypeContext;
+  const { hasId, setHasId } = useTContext() as TypeContext;
 
   const conditionToAdd = !cart.some((item) => item.id === product.id);
   const conditionToLike = !favourites.some((item) => item.id === product.id);
@@ -54,7 +55,7 @@ export const PhoneCard: React.FC<Props> = ({
   const haveLike = favourites.some((item) => item.itemid === product.itemid);
   const wasSelected = cart.some((item) => item.itemid === product.itemid);
 
-  const handleLike = () => {
+  const handleLike = async () => {
     const productLiked = {
       ...product,
       isLiked: true,
@@ -64,6 +65,22 @@ export const PhoneCard: React.FC<Props> = ({
       setFavourites([...favourites, productLiked]);
       setIsLikedClick(!isLikedClick);
       console.log('liked', itemid, conditionToLike);
+
+      if (hasId) {
+        console.log('hasid');
+        await axios.post(
+          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/fav`, {}, { withCredentials: true },
+        );
+      } else {
+        console.log('new id');
+        const x = await axios.get('https://product-catalog-be-6qo2.onrender.com/', { withCredentials: true })
+          .then(async () => {
+            setHasId(true);
+            await axios.post(
+              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/fav`, {}, { withCredentials: true },
+            );
+          });
+      }
     } else {
       const newFavourites = favourites.filter(
         (item) => item.itemid !== product.itemid,
@@ -79,10 +96,14 @@ export const PhoneCard: React.FC<Props> = ({
 
         localStorage.setItem('favourites', favouritesJSON);
       }
+
+      await axios.patch(
+        `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/fav`, {}, { withCredentials: true },
+      );
     }
   };
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     const productWithQuantity = {
       ...product,
       quantity: 1,
@@ -92,6 +113,22 @@ export const PhoneCard: React.FC<Props> = ({
     if (!isAdded && conditionToAdd) {
       setCart([...cart, productWithQuantity]);
       setIsAdded(!isAdded);
+
+      if (hasId) {
+        console.log('hasid');
+        await axios.post(
+          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`, {}, { withCredentials: true },
+        );
+      } else {
+        console.log('new id');
+        const x = await axios.get('https://product-catalog-be-6qo2.onrender.com/', { withCredentials: true })
+          .then(async () => {
+            setHasId(true);
+            await axios.post(
+              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`, {}, { withCredentials: true },
+            );
+          });
+      }
     }
   };
 

@@ -3,7 +3,6 @@
   display: block;
 
   &-content {
-
     border-top: 1px solid #e2e6e9;
 
     display: flex;
@@ -29,6 +28,7 @@
     height: 32px;
     object-fit: contain;
     background-color: #fff;
+    margin-right: 48.5px;
   }
 
   &-buttons {
@@ -56,10 +56,8 @@
     align-items: center;
     width: 32px;
     height: 32px;
-    
 
     &-container {
-
       font-family: Mont;
       line-height: 32px;
       color: #89939a;
@@ -68,14 +66,12 @@
       flex-grow: 1;
       justify-content: flex-end;
 
-      
-
       &-topress {
         transition: color 0.3s ease;
         cursor: pointer;
         display: flex;
         &:hover {
-          color:black;
+          color: black;
 
           & .footer-arrow {
             border: 2px solid #b4bdc3 !important;
@@ -102,12 +98,9 @@
         }
       }
     }
-
-    
   }
 
   &-buttons {
-
     & button {
       transition: color 0.3s ease;
       font-size: 12px;
@@ -120,13 +113,11 @@
       background-color: white;
       color: #89939a;
       cursor: pointer;
-  }
-  
-  
-  & :hover {
-    color: black;
-  }
+    }
 
+    & :hover {
+      color: black;
+    }
   }
 }
 

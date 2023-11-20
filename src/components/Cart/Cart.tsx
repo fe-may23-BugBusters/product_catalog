@@ -22,6 +22,8 @@ export const Cart = () => {
     }, 0);
   };
 
+  console.log(cart);
+
   return (
     <>
       <div className="cart">

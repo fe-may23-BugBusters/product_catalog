@@ -48,10 +48,7 @@ const Footer = () => {
               className="footer-back-to-top-container-topress"
             >
               Back to top
-              <button
-                type="button"
-                className="footer-arrow"
-              >
+              <button type="button" className="footer-arrow">
                 <img
                   className="footer-arrow-img"
                   src={require('../../img/Vector.jpg')}
@@ -60,7 +57,6 @@ const Footer = () => {
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </footer>
