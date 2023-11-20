@@ -12,13 +12,65 @@ import { Product } from '../../types/product';
 import { PhoneCard } from '../PhoneCard/PhoneCard';
 import './sass/HomePage.scss';
 import { Promo } from '../Promo/Promo';
+import { TypeContext, useTContext } from '../../context/Context';
 
 export const HomePage = () => {
+  const { setCart } = useTContext() as TypeContext;
+  const { setFavourites } = useTContext() as TypeContext;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState<boolean>(false);
   const [newModels, setNewModels] = useState<Product[]>([]);
   const [discounted, setDiscounted] = useState<Product[]>([]);
 
   useEffect(() => {
+    const recovery = async () => {
+      try {
+        const exists = await axios.get(
+          'https://product-catalog-be-6qo2.onrender.com/recovery',
+          { withCredentials: true },
+        );
+
+        if (exists.status === 200) {
+          const { fav, cart } = exists.data.resorces;
+
+          console.log(cart);
+          // Use Promise.all to wait for all asynchronous operations to complete
+          let promisesFav = [];
+
+          promisesFav = fav.map(async (element: string) => {
+            const clean = element.slice(1, -1);
+            const product = await axios.get(`https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`);
+
+            return {
+              ...product.data,
+              isLiked: true,
+            };
+          });
+
+          const promisesCart = cart.map(async (element: string) => {
+            const clean = Object.keys(element)[0];
+            const product = await axios.get(`https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`);
+            const quantity = Object.values(element)[0];
+
+            return {
+              ...product.data,
+              quantity,
+              isAddedToCart: true,
+            };
+          });
+
+          const productsLiked = await Promise.all(promisesFav);
+          const productsCart = await Promise.all(promisesCart);
+
+          console.log('cart:', productsCart);
+          setFavourites([...productsLiked]);
+          setCart([...productsCart]);
+        }
+      } catch (error: any) {
+        console.error('Error:', error.message);
+      }
+    };
+
     const loadProducts = async () => {
       setLoading(true);
       const response1 = await axios.get(
@@ -34,6 +86,7 @@ export const HomePage = () => {
     };
 
     loadProducts();
+    recovery();
   }, []);
 
   const responsive = {

@@ -19,7 +19,7 @@ export const PhonesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(16);
   const [totalPosts, setTotalPosts] = useState(0);
-  const [orderBy, setOrderBy] = useState('id');
+  const [orderBy, setOrderBy] = useState('year');
   const [order, setOrder] = useState('ASC');
   const [search, setSearch] = useState('');
   const [numberOfPages, setNumberOfPages] = useState<number>(1);
