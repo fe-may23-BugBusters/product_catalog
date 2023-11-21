@@ -77,10 +77,10 @@ export const HomePage = () => {
     const loadProducts = async () => {
       setLoading(true);
       const response1 = await axios.get(
-        `${process.env.REACT_APP_SERWER}${'products/new'}`,
+        'https://product-catalog-be-6qo2.onrender.com/products/new',
       );
       const response2 = await axios.get(
-        `${process.env.REACT_APP_SERWER}${'products/discounted'}`,
+        'https://product-catalog-be-6qo2.onrender.com/products/discounted',
       );
 
       setNewModels(response1.data);
