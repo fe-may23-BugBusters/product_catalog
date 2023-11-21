@@ -169,7 +169,7 @@ export const PhonesPage = () => {
         <div className="product-card__container">
           {!loading ? (
             products.map((product) => (
-              <div className="product-card" key={product.id}>
+              <div className="product-card" key={product.itemid}>
                 <PhoneCard
                   name={product.name}
                   itemid={product.itemid}

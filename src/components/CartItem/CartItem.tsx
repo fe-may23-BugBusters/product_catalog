@@ -30,7 +30,9 @@ export const CartItem: React.FC<Props> = ({
   const handleIncrease = () => {
     const updatedCart = cart.map((p) => {
       // dla zadanego id dodajemy quantity + 1
-      if (p.id === product.id) {
+      if (p.itemid === product.itemid) {
+        axios.patch(`https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart/increase/${quantity + 1}`, {}, { withCredentials: true });
+
         return {
           ...p,
           quantity: quantity + 1,
@@ -48,7 +50,9 @@ export const CartItem: React.FC<Props> = ({
   const handleDecrease = () => {
     const updatedCart = cart.map((p) => {
       // dla zadanego id q-1
-      if (p.id === product.id) {
+      if (p.itemid === product.itemid) {
+        axios.patch(`https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart/increase/${quantity - 1}`, {}, { withCredentials: true });
+
         return {
           ...p,
           quantity: quantity - 1,
@@ -75,7 +79,7 @@ export const CartItem: React.FC<Props> = ({
       localStorage.setItem('cart', cartJSON);
     } else {
       const updatedCart = cart.filter((p) => {
-        return p.id !== product.id;
+        return p.itemid !== product.itemid;
       });
 
       // Ustaw zaktualizowany kosz
@@ -87,17 +91,23 @@ export const CartItem: React.FC<Props> = ({
         console.log('hasid');
         console.log('deleting');
         await axios.patch(
-          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`, {}, { withCredentials: true },
+          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`,
+          {},
+          { withCredentials: true },
         );
       } else {
         console.log('new id');
-        await axios.get('https://product-catalog-be-6qo2.onrender.com/',
-          { withCredentials: true })
+        await axios
+          .get('https://product-catalog-be-6qo2.onrender.com/', {
+            withCredentials: true,
+          })
           .then(async () => {
             setHasId(true);
             console.log('deleting');
             await axios.patch(
-              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`, {}, { withCredentials: true },
+              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`,
+              {},
+              { withCredentials: true },
             );
           });
       }
