@@ -49,8 +49,12 @@ export const PhoneCard: React.FC<Props> = ({
   const { hasId, setHasId } = useTContext() as TypeContext;
 
   const conditionToAdd = !cart.some((item) => item.itemid === product.itemid);
-  const conditionToLike = !favourites.some((item) => item.itemid === product.itemid);
-  const conditionToOpened = !opened.some((item) => item.itemid === product.itemid);
+  const conditionToLike = !favourites.some(
+    (item) => item.itemid === product.itemid,
+  );
+  const conditionToOpened = !opened.some(
+    (item) => item.itemid === product.itemid,
+  );
 
   const haveLike = favourites.some((item) => item.itemid === product.itemid);
   const wasSelected = cart.some((item) => item.itemid === product.itemid);

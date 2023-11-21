@@ -31,7 +31,13 @@ export const CartItem: React.FC<Props> = ({
     const updatedCart = cart.map((p) => {
       // dla zadanego id dodajemy quantity + 1
       if (p.itemid === product.itemid) {
-        axios.patch(`https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart/increase/${quantity + 1}`, {}, { withCredentials: true });
+        axios.patch(
+          `https://product-catalog-be-6qo2.onrender.com/products/${
+            product.itemid
+          }/cart/increase/${quantity + 1}`,
+          {},
+          { withCredentials: true },
+        );
 
         return {
           ...p,
@@ -51,7 +57,13 @@ export const CartItem: React.FC<Props> = ({
     const updatedCart = cart.map((p) => {
       // dla zadanego id q-1
       if (p.itemid === product.itemid) {
-        axios.patch(`https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart/increase/${quantity - 1}`, {}, { withCredentials: true });
+        axios.patch(
+          `https://product-catalog-be-6qo2.onrender.com/products/${
+            product.itemid
+          }/cart/increase/${quantity - 1}`,
+          {},
+          { withCredentials: true },
+        );
 
         return {
           ...p,
