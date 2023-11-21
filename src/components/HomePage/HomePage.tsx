@@ -15,6 +15,7 @@ import { Promo } from '../Promo/Promo';
 import { TypeContext, useTContext } from '../../context/Context';
 
 export const HomePage = () => {
+  const { setHasId } = useTContext() as TypeContext;
   const { setCart } = useTContext() as TypeContext;
   const { setFavourites } = useTContext() as TypeContext;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -31,15 +32,16 @@ export const HomePage = () => {
         );
 
         if (exists.status === 200) {
+          setHasId(true);
           const { fav, cart } = exists.data.resorces;
-
-          console.log(cart);
           // Use Promise.all to wait for all asynchronous operations to complete
           let promisesFav = [];
 
           promisesFav = fav.map(async (element: string) => {
             const clean = element.slice(1, -1);
-            const product = await axios.get(`https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`);
+            const product = await axios.get(
+              `https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`,
+            );
 
             return {
               ...product.data,
@@ -49,7 +51,9 @@ export const HomePage = () => {
 
           const promisesCart = cart.map(async (element: string) => {
             const clean = Object.keys(element)[0];
-            const product = await axios.get(`https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`);
+            const product = await axios.get(
+              `https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`,
+            );
             const quantity = Object.values(element)[0];
 
             return {
@@ -62,7 +66,6 @@ export const HomePage = () => {
           const productsLiked = await Promise.all(promisesFav);
           const productsCart = await Promise.all(promisesCart);
 
-          console.log('cart:', productsCart);
           setFavourites([...productsLiked]);
           setCart([...productsCart]);
         }

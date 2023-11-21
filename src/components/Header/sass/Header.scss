@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
+  min-height: 64px;
   border-bottom: 1px solid var(--gray-elements, #e2e6e9);
 
   @include for-phone() {
