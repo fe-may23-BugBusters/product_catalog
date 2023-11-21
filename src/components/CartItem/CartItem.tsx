@@ -34,7 +34,7 @@ export const CartItem: React.FC<Props> = ({
         axios.patch(
           `https://product-catalog-be-6qo2.onrender.com/products/${
             product.itemid
-          }/cart/increase/${quantity + 1}`,
+          }/cart/change/${quantity + 1}`,
           {},
           { withCredentials: true },
         );
@@ -60,7 +60,7 @@ export const CartItem: React.FC<Props> = ({
         axios.patch(
           `https://product-catalog-be-6qo2.onrender.com/products/${
             product.itemid
-          }/cart/increase/${quantity - 1}`,
+          }/cart/change/${quantity - 1}`,
           {},
           { withCredentials: true },
         );
