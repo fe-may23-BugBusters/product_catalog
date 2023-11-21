@@ -10,33 +10,24 @@ import { Product } from '../../types/product';
 import { Order } from '../Order/Order';
 
 export const Orders = () => {
-    const { cart } = useTContext() as TypeContext;
-  
+  const { cart } = useTContext() as TypeContext;
 
   return (
-    
     <div className="orders">
-        <section className="orders__title">
-          <Link to="/cart" className="orders__title__link">
-            <img
-              src={Chevron}
-              alt="arrow right"
-              className="orders__title__link__arrow"
-            />
-            <p className="orders__title__link__back">Back</p>
-          </Link>
-          <h1 className="orders__title__word">Orders</h1>
-        </section>
-        <section className="cart__cartItems">
-            {cart.map(
-              (product) =>
-                product.quantity && (
-                  <Order />
-                ),
-            )}
-          </section>
-
+      <section className="orders__title">
+        <Link to="/cart" className="orders__title__link">
+          <img
+            src={Chevron}
+            alt="arrow right"
+            className="orders__title__link__arrow"
+          />
+          <p className="orders__title__link__back">Back</p>
+        </Link>
+        <h1 className="orders__title__word">Orders</h1>
+      </section>
+      <section className="cart__cartItems">
+        {cart.map((product) => product.quantity && <Order />)}
+      </section>
     </div>
-    
   );
 };

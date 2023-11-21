@@ -44,9 +44,7 @@ export const PhonesPage = () => {
 
       try {
         const response = await axios.get(
-          `${
-            process.env.REACT_APP_SERWER
-          }products?perPage=${perPage}&pageNumber=${
+          `https://product-catalog-be-6qo2.onrender.com/products/?perPage=${perPage}&pageNumber=${
             currentPage - 1
           }&orderBy=${orderBy}&order=${order}`,
         );
@@ -111,7 +109,6 @@ export const PhonesPage = () => {
             >
               <option value="year">Year</option>
               <option value="fullprice">Price</option>
-              <option value="id">ID</option>
             </select>
           </div>
           <div className="phonePage__select phonePage__select--1">
