@@ -1,0 +1,63 @@
+@import '../../../utils/fonts.scss';
+@import '../../../utils/mixins.scss';
+
+.order {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid #e2e6e9;
+  gap: 24px;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  justify-content: space-between;
+  font-family: Mont, sans-serif;
+
+  @include for-phone {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    height: auto;
+    width: 100%;
+  }
+
+  &_number {
+    align-self: flex-start;
+    padding: 10px;
+    border: solid 1px #e2e6e9;
+    border-radius: 12px;
+    &-time {
+        color: lime;
+    }
+    &-status {
+        color: orange;
+    }
+  }
+
+  &_main {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    
+  }
+
+  &_list {
+    border-radius: 16px;
+    border: 1px solid #e2e6e9;
+    padding: 32px;
+    &-elements {
+      list-style-type: none;
+    }
+  }
+
+  &_data {
+    border-radius: 16px;
+    border: 1px solid #e2e6e9;
+    padding: 32px;
+    &-elements {
+      list-style-type: none;
+    }
+  }
+}

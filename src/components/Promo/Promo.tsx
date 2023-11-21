@@ -27,37 +27,37 @@ export const Promo = () => {
     },
   };
 
-  const ButtonGroup = ({
-    next,
-    previous,
-    goToSlide,
-    ...rest // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }: any) => {
-    const {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      carouselState: { currentSlide },
-    } = rest;
+  // const ButtonGroup = ({
+  //   next,
+  //   previous,
+  //   goToSlide,
+  //   ...rest // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // }: any) => {
+  //   const {
+  //     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //     carouselState: { currentSlide },
+  //   } = rest;
 
-    return (
-      <div className="promo_carousel-button-group">
-        <button
-          className="promo_carousel-button-group-left"
-          onClick={() => previous()}
-          aria-label="button"
-          type="button"
-        >
-          {/* {'<'} */}
-        </button>
-        <button
-          className="promo_carousel-button-group-right"
-          onClick={() => next()}
-          type="button"
-        >
-          {/* {'>'} */}
-        </button>
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="promo_carousel-button-group">
+  //       <button
+  //         className="promo_carousel-button-group-left"
+  //         onClick={() => previous()}
+  //         aria-label="button"
+  //         type="button"
+  //       >
+  //         {/* {'<'} */}
+  //       </button>
+  //       <button
+  //         className="promo_carousel-button-group-right"
+  //         onClick={() => next()}
+  //         type="button"
+  //       >
+  //         {/* {'>'} */}
+  //       </button>
+  //     </div>
+  //   );
+  // };
 
   return (
     <div className="promo">
@@ -65,8 +65,8 @@ export const Promo = () => {
         <Carousel
           showDots
           renderDotsOutside
-          renderButtonGroupOutside
-          customButtonGroup={<ButtonGroup />}
+          // renderButtonGroupOutside
+          // customButtonGroup={<ButtonGroup />}
           arrows={false}
           swipeable
           draggable
@@ -98,7 +98,7 @@ export const Promo = () => {
             // eslint-disable-next-line import/no-dynamic-require, global-require
             src={require('../../img/banner/banner.png')}
             alt="We are trying to get a pic..."
-            className="promo_image-tablets"
+            className="promo_image"
           />
         </Carousel>
       </div>

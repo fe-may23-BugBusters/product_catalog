@@ -21,7 +21,6 @@ export const HomePage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState<boolean>(false);
   const [newModels, setNewModels] = useState<Product[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [discounted, setDiscounted] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -78,10 +77,10 @@ export const HomePage = () => {
     const loadProducts = async () => {
       setLoading(true);
       const response1 = await axios.get(
-        'https://product-catalog-be-6qo2.onrender.com/products/new',
+        `${process.env.REACT_APP_SERWER}${'products/new'}`,
       );
       const response2 = await axios.get(
-        'https://product-catalog-be-6qo2.onrender.com/products/discounted',
+        `${process.env.REACT_APP_SERWER}${'products/discounted'}`,
       );
 
       setNewModels(response1.data);
@@ -190,8 +189,6 @@ export const HomePage = () => {
           responsive={responsive}
           ssr
           infinite
-          // autoPlay={true}
-          // autoPlaySpeed={500}
           keyBoardControl
           customTransition="all .5"
           transitionDuration={500}

@@ -2,10 +2,14 @@
 @import '../../../utils/mixins.scss';
 
 .promo {
-  height: 400px;
+  height: 600px;
   // align-self: center;
   @include for-tablet {
+    width: 100vw;
     height: 189px;
+  }
+  @include for-phone {
+    height: 340px;
   }
 
   &_custom-dot-list-style {
@@ -18,12 +22,12 @@
 
   &_newModelsSlider {
     position: relative;
-    width: 1125px;
-    height: 400px;
-    margin-left: 36px;
+    width: 100vw;
+    height: 100%;
+    // margin-left: 36px;
 
     @include for-tablet {
-      width: 600px;
+      width: 100vw;
       height: 189px;
     }
     @include for-phone {
@@ -36,15 +40,17 @@
   &_carousel-container {
     position: absolute;
     top: 0;
-    left: 16px;
+    // left: 16px;
     // height: 100%;
-    width: 1040px;
-    margin-left: 28px;
+    width: 100vw;
+    height: 100%;
+    // margin-left: 28px;
     @include for-tablet {
       left: 20px;
-      width: 490px;
+      // width: 490px;
+      width: 100vw;
       height: 189px;
-      margin-left: 38px;
+      // margin-left: 38px;
     }
     @include for-phone {
       width: 320px;
@@ -59,9 +65,12 @@
   }
 
   &_carousel-item {
-    max-width: 1040px;
+    width: 100vw;
+    // height: 400vh;
+    max-width: 100vw;
+    // object-fit: contain;
     @include for-tablet {
-      width: 490px;
+      width: 100vw;
       height: 189px;
     }
     @include for-phone {
@@ -71,6 +80,11 @@
   }
 
   &_image {
+    // width: 100vw;
+    // height: 400px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     @include for-phone {
       display: none;
     }
