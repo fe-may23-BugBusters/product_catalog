@@ -42,7 +42,7 @@ export const ActionsVariants: React.FC<Props> = ({
 
   const handleAdd = () => {
     const prodToAdd = opened.find(
-      (prod) => prod.itemid === product.id,
+      (prod) => prod.itemId === product.id,
     ) as Product;
 
     const adding = {
@@ -56,7 +56,7 @@ export const ActionsVariants: React.FC<Props> = ({
 
   const handleLike = () => {
     const prodToLike = opened.find(
-      (prod) => prod.itemid === product.id,
+      (prod) => prod.itemId === product.id,
     ) as Product;
 
     setFavourites([...favourites, prodToLike]);

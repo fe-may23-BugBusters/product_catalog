@@ -48,16 +48,16 @@ export const PhoneCard: React.FC<Props> = ({
   const { opened, setOpened } = useTContext() as TypeContext;
   const { hasId, setHasId } = useTContext() as TypeContext;
 
-  const conditionToAdd = !cart.some((item) => item.itemid === product.itemid);
+  const conditionToAdd = !cart.some((item) => item.itemId === product.itemId);
   const conditionToLike = !favourites.some(
-    (item) => item.itemid === product.itemid,
+    (item) => item.itemId === product.itemId,
   );
   const conditionToOpened = !opened.some(
-    (item) => item.itemid === product.itemid,
+    (item) => item.itemId === product.itemId,
   );
 
-  const haveLike = favourites.some((item) => item.itemid === product.itemid);
-  const wasSelected = cart.some((item) => item.itemid === product.itemid);
+  const haveLike = favourites.some((item) => item.itemId === product.itemId);
+  const wasSelected = cart.some((item) => item.itemId === product.itemId);
 
   const handleLike = async () => {
     const productLiked = {
@@ -73,7 +73,7 @@ export const PhoneCard: React.FC<Props> = ({
       if (hasId) {
         console.log('hasid');
         await axios.post(
-          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/fav`,
+          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemId}/fav`,
           {},
           { withCredentials: true },
         );
@@ -86,7 +86,7 @@ export const PhoneCard: React.FC<Props> = ({
           .then(async () => {
             setHasId(true);
             await axios.post(
-              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/fav`,
+              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemId}/fav`,
               {},
               { withCredentials: true },
             );
@@ -94,7 +94,7 @@ export const PhoneCard: React.FC<Props> = ({
       }
     } else {
       const newFavourites = favourites.filter(
-        (item) => item.itemid !== product.itemid,
+        (item) => item.itemId !== product.itemId,
       );
 
       setIsLikedClick(!isLikedClick);
@@ -109,7 +109,7 @@ export const PhoneCard: React.FC<Props> = ({
       }
 
       await axios.patch(
-        `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/fav`,
+        `https://product-catalog-be-6qo2.onrender.com/products/${product.itemId}/fav`,
         {},
         { withCredentials: true },
       );
@@ -131,7 +131,7 @@ export const PhoneCard: React.FC<Props> = ({
       if (hasId) {
         console.log('hasid');
         await axios.post(
-          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`,
+          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemId}/cart`,
           {},
           { withCredentials: true },
         );
@@ -144,7 +144,7 @@ export const PhoneCard: React.FC<Props> = ({
           .then(async () => {
             setHasId(true);
             await axios.post(
-              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`,
+              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemId}/cart`,
               {},
               { withCredentials: true },
             );

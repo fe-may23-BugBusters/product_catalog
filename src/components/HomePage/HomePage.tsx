@@ -24,55 +24,53 @@ export const HomePage = () => {
   const [discounted, setDiscounted] = useState<Product[]>([]);
 
   useEffect(() => {
-    const recovery = async () => {
-      try {
-        const exists = await axios.get(
-          'https://product-catalog-be-6qo2.onrender.com/recovery',
-          { withCredentials: true },
-        );
+    // const recovery = async () => {
+    //   try {
+    //     const exists = await axios.get(
+    //       'https://product-catalog-be-6qo2.onrender.com/recovery',
+    //       { withCredentials: true },
+    //     );
 
-        if (exists.status === 200) {
-          setHasId(true);
-          const { fav, cart } = exists.data.resorces;
-          // Use Promise.all to wait for all asynchronous operations to complete
-          let promisesFav = [];
+    //     if (exists.status === 200) {
+    //       setHasId(true);
+    //       const { fav, cart } = exists.data.resorces;
 
-          promisesFav = fav.map(async (element: string) => {
-            const clean = element.slice(1, -1);
-            const product = await axios.get(
-              `https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`,
-            );
+    //       const promisesFav = fav.map(async (element: string) => {
+    //         const clean = element.slice(1, -1);
+    //         const product = await axios.get(
+    //           `https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`,
+    //         );
 
-            return {
-              ...product.data,
-              isLiked: true,
-            };
-          });
+    //         return {
+    //           ...product.data,
+    //           isLiked: true,
+    //         };
+    //       });
 
-          const promisesCart = cart.map(async (element: string) => {
-            const clean = Object.keys(element)[0];
-            const product = await axios.get(
-              `https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`,
-            );
-            const quantity = Object.values(element)[0];
+    //       const promisesCart = cart.map(async (element: string) => {
+    //         const clean = Object.keys(element)[0];
+    //         const product = await axios.get(
+    //           `https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`,
+    //         );
+    //         const quantity = Object.values(element)[0];
 
-            return {
-              ...product.data,
-              quantity,
-              isAddedToCart: true,
-            };
-          });
+    //         return {
+    //           ...product.data,
+    //           quantity,
+    //           isAddedToCart: true,
+    //         };
+    //       });
 
-          const productsLiked = await Promise.all(promisesFav);
-          const productsCart = await Promise.all(promisesCart);
+    //       const productsLiked = await Promise.all(promisesFav);
+    //       const productsCart = await Promise.all(promisesCart);
 
-          setFavourites([...productsLiked]);
-          setCart([...productsCart]);
-        }
-      } catch (error: any) {
-        console.error('Error:', error.message);
-      }
-    };
+    //       setFavourites([...productsLiked]);
+    //       setCart([...productsCart]);
+    //     }
+    //   } catch (error: any) {
+    //     console.error('Error:', error.message);
+    //   }
+    // };
 
     const loadProducts = async () => {
       setLoading(true);
@@ -88,8 +86,9 @@ export const HomePage = () => {
       setLoading(false);
     };
 
+    console.log(1);
     loadProducts();
-    recovery();
+    // recovery();
   }, []);
 
   const responsive = {
@@ -200,8 +199,8 @@ export const HomePage = () => {
             <PhoneCard
               key={product.name}
               name={product.name}
-              itemid={product.itemid}
-              fullprice={product.fullprice}
+              itemid={product.itemId}
+              fullprice={product.fullPrice}
               price={product.price}
               screen={product.screen}
               capacity={product.capacity}
@@ -288,8 +287,8 @@ export const HomePage = () => {
             <PhoneCard
               key={product.name}
               name={product.name}
-              itemid={product.itemid}
-              fullprice={product.fullprice}
+              itemid={product.itemId}
+              fullprice={product.fullPrice}
               price={product.price}
               screen={product.screen}
               capacity={product.capacity}

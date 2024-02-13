@@ -28,8 +28,8 @@ export const Recommended = () => {
                 <PhoneCard
                   key={product.name}
                   name={product.name}
-                  itemid={product.itemid}
-                  fullprice={product.fullprice}
+                  itemid={product.itemId}
+                  fullprice={product.fullPrice}
                   price={product.price}
                   screen={product.screen}
                   capacity={product.capacity}
