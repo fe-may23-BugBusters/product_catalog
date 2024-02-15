@@ -22,17 +22,17 @@ export interface Product {
 export interface ProductExtended {
   camera: string;
   capacity: string;
-  capacity_available: string[];
+  capacityAvailable: string[];
   cell: string[];
   color: string;
-  colors_available: string[];
+  colorsAvailable: string[];
   description: {};
-  id: string;
+  phoneId: string;
   images: string[];
   name: string;
-  namespace_id: string;
-  price_discount: string;
-  price_regular: string;
+  namespaceId: string;
+  priceDiscount: string;
+  priceRegular: string;
   processor: string;
   ram: string;
   resolution: string;

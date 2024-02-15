@@ -26,12 +26,12 @@
   &_table {
     white-space: nowrap;
     width: 100%;
-
+    overflow: hidden;
     &--row {
       // width: 512px;
     }
     &--body {
-      // width: 512px;
+      border-radius: 16px;
       @include for-phone() {
         width: 288px;
       }
@@ -41,7 +41,7 @@
       text-align: right;
       // width: 256px;
       white-space: nowrap;
-      color: #0f0f11;
+      color: rgb(137, 147, 154);
       font-size: 14px;
       font-style: normal;
       font-weight: 600;

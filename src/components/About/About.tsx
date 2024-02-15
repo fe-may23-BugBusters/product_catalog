@@ -9,20 +9,20 @@ type PropsAbout = {
 };
 
 export const About: React.FC<PropsAbout> = ({ description }) => {
-  // console.log(description);
+  console.log(description);
 
   return (
     <div className="about">
       <h2 className="about_h2">About</h2>
       <h3 className="about_h3 line-separator">And then there was Pro</h3>
       <p className="about_p">
-        {description['And then there was Pro'].text[0]}
+        {description[0].text[0]}
         <br />
         <br />
-        {description['And then there was Pro'].text[1]}
+        {description[0].text[1]}
       </p>
       <h3 className="about_h3">Camera</h3>
-      <p className="about_p">{description.Camera.text}</p>
+      <p className="about_p">{description[1].text}</p>
       <h3 className="about_h3">
         Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it.
         <br />
@@ -30,9 +30,7 @@ export const About: React.FC<PropsAbout> = ({ description }) => {
       </h3>
       <p className="about_p">
         {
-          description[
-            'Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.'
-          ].text
+          description[2].text
         }
       </p>
     </div>
