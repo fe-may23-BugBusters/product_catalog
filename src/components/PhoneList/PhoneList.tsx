@@ -12,10 +12,10 @@ export const PhonesList: React.FC<Props> = ({ phones }) => (
       return (
         <PhoneCard
           is_discounted={phone.is_discounted}
-          itemid={phone.itemid}
+          itemid={phone.itemId}
           key={phone.id}
           name={phone.name}
-          fullprice={phone.fullprice}
+          fullprice={phone.fullPrice}
           price={phone.price}
           screen={phone.screen}
           capacity={phone.capacity}

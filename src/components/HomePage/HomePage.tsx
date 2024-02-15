@@ -34,10 +34,8 @@ export const HomePage = () => {
         if (exists.status === 200) {
           setHasId(true);
           const { fav, cart } = exists.data.resorces;
-          // Use Promise.all to wait for all asynchronous operations to complete
-          let promisesFav = [];
 
-          promisesFav = fav.map(async (element: string) => {
+          const promisesFav = fav.map(async (element: string) => {
             const clean = element.slice(1, -1);
             const product = await axios.get(
               `https://product-catalog-be-6qo2.onrender.com/recovery/${clean}`,
@@ -200,8 +198,8 @@ export const HomePage = () => {
             <PhoneCard
               key={product.name}
               name={product.name}
-              itemid={product.itemid}
-              fullprice={product.fullprice}
+              itemid={product.itemId}
+              fullprice={product.fullPrice}
               price={product.price}
               screen={product.screen}
               capacity={product.capacity}
@@ -288,8 +286,8 @@ export const HomePage = () => {
             <PhoneCard
               key={product.name}
               name={product.name}
-              itemid={product.itemid}
-              fullprice={product.fullprice}
+              itemid={product.itemId}
+              fullprice={product.fullPrice}
               price={product.price}
               screen={product.screen}
               capacity={product.capacity}

@@ -57,8 +57,8 @@ export const Favourites = () => {
               {/* Przekierowanie do strony produktu */}
               <PhoneCard
                 name={product.name}
-                itemid={product.itemid}
-                fullprice={product.fullprice}
+                itemid={product.itemId}
+                fullprice={product.fullPrice}
                 price={product.price}
                 screen={product.screen}
                 capacity={product.capacity}

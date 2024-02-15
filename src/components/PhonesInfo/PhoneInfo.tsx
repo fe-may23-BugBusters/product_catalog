@@ -26,7 +26,7 @@ const PhoneDetailsPage = () => {
 
   const loadRecommended = async () => {
     const response = await axios.get(
-      `${process.env.REACT_APP_SERWER}products/${phoneId}/recommended/`,
+      `https://product-catalog-be-6qo2.onrender.com/products/${phoneId}/recommended/`,
     );
 
     setRecommended(response.data);
@@ -36,12 +36,14 @@ const PhoneDetailsPage = () => {
     const fetchPhoneDetails = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_SERWER}products/${phoneId}`,
+          `https://product-catalog-be-6qo2.onrender.com/products/${phoneId}`,
         );
 
         if (response.data) {
+          console.log(response.data);
           setPhoneDetails(response.data);
           // console.log(response.data);
+          console.log(phoneDetails);
         } else {
           setPhoneDetails(null);
         }
@@ -155,17 +157,17 @@ const PhoneDetailsPage = () => {
         </section>
         <section className="info__main__actions">
           <ActionsVariants
-            price_regular={phoneDetails.price_regular}
-            price_discount={phoneDetails.price_discount}
+            price_regular={phoneDetails.priceRegular}
+            price_discount={phoneDetails.priceDiscount}
             screen={phoneDetails.screen}
             capacity={phoneDetails.capacity}
             color={phoneDetails.color}
             ram={phoneDetails.ram}
-            colors_available={phoneDetails.colors_available}
-            capacity_available={phoneDetails.capacity_available}
+            colors_available={phoneDetails.colorsAvailable}
+            capacity_available={phoneDetails.capacityAvailable}
             product={phoneDetails}
             name={phoneDetails.name}
-            id={phoneDetails.id}
+            id={phoneDetails.phoneId}
           />
         </section>
         <section className="info__main__tech">
@@ -207,8 +209,8 @@ const PhoneDetailsPage = () => {
                   <PhoneCard
                     key={product.name}
                     name={product.name}
-                    itemid={product.itemid}
-                    fullprice={product.fullprice}
+                    itemid={product.itemId}
+                    fullprice={product.fullPrice}
                     price={product.price}
                     screen={product.screen}
                     capacity={product.capacity}

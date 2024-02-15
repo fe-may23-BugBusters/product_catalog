@@ -30,10 +30,10 @@ export const CartItem: React.FC<Props> = ({
   const handleIncrease = () => {
     const updatedCart = cart.map((p) => {
       // dla zadanego id dodajemy quantity + 1
-      if (p.itemid === product.itemid) {
+      if (p.itemId === product.itemId) {
         axios.patch(
           `https://product-catalog-be-6qo2.onrender.com/products/${
-            product.itemid
+            product.itemId
           }/cart/change/${quantity + 1}`,
           {},
           { withCredentials: true },
@@ -56,10 +56,10 @@ export const CartItem: React.FC<Props> = ({
   const handleDecrease = () => {
     const updatedCart = cart.map((p) => {
       // dla zadanego id q-1
-      if (p.itemid === product.itemid) {
+      if (p.itemId === product.itemId) {
         axios.patch(
           `https://product-catalog-be-6qo2.onrender.com/products/${
-            product.itemid
+            product.itemId
           }/cart/change/${quantity - 1}`,
           {},
           { withCredentials: true },
@@ -91,7 +91,7 @@ export const CartItem: React.FC<Props> = ({
       localStorage.setItem('cart', cartJSON);
     } else {
       const updatedCart = cart.filter((p) => {
-        return p.itemid !== product.itemid;
+        return p.itemId !== product.itemId;
       });
 
       // Ustaw zaktualizowany kosz
@@ -103,7 +103,7 @@ export const CartItem: React.FC<Props> = ({
         console.log('hasid');
         console.log('deleting');
         await axios.patch(
-          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`,
+          `https://product-catalog-be-6qo2.onrender.com/products/${product.itemId}/cart`,
           {},
           { withCredentials: true },
         );
@@ -117,7 +117,7 @@ export const CartItem: React.FC<Props> = ({
             setHasId(true);
             console.log('deleting');
             await axios.patch(
-              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemid}/cart`,
+              `https://product-catalog-be-6qo2.onrender.com/products/${product.itemId}/cart`,
               {},
               { withCredentials: true },
             );

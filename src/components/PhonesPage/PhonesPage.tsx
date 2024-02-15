@@ -168,11 +168,11 @@ export const PhonesPage = () => {
         <div className="product-card__container">
           {!loading ? (
             products.map((product) => (
-              <div className="product-card" key={product.itemid}>
+              <div className="product-card" key={product.itemId}>
                 <PhoneCard
                   name={product.name}
-                  itemid={product.itemid}
-                  fullprice={product.fullprice}
+                  itemid={product.itemId}
+                  fullprice={product.fullPrice}
                   price={product.price}
                   screen={product.screen}
                   capacity={product.capacity}
