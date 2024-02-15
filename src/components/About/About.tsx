@@ -28,11 +28,7 @@ export const About: React.FC<PropsAbout> = ({ description }) => {
         <br />
         Love it.
       </h3>
-      <p className="about_p">
-        {
-          description[2].text
-        }
-      </p>
+      <p className="about_p">{description[2].text}</p>
     </div>
   );
 };
